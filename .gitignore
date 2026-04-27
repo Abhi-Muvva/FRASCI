@@ -1,0 +1,30 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+
+# Jupyter
+.ipynb_checkpoints/
+*.ran.ipynb
+
+# Generated TrimCI/MFA outputs
+Outputs/**
+!Outputs/
+!Outputs/.gitkeep
+!Outputs/meanfield_active/
+!Outputs/meanfield_active/.gitkeep
+!Outputs/meanfield_active/outs_extraction_autodets/
+!Outputs/meanfield_active/outs_extraction_autodets/.gitkeep
+!Outputs/mfa/
+!Outputs/mfa/.gitkeep
+trimci_single_run_results/
+experiments/
+realtime_progress.out
+*.log
+
+# Local environments and editor files
+.venv/
+venv/
+env/
+.DS_Store

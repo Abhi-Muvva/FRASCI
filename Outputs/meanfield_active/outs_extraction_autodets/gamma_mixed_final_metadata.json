@@ -1,0 +1,168 @@
+{
+  "timestamp": "2026-04-26 20:27:35",
+  "fcidump_path": "/home/unfunnypanda/Proj_Flow/FRASCI/data/fcidump_cycle_6",
+  "dets_npz_path": "/home/unfunnypanda/Proj_Flow/FRASCI/data/dets.npz",
+  "output_path": "/home/unfunnypanda/Proj_Flow/FRASCI/Outputs/meanfield_active/outs_extraction_autodets/gamma_mixed_final.npy",
+  "config": {
+    "threshold": 0.06,
+    "max_final_dets": "auto",
+    "max_rounds": 2,
+    "num_runs": 1,
+    "pool_build_strategy": "heat_bath",
+    "verbose": false
+  },
+  "max_iterations": 12,
+  "tol": 0.0001,
+  "mixing": 0.3,
+  "converged": false,
+  "iterations_completed": 12,
+  "n_orb": 36,
+  "n_elec": 54,
+  "final_gamma_sum": 54.000000000000014,
+  "history": [
+    {
+      "iteration": 1,
+      "fragment_n_dets": [
+        51,
+        51,
+        16
+      ],
+      "total_dets": 118,
+      "max_delta_gamma": 0.5849097932482945,
+      "raw_max_delta_gamma": 1.9496993108276486,
+      "gamma_sum": 54.0
+    },
+    {
+      "iteration": 2,
+      "fragment_n_dets": [
+        51,
+        51,
+        16
+      ],
+      "total_dets": 118,
+      "max_delta_gamma": 0.36258920357976976,
+      "raw_max_delta_gamma": 1.2086306785992333,
+      "gamma_sum": 54.00000000000001
+    },
+    {
+      "iteration": 3,
+      "fragment_n_dets": [
+        51,
+        51,
+        16
+      ],
+      "total_dets": 118,
+      "max_delta_gamma": 0.2782118844919137,
+      "raw_max_delta_gamma": 0.92737294830638,
+      "gamma_sum": 54.0
+    },
+    {
+      "iteration": 4,
+      "fragment_n_dets": [
+        51,
+        51,
+        16
+      ],
+      "total_dets": 118,
+      "max_delta_gamma": 0.2861358121342249,
+      "raw_max_delta_gamma": 0.9537860404474158,
+      "gamma_sum": 54.00000000000001
+    },
+    {
+      "iteration": 5,
+      "fragment_n_dets": [
+        51,
+        51,
+        16
+      ],
+      "total_dets": 118,
+      "max_delta_gamma": 0.2657932421359226,
+      "raw_max_delta_gamma": 0.8859774737864081,
+      "gamma_sum": 54.0
+    },
+    {
+      "iteration": 6,
+      "fragment_n_dets": [
+        51,
+        51,
+        16
+      ],
+      "total_dets": 118,
+      "max_delta_gamma": 0.1752451530388517,
+      "raw_max_delta_gamma": 0.5841505101295064,
+      "gamma_sum": 54.0
+    },
+    {
+      "iteration": 7,
+      "fragment_n_dets": [
+        51,
+        51,
+        16
+      ],
+      "total_dets": 118,
+      "max_delta_gamma": 0.19299417524879603,
+      "raw_max_delta_gamma": 0.643313917495987,
+      "gamma_sum": 54.0
+    },
+    {
+      "iteration": 8,
+      "fragment_n_dets": [
+        51,
+        51,
+        16
+      ],
+      "total_dets": 118,
+      "max_delta_gamma": 0.27926124575255007,
+      "raw_max_delta_gamma": 0.9308708191751662,
+      "gamma_sum": 54.00000000000001
+    },
+    {
+      "iteration": 9,
+      "fragment_n_dets": [
+        51,
+        51,
+        16
+      ],
+      "total_dets": 118,
+      "max_delta_gamma": 0.26022690512936797,
+      "raw_max_delta_gamma": 0.867423017097894,
+      "gamma_sum": 54.0
+    },
+    {
+      "iteration": 10,
+      "fragment_n_dets": [
+        51,
+        51,
+        16
+      ],
+      "total_dets": 118,
+      "max_delta_gamma": 0.2971931912809094,
+      "raw_max_delta_gamma": 0.9906439709363644,
+      "gamma_sum": 54.00000000000001
+    },
+    {
+      "iteration": 11,
+      "fragment_n_dets": [
+        51,
+        51,
+        16
+      ],
+      "total_dets": 118,
+      "max_delta_gamma": 0.2231351506913981,
+      "raw_max_delta_gamma": 0.7437838356379951,
+      "gamma_sum": 53.99999999999999
+    },
+    {
+      "iteration": 12,
+      "fragment_n_dets": [
+        51,
+        51,
+        16
+      ],
+      "total_dets": 118,
+      "max_delta_gamma": 0.30970886038376033,
+      "raw_max_delta_gamma": 1.0323628679458683,
+      "gamma_sum": 54.000000000000014
+    }
+  ]
+}
