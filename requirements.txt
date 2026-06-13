@@ -1,0 +1,6 @@
+numpy
+nbformat
+jupyter
+
+# This project expects the TrimCI Python package/extension to be installed
+# separately in the active environment.
