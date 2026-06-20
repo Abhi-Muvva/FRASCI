@@ -71,9 +71,28 @@ FRASCI/
 ## Run
 
 ```bash
+python3.12 -m venv ../FRASCIenv
 source ../FRASCIenv/bin/activate
+python -m pip install --upgrade pip
+python -m pip install -r requirements.txt
+
+# MRH supplies LASSCF, LASCI, LASSI, and LASSIS.
+git clone https://github.com/MatthewRHermes/mrh.git ../mrh
+git -C ../mrh checkout a65600830b8ef7be963dcc203057ebf6baf7dbc4
+git -C ../mrh apply "$PWD/patches/mrh-lasscf-rdm-frasci.patch"
+python -m pip install -e ../mrh
+
+# Register the environment as a Jupyter kernel.
+python -m ipykernel install --user --name FRASCIenv --display-name FRASCIenv
+
 jupyter notebook FRASCIMain.ipynb
 
 # LASSCF implementation tests
 python -m pytest tests/lasscf -q
 ```
+
+The environment is pinned to Python 3.12, TrimCI 0.2.0, PySCF 2.13.0,
+PySCF-Forge 1.1.1, and MRH commit
+`a65600830b8ef7be963dcc203057ebf6baf7dbc4`. The repository patch fixes an
+MRH LASSCF micro-iteration sentinel check that otherwise becomes ambiguous
+after `last_x[0]` changes from a scalar to a NumPy array.

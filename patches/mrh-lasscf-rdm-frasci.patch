@@ -1,0 +1,16 @@
+diff --git a/my_pyscf/mcscf/lasscf_rdm.py b/my_pyscf/mcscf/lasscf_rdm.py
+index d24d80a0..b2093a44 100644
+--- a/my_pyscf/mcscf/lasscf_rdm.py
++++ b/my_pyscf/mcscf/lasscf_rdm.py
+@@ -236,7 +236,10 @@ def kernel (las, mo_coeff=None, casdm1frs=None, casdm2fr=None, conv_tol_grad=1e-
+             else:
+                 log.info ('LASSCF micro %d : |x_orb| = %.15g', microit[0], norm_xorb)
+             if abs(x_max)>.5: # Nonphysical step vector element
+-                if last_x[0] == 0:
++                # FRASCI patch 2026-06-13: `last_x = [0]` is a sentinel-then-array
++                # pattern; once line 248 replaces it with an ndarray, `last_x[0] == 0`
++                # raises numpy's truth-value-ambiguous error. Guard with isscalar.
++                if np.isscalar(last_x[0]) and last_x[0] == 0:
+                     x[np.abs (x)>.5*np.pi] = 0
+                     last_x[0] = x
+                 raise MicroIterInstabilityException ("|x[i]| > pi/2")
