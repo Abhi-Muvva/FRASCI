@@ -1,0 +1,11 @@
+{
+  "lasscf_checkpoint": "/Users/abhimuvva/Documents/Masters_Projs/Proj_Flow/frasci_playground/Outputs/lasscf/h1_4frag_pipeline_20260616_122809/trimci_warm_from_cas_thr0.01_dets2000_rounds4",
+  "partition": "h1diag_rev_block_6x8x10x12",
+  "e_lasscf": -326.85528101386166,
+  "e_lasci": -326.9260338066254,
+  "e_lassi": null,
+  "delta_e_lassi": null,
+  "e_lassis": -326.97657703904474,
+  "delta_e_lassis": 0.05054323241932934,
+  "delta_e_lassi_vs_lassis": null
+}

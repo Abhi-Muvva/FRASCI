@@ -12,8 +12,9 @@ __pycache__/
 Outputs/**
 !Outputs/
 !Outputs/.gitkeep
-!Outputs/mfa/
-!Outputs/mfa/.gitkeep
+!Outputs/lasscf/
+!Outputs/lasscf/h1_4frag_pipeline_20260616_122809/
+!Outputs/lasscf/h1_4frag_pipeline_20260616_122809/**
 trimci_single_run_results/
 experiments/
 realtime_progress.out

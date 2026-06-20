@@ -1,0 +1,98 @@
+{
+  "status": "NOT_CONVERGED",
+  "method": "LASSCF_csf_solver",
+  "phase": "Phase2_control",
+  "partition": "h1diag_rev_block_6x8x10x12",
+  "partition_description": "explicit orbital JSON: /Users/abhimuvva/Documents/Masters_Projs/Proj_Flow/frasci_playground/Outputs/lasscf/fragment_sweep_full_20260613/candidates/h1diag_rev_block_6x8x10x12.json",
+  "fcidump": "/Users/abhimuvva/Documents/Masters_Projs/Proj_Flow/frasci_playground/data/fcidump_cycle_6",
+  "n_orb": 36,
+  "n_elec": 54,
+  "E_nuc": 0.0,
+  "ncas_sub": [
+    6,
+    8,
+    10,
+    12
+  ],
+  "nelec_per_frag": [
+    [
+      6,
+      6
+    ],
+    [
+      8,
+      8
+    ],
+    [
+      7,
+      7
+    ],
+    [
+      6,
+      6
+    ]
+  ],
+  "spin_sub": [
+    1,
+    1,
+    1,
+    1
+  ],
+  "orbital_lists": [
+    [
+      0,
+      1,
+      14,
+      30,
+      34,
+      35
+    ],
+    [
+      12,
+      15,
+      16,
+      17,
+      18,
+      19,
+      22,
+      23
+    ],
+    [
+      4,
+      5,
+      9,
+      10,
+      13,
+      20,
+      21,
+      28,
+      31,
+      33
+    ],
+    [
+      2,
+      3,
+      6,
+      7,
+      8,
+      11,
+      24,
+      25,
+      26,
+      27,
+      29,
+      32
+    ]
+  ],
+  "e_tot": -326.9294048527778,
+  "converged": false,
+  "n_macro_iters": null,
+  "per_fragment_ci_energies": [
+    -326.92940485277785
+  ],
+  "wall_clock_sec": 670.476,
+  "localize_init_guess_path": "manual_permutation_of_identity_columns",
+  "max_cycle": 100,
+  "output_dir": "/Users/abhimuvva/Documents/Masters_Projs/Proj_Flow/frasci_playground/Outputs/lasscf/h1_4frag_pipeline_20260616_122809/cas_csf_control",
+  "checkpoint_path": "/Users/abhimuvva/Documents/Masters_Projs/Proj_Flow/frasci_playground/Outputs/lasscf/h1_4frag_pipeline_20260616_122809/cas_csf_control"
+}

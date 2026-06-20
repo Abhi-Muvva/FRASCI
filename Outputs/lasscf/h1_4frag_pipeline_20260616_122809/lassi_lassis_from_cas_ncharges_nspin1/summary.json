@@ -1,0 +1,11 @@
+{
+  "lasscf_checkpoint": "/Users/abhimuvva/Documents/Masters_Projs/Proj_Flow/frasci_playground/Outputs/lasscf/h1_4frag_pipeline_20260616_122809/cas_csf_control",
+  "partition": "h1diag_rev_block_6x8x10x12",
+  "e_lasscf": -326.9294048527778,
+  "e_lasci": -326.92940786830604,
+  "e_lassi": null,
+  "delta_e_lassi": null,
+  "e_lassis": -326.9618943488865,
+  "delta_e_lassis": 0.03248648058047365,
+  "delta_e_lassi_vs_lassis": null
+}
