@@ -1,0 +1,34 @@
+name: cis-diazene
+slug: diazene_cis
+description: "cis-HN=NH at canonical N=N equilibrium (1.23 Angstrom)."
+
+geometry:
+  kind: single
+  xyz_inline: |
+    4
+    cis-HNNH equilibrium, r_NN=1.23 Angstrom
+    N   0.0000   0.0000   0.0000
+    N   0.0000   0.0000   1.2300
+    H   0.9560   0.0000  -0.3340
+    H   0.9560   0.0000   1.5640
+
+electronic_structure: {charge: 0, spin: 0, basis: cc-pVDZ, scf: ROHF}
+active_space:
+  # AVAS "N 2p" was over-greedy on cc-pVDZ. 2026-06-23 fix → window.
+  # (8e, 8o) gives σ_NN + π_NN + 2 nN lone pairs + virtuals; supports 2- and 4-frag h1diag.
+  kind: window
+  norb: 8
+  n_active_elec: 8
+  casscf: false
+fragmentation:
+  - {name: chem, orbital_lists: auto_per_atom}
+  - {name: h1diag_2, orbital_lists: h1diag, n_frags: 2}
+  - {name: h1diag_4, orbital_lists: h1diag, n_frags: 4}
+methods:
+  plain_trimci: {enabled: true, threshold: 0.01, max_dets: 2000, num_runs: 4, max_rounds: 2, protocols: ['@dets_grid']}
+  trimci_coo: {enabled: true, threshold: 0.01, max_dets: 2000, coo_cycles: 4, bfgs_maxiter: 30, bfgs_ftol: 1.0e-8, davidson_tol: 1.0e-7, protocols: ['@coo_grid']}
+  lasscf_cas: {enabled: true, max_cycle_macro: 50, partitions: [chem, h1diag_2, h1diag_4]}
+  lasscf_trimci: {enabled: true, max_cycle_macro: 50, trimci_threshold: 0.01, trimci_max_dets: 2000, partitions: [chem, h1diag_2, h1diag_4], protocols: ['@lasscf_trimci_grid']}
+  lasscf_trimci_coo: {enabled: true, max_cycle_macro: 50, trimci_threshold: 0.01, trimci_max_dets: 2000, coo_cycles: 2, bfgs_maxiter: 20, partitions: [chem, h1diag_2, h1diag_4], protocols: ['@lasscf_coo_grid']}
+  lassis: {enabled: true, on_top_of: [lasscf_cas, lasscf_trimci, lasscf_trimci_coo], n_charge: s, n_spin: 0, opt: 1}
+reference: {source: "Inline FCI when selected active space is <= (8e,8o)", computed_inline: true}

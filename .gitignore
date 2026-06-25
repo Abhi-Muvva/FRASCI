@@ -20,6 +20,10 @@ experiments/
 realtime_progress.out
 *.log
 
+# Multi-molecule benchmark artifacts
+Outputs/diff_mols/
+*.executed.ipynb
+
 # Local environments and editor files
 .venv/
 venv/

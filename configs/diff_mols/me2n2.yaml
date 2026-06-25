@@ -1,0 +1,49 @@
+name: dimethyldiazene (azomethane)
+slug: me2n2
+description: "Me-N=N-Me equilibrium structure from local mrh LASSCF example."
+
+geometry:
+  kind: single
+  xyz_inline: |
+    10
+    mrh/examples/lasscf_old/me2n2, r_NN=1.24414799 Angstrom
+    N   0.00000000   0.00000000   0.00000000
+    N   1.24414799   0.00000000   0.00000000
+    C   1.80489396  -1.35577341   0.00000000
+    H   2.44761142  -1.45609234  -0.88129210
+    H   2.44713318  -1.45627415   0.88160794
+    H   1.02976946  -2.12932610  -0.00032177
+    C  -0.56081887   1.35579537   0.00023000
+    H  -1.20398726   1.45609223  -0.88077187
+    H  -1.20258859   1.45632184   0.88213704
+    H   0.21434422   2.12929246  -0.00071923
+
+electronic_structure: {charge: 0, spin: 0, basis: cc-pVDZ, scf: ROHF}
+active_space:
+  # AVAS "N 2p"+"C 2p" was over-greedy on cc-pVDZ. 2026-06-23 fix → window.
+  # (8e, 8o) gives σ_NN + π_NN + 2 nN lone pairs + virtuals; methyls stay frozen.
+  # Supports 2- and 4-frag h1diag for fragmentation-sensitivity comparison.
+  kind: window
+  norb: 8
+  n_active_elec: 8
+  casscf: false
+fragmentation:
+  - {name: chem, orbital_lists: auto_per_atom}
+  # chem_bond — Hermes & Gagliardi 2019 fragmentation: 3 fragments
+  # [CH3 on N(0)] · [N=N] · [CH3 on N(1)]. Keeps the N=N bond intact in one
+  # fragment so the (4,4) σ/π active space lives entirely on that fragment —
+  # the regime where LASSCF is most accurate.
+  # XYZ atom order: N(0) N(1) C(2) H(3-5) C(6) H(7-9).
+  - name: chem_bond
+    orbital_lists: chem_bond
+    atom_groups: [[6, 7, 8, 9], [0, 1], [2, 3, 4, 5]]
+  - {name: h1diag_2, orbital_lists: h1diag, n_frags: 2}
+  - {name: h1diag_4, orbital_lists: h1diag, n_frags: 4}
+methods:
+  plain_trimci: {enabled: true, threshold: 0.01, max_dets: 2000, num_runs: 4, max_rounds: 2, protocols: ['@dets_grid']}
+  trimci_coo: {enabled: true, threshold: 0.01, max_dets: 2000, coo_cycles: 4, bfgs_maxiter: 30, protocols: ['@coo_grid']}
+  lasscf_cas: {enabled: true, max_cycle_macro: 50, partitions: [chem, chem_bond, h1diag_2, h1diag_4]}
+  lasscf_trimci: {enabled: true, max_cycle_macro: 50, trimci_threshold: 0.01, trimci_max_dets: 2000, partitions: [chem, chem_bond, h1diag_2, h1diag_4], protocols: ['@lasscf_trimci_grid']}
+  lasscf_trimci_coo: {enabled: true, max_cycle_macro: 50, trimci_threshold: 0.01, trimci_max_dets: 2000, coo_cycles: 2, partitions: [chem, chem_bond, h1diag_2, h1diag_4], protocols: ['@lasscf_coo_grid']}
+  lassis: {enabled: true, on_top_of: [lasscf_cas, lasscf_trimci, lasscf_trimci_coo], n_charge: s, n_spin: 0, opt: 1}
+reference: {source: "CASSCF/FCI reference must match this geometry, basis, and selected active space", computed_inline: true}

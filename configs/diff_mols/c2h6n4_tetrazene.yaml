@@ -1,0 +1,50 @@
+name: C2H6N4 tetrazene
+slug: c2h6n4_tetrazene
+description: "Weakly entangled two-diazene-group benchmark from local mrh example."
+
+geometry:
+  kind: single
+  xyz_inline: |
+    12
+    mrh/examples/lasscf/c2h6n4.xyz
+    H  -0.145525   2.534624   1.196098
+    N   0.586282   2.685058   0.454251
+    N   0.586282   1.768962  -0.376701
+    C  -0.376894   0.666619  -0.222182
+    H  -0.986448   0.788749   0.689250
+    H  -1.039496   0.688384  -1.095107
+    C   0.376894  -0.666619  -0.222182
+    H   0.986448  -0.788749   0.689250
+    H   1.039496  -0.688384  -1.095107
+    N  -0.586282  -1.768962  -0.376701
+    N  -0.586282  -2.685058   0.454251
+    H   0.145525  -2.534624   1.196098
+
+electronic_structure: {charge: 0, spin: 0, basis: cc-pVDZ, scf: ROHF}
+active_space:
+  # AVAS "N 2p" is over-greedy on cc-pVDZ. 2026-06-23 fix.
+  # Tetrazene here is two diazene groups (HN=N-CH2-CH2-N=NH) — active chemistry is the
+  # π/σ system of both N=N pairs. (4e,4o) × 2 = (8e,8o) frontier window captures both.
+  kind: window
+  norb: 8
+  n_active_elec: 8
+  casscf: false
+fragmentation:
+  - {name: chem, orbital_lists: auto_per_atom}
+  # chem_bond — Hermes & Gagliardi 2019 fragmentation for C2H6N4 (HN=N-CH2-CH2-N=NH):
+  # 3 fragments [HN=N-left] · [CH2-CH2-bridge] · [N=NH-right]. Each N=N stays in
+  # one fragment, mirroring their (4,4) + (0,0) + (4,4) partition.
+  # XYZ atom order: H(0) N(1) N(2) C(3) H(4-5) C(6) H(7-8) N(9) N(10) H(11).
+  - name: chem_bond
+    orbital_lists: chem_bond
+    atom_groups: [[0, 1, 2], [3, 4, 5, 6, 7, 8], [9, 10, 11]]
+  - {name: h1diag_2, orbital_lists: h1diag, n_frags: 2}
+  - {name: h1diag_4, orbital_lists: h1diag, n_frags: 4}
+methods:
+  plain_trimci: {enabled: true, threshold: 0.01, max_dets: 2000, num_runs: 4, max_rounds: 2, protocols: ['@dets_grid']}
+  trimci_coo: {enabled: true, threshold: 0.01, max_dets: 2000, coo_cycles: 4, bfgs_maxiter: 30, protocols: ['@coo_grid']}
+  lasscf_cas: {enabled: true, max_cycle_macro: 50, partitions: [chem, chem_bond, h1diag_2, h1diag_4]}
+  lasscf_trimci: {enabled: true, max_cycle_macro: 50, trimci_threshold: 0.01, trimci_max_dets: 2000, partitions: [chem, chem_bond, h1diag_2, h1diag_4], protocols: ['@lasscf_trimci_grid']}
+  lasscf_trimci_coo: {enabled: true, max_cycle_macro: 50, trimci_threshold: 0.01, trimci_max_dets: 2000, coo_cycles: 2, partitions: [chem, chem_bond, h1diag_2, h1diag_4], protocols: ['@lasscf_coo_grid']}
+  lassis: {enabled: true, on_top_of: [lasscf_cas, lasscf_trimci, lasscf_trimci_coo], n_charge: s, n_spin: 0, opt: 1}
+reference: {source: "External CASSCF reference; verify exact active space against literature", computed_inline: false}

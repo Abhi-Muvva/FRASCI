@@ -1,7 +1,11 @@
-# FRASCI LASSCF
+# FRASCI
 
 Focused four-fragment LASSCF → TrimCI → LASSI/LASSIS implementation for the
 36-orbital Fe₄S₄ FCIDUMP.
+
+The repository also contains a configurable multi-molecule benchmark under
+`FRASCI/diff_mols`. Its generated integrals, checkpoints, logs, and reports are
+written beneath `Outputs/diff_mols/` and are not committed.
 
 ## Workflow
 
@@ -49,6 +53,8 @@ FRASCI/
 ├── FRASCIMain.ipynb
 ├── FRASCI_Results.ipynb
 ├── FRASCI/
+│   ├── coo/
+│   ├── diff_mols/
 │   └── lasscf/
 │       ├── runners/
 │       ├── fragments.py
@@ -62,6 +68,7 @@ FRASCI/
 │   ├── fcidump_cycle_6
 │   ├── dets.npz
 │   └── partitions/h1diag_rev_block_6x8x10x12.json
+├── configs/diff_mols/
 ├── Outputs/lasscf/h1_4frag_pipeline_20260616_122809/
 ├── tests/lasscf/
 ├── scripts/build_lasscf_notebooks.py
@@ -89,6 +96,19 @@ jupyter notebook FRASCIMain.ipynb
 
 # LASSCF implementation tests
 python -m pytest tests/lasscf -q
+
+# Inspect a multi-molecule run matrix without launching calculations
+python -m FRASCI.diff_mols.run \
+  --mol diazene_trans \
+  --dry-run-matrix
+
+# Build the selected molecule's FCIDUMP and determinant seed
+python -m FRASCI.diff_mols.run \
+  --mol diazene_trans \
+  --build-integrals-only
+
+# Multi-molecule unit and smoke tests
+python -m pytest tests/diff_mols -q
 ```
 
 The environment is pinned to Python 3.12, TrimCI 0.2.0, PySCF 2.13.0,

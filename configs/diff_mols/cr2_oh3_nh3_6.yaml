@@ -1,0 +1,24 @@
+name: "[Cr2(OH)3(NH3)6]3+"
+slug: cr2_oh3_nh3_6
+description: "Triple-hydroxo-bridged Cr(III) dimer for magnetic-coupling benchmarks."
+
+geometry:
+  kind: single
+  xyz_file: geometries/cr2_oh3_nh3_6.xyz
+electronic_structure: {charge: 3, spin: 6, basis: def2-SVP, scf: ROHF}
+active_space:
+  kind: avas
+  avas_patterns: ["Cr 3d", "Cr 4d"]
+  casscf: true
+fragmentation:
+  - {name: chem, orbital_lists: auto_per_metal}
+  - {name: h1diag, orbital_lists: h1diag}
+methods:
+  plain_trimci: {enabled: true, threshold: 0.01, max_dets: 2000, num_runs: 4, max_rounds: 2, protocols: ['@dets_grid']}
+  trimci_coo: {enabled: true, threshold: 0.01, max_dets: 2000, coo_cycles: 4, bfgs_maxiter: 30, protocols: ['@coo_grid']}
+  lasscf_cas: {enabled: true, max_cycle_macro: 100, partitions: [chem, h1diag]}
+  lasscf_trimci: {enabled: true, max_cycle_macro: 100, trimci_threshold: 0.01, trimci_max_dets: 2000, partitions: [chem, h1diag], protocols: ['@lasscf_trimci_grid']}
+  lasscf_trimci_coo: {enabled: true, max_cycle_macro: 100, trimci_threshold: 0.01, trimci_max_dets: 2000, coo_cycles: 2, partitions: [chem, h1diag], protocols: ['@lasscf_coo_grid']}
+  lassis: {enabled: true, on_top_of: [lasscf_cas, lasscf_trimci, lasscf_trimci_coo], n_charge: s, n_spin: 1, n_spin_values: [0, 1, 2, 3], opt: 1}
+reference: {source: "Published magnetic coupling or matching CASSCF/DMRG reference", computed_inline: false}
+j_coupling: {enabled: true, hs_state: 0, bs_state: 1, formula: yamaguchi}
