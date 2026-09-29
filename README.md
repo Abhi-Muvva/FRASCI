@@ -44,7 +44,7 @@ FRASCI takes three things:
 The partition is a physical/chemical choice the caller makes (e.g. one fragment per
 transition-metal site); FRASCI does not choose it automatically.
 
-## 3. The parent, in plain language
+## 3. The parent
 
 A large active space is expensive to solve as one block. The parent instead splits it
 into the orbital fragments above, solves each fragment's local determinant space with
@@ -83,7 +83,7 @@ default (`allow_nonconverged=True` opts out, e.g. for an explicitly-labeled diag
 It does not make LASSIS itself tractable on a large system — that is bounded by each
 fragment's own dense CI size, independent of this adapter.
 
-## 4. Recovery, in plain language
+## 4. Recovery
 
 Recovery starts from the converged parent and holds its orbital frame **fixed** — no
 further orbital rotation, and no re-running of Phase-0 discovery — while it protects the
@@ -232,24 +232,7 @@ records are named `*_pilot.json` and kept read-only.
   a bounded three-point recovery ladder against it, with an h1diag3 partition kept as a
   matched-cost comparison point only.
 
-## Installation
 
-FRASCI is not published on PyPI. Use Python 3.12 and install this checkout into an
-environment that already provides the research dependencies (see §1 for the TrimCI-fork
-caveat):
-
-```bash
-python -m pip install -e .
-```
-
-For the test dependencies:
-
-```bash
-python -m pip install -r requirements.txt
-```
-
-`requirements.txt` and `pyproject.toml` list the same dependency set. TrimCI and `mrh`
-require source builds or local research installations; see §1.
 
 No license file is included because no owner-approved license choice was present in the
 source project.
