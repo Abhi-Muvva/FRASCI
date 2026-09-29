@@ -1,0 +1,67 @@
+{
+  "_manifest": {
+    "stage": "pilot",
+    "frozen_2026-09-26": true,
+    "content_sha256": "ecc6db837a50b1acc3ccf0735dd270af17199a2d1f194c2b12796365b41ea139",
+    "note": "Frozen pilot record -- do not overwrite. Production runs write to separate files (see PRODUCTION_MANIFEST convention) with their own config-hash-keyed filenames."
+  },
+  "data": {
+    "h1diag2": {
+      "physical_space": "(54e,36o)",
+      "partition": "h1diag2",
+      "parent": {
+        "converged": false,
+        "e_tot": -326.2821579201498,
+        "dets_per_frag": [
+          200,
+          200
+        ],
+        "wall_s": 1299.04
+      },
+      "recovery": {
+        "energies_ha": {
+          "h00": -324.2834350172209,
+          "generalized": -324.78365848088794,
+          "union": -325.00786379408635,
+          "free_coo": -326.42095919945996
+        },
+        "determinants": {
+          "requested": 300,
+          "achieved": 300,
+          "target_met": true
+        },
+        "gates": {
+          "E_hybrid_le_H00": true,
+          "E_hybrid_le_E_C": true,
+          "S_positive_semidefinite": true,
+          "c_dagger_S_c_eq_1": true,
+          "no_pt2_mixed_with_variational": true,
+          "generalized_residual_converged": true,
+          "parent_converged": false
+        },
+        "wall_s": 46.289
+      },
+      "wall_s_total": 1345.329
+    },
+    "h1diag3_partial": {
+      "physical_space": "(54e,36o)",
+      "partition": "h1diag3",
+      "status": "interrupted_by_operator_after_partial_progress",
+      "macro_cycles_completed": 3,
+      "macro_cycles_requested": 10,
+      "energy_trajectory_ha": [
+        -322.363515199681,
+        -322.16938794648,
+        -321.915152156336
+      ],
+      "g_int_trajectory": [
+        0.945264699352371,
+        0.894959837916815,
+        0.649035522485458
+      ],
+      "wall_s_for_3_cycles": 1420.0,
+      "extrapolated_wall_s_for_10_cycles": "~4500-4800 (~75-80 min)",
+      "recovery_run": false
+    }
+  }
+}

@@ -1,0 +1,298 @@
+{
+  "_manifest": {
+    "stage": "alternative3_parent_pilots",
+    "date": "2026-09-28",
+    "config": {
+      "threshold": 0.0001,
+      "max_cycle_macro": 20,
+      "orbopt": true,
+      "orbopt_cycles": 3,
+      "phase0_dets": 64,
+      "phase1_dets": 500,
+      "growth_factor_phase1": 1.1,
+      "discovery_num_runs": 3,
+      "refine_num_runs": 1,
+      "rediscover_tol": 0.01,
+      "rng_seed": 0,
+      "pt2": false,
+      "dm_mixing_alpha": 1.0,
+      "enable_phase2": false,
+      "adaptive_phase_policy": true,
+      "adaptive_fixed_support_tol": 0.0001,
+      "adaptive_phase0_tol": 0.01,
+      "adaptive_phase2_after_plateau": true,
+      "phase2_dets": 500,
+      "growth_factor_phase2": 2.0,
+      "phase2_plateau_delta_e_tol": 1e-06,
+      "phase2_plateau_delta_rdm_tol": 1e-05,
+      "frame_leakage_tol": 0.05,
+      "frame_strict": true,
+      "conv_tol_grad": 0.0001,
+      "max_cycle_rdmjk": 30,
+      "n_cpu_workers": 3
+    },
+    "cap": 500,
+    "note": "identical settings both candidates"
+  },
+  "balanced_interleaved3": {
+    "partition_hash": "0d24ab96aab9ae68",
+    "converged": false,
+    "run_status": "phase1_completed_full_budget_then_manually_stopped_during_phase2_retry",
+    "run_status_note": "Phase 1 ran its full configured max_cycle_macro=20 budget to completion (20 macro cycles present below) and did not converge: |g_int| never dropped below ~0.38 (threshold is 1e-4), and e_tot oscillated across a ~9 Ha range (-317.1 to -325.98 Ha) throughout, with 22 'LASSCF rdm-jk not converged' events and 6 'Unstable microiteration aborted' events logged. The frasci adaptive-phase controller then automatically began a phase-2/escalation retry (restarting macro cycle counting), which was ALSO showing instability (g_int back up to 2.30 at its own cycle 1) when manually stopped after 3 of its cycles -- each macro cycle in this partition costs on the order of 15+ minutes wall time (2 worker processes at ~98% CPU, several minutes of CPU time per cycle), making full completion of the escalation retry disproportionately expensive (projected several more hours) for what this phase treats as a bounded pilot. The phase-1 trajectory alone is fully complete and decisive; the phase-2 partial trace is included for transparency but was not run to completion.",
+    "e_tot": null,
+    "final_g_int": 0.638595114027785,
+    "wall_s": null,
+    "wall_s_note": "not recorded precisely; process ran continuously ~35+ minutes wall clock before being stopped",
+    "per_cycle_trace_phase1": [
+      {
+        "cycle": 0,
+        "e_tot": -317.222289337382,
+        "g_int": 2.60010618021833
+      },
+      {
+        "cycle": 1,
+        "e_tot": -324.075335524739,
+        "g_int": 0.763493246919525
+      },
+      {
+        "cycle": 2,
+        "e_tot": -319.996937558934,
+        "g_int": 1.55759658412803
+      },
+      {
+        "cycle": 3,
+        "e_tot": -324.135696750342,
+        "g_int": 0.421248204129354
+      },
+      {
+        "cycle": 4,
+        "e_tot": -320.322434981345,
+        "g_int": 1.62743569135342
+      },
+      {
+        "cycle": 5,
+        "e_tot": -324.636869801866,
+        "g_int": 0.532114497572643
+      },
+      {
+        "cycle": 6,
+        "e_tot": -323.572101935384,
+        "g_int": 0.557369280619061
+      },
+      {
+        "cycle": 7,
+        "e_tot": -325.303615961583,
+        "g_int": 0.414797110793616
+      },
+      {
+        "cycle": 8,
+        "e_tot": -325.630596334762,
+        "g_int": 0.545163645574956
+      },
+      {
+        "cycle": 9,
+        "e_tot": -325.096491129973,
+        "g_int": 0.536060247681315
+      },
+      {
+        "cycle": 10,
+        "e_tot": -325.002719906316,
+        "g_int": 0.62119373305594
+      },
+      {
+        "cycle": 11,
+        "e_tot": -317.101418927344,
+        "g_int": 1.29375976115775
+      },
+      {
+        "cycle": 12,
+        "e_tot": -325.491846444024,
+        "g_int": 0.540916641677429
+      },
+      {
+        "cycle": 13,
+        "e_tot": -317.476480092866,
+        "g_int": 0.954925371965947
+      },
+      {
+        "cycle": 14,
+        "e_tot": -325.981780277123,
+        "g_int": 0.385393453019906
+      },
+      {
+        "cycle": 15,
+        "e_tot": -322.250525595029,
+        "g_int": 0.740581981076637
+      },
+      {
+        "cycle": 16,
+        "e_tot": -320.870073017898,
+        "g_int": 0.896005744075899
+      },
+      {
+        "cycle": 17,
+        "e_tot": -324.736840997257,
+        "g_int": 0.482454594018776
+      },
+      {
+        "cycle": 18,
+        "e_tot": -322.663418714031,
+        "g_int": 0.790253764215284
+      },
+      {
+        "cycle": 19,
+        "e_tot": -323.868692439089,
+        "g_int": 0.638595114027785
+      }
+    ],
+    "per_cycle_trace_phase2_partial": [
+      {
+        "cycle": 0,
+        "e_tot": -325.37272478306,
+        "g_int": 0.294898948242638
+      },
+      {
+        "cycle": 1,
+        "e_tot": -322.522716954981,
+        "g_int": 2.2986865676852
+      },
+      {
+        "cycle": 2,
+        "e_tot": -325.264127825207,
+        "g_int": 0.857570885865169
+      }
+    ],
+    "n_cycles_logged_phase1": 20,
+    "n_rdm_jk_not_converged_events": 22,
+    "n_unstable_microiteration_aborts": 6,
+    "energy_range_phase1_ha": [
+      -325.981780277123,
+      -317.101418927344
+    ],
+    "g_int_min_phase1": 0.385393453019906
+  },
+  "strong_pair3": {
+    "partition_hash": "f88c8afecf62bb1a",
+    "run_status": "completed",
+    "converged": false,
+    "e_tot": -326.94890239706143,
+    "dets_per_frag": [
+      500,
+      500,
+      500
+    ],
+    "wall_s": 1687.253,
+    "save_dir": "results/checkpoints/alt3_pilots/strong_pair3",
+    "per_cycle_trace": [
+      {
+        "cycle": 0,
+        "e_tot": -323.691102148212,
+        "g_int": 0.450554747279754
+      },
+      {
+        "cycle": 1,
+        "e_tot": -322.092877990292,
+        "g_int": 0.88771001198974
+      },
+      {
+        "cycle": 2,
+        "e_tot": -325.727621431686,
+        "g_int": 0.30734752064835
+      },
+      {
+        "cycle": 3,
+        "e_tot": -321.777740795932,
+        "g_int": 0.941235708084597
+      },
+      {
+        "cycle": 4,
+        "e_tot": -322.423751796664,
+        "g_int": 0.4587935626553
+      },
+      {
+        "cycle": 5,
+        "e_tot": -323.740094208954,
+        "g_int": 0.494722363181839
+      },
+      {
+        "cycle": 6,
+        "e_tot": -326.117472849795,
+        "g_int": 0.275721487828064
+      },
+      {
+        "cycle": 7,
+        "e_tot": -326.464631996515,
+        "g_int": 0.298502621909756
+      },
+      {
+        "cycle": 8,
+        "e_tot": -326.686867246864,
+        "g_int": 0.199797571967192
+      },
+      {
+        "cycle": 9,
+        "e_tot": -326.82661028852,
+        "g_int": 0.124576284620173
+      },
+      {
+        "cycle": 10,
+        "e_tot": -326.8950850376,
+        "g_int": 0.0502730143815201
+      },
+      {
+        "cycle": 11,
+        "e_tot": -326.916366169991,
+        "g_int": 0.0364582773027254
+      },
+      {
+        "cycle": 12,
+        "e_tot": -326.937499938182,
+        "g_int": 0.0330090284338293
+      },
+      {
+        "cycle": 13,
+        "e_tot": -326.937783581639,
+        "g_int": 0.0216950052753958
+      },
+      {
+        "cycle": 14,
+        "e_tot": -326.942706910878,
+        "g_int": 0.0152989141739235
+      },
+      {
+        "cycle": 15,
+        "e_tot": -326.943853710595,
+        "g_int": 0.0114104192538893
+      },
+      {
+        "cycle": 16,
+        "e_tot": -326.944511641228,
+        "g_int": 0.0124454057128442
+      },
+      {
+        "cycle": 17,
+        "e_tot": -326.945866982117,
+        "g_int": 0.0111559971670875
+      },
+      {
+        "cycle": 18,
+        "e_tot": -326.947202714525,
+        "g_int": 0.0112706240104306
+      },
+      {
+        "cycle": 19,
+        "e_tot": -326.948475282596,
+        "g_int": 0.00875553680612023
+      }
+    ],
+    "final_g_int": 0.00875553680612023,
+    "n_cycles_logged": 20,
+    "n_rdm_jk_not_converged_events": 8,
+    "n_unstable_microiteration_aborts": 2,
+    "energy_range_ha": [
+      -326.948475282596,
+      -321.777740795932
+    ],
+    "redirect_stdout_capture_bug_note": "contextlib.redirect_stdout did not capture pyscf logger output for this run (0 lines captured in-process); trace instead recovered from the raw background-task stdout capture, which does contain all 20 macro-cycle lines. No physics/energy values affected, only how the trace was recovered."
+  }
+}

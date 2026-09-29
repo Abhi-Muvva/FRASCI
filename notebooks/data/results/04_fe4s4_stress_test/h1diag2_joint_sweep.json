@@ -1,0 +1,1048 @@
+{
+  "_manifest": {
+    "stage": "h1diag2_deep_joint_sweep",
+    "date": "2026-09-28"
+  },
+  "preflight": {
+    "parent_converged": true,
+    "h00": -327.05282363243225,
+    "las_reconstruction_certified": true,
+    "fragment_support_sizes": [
+      1000,
+      324
+    ],
+    "las_cartesian_product_ceiling": 324000,
+    "fresh_parent_reproduction_note": "This h1diag2 parent is a FRESH reproduction solved this session (identical ParentConfig, same rng_seed=0) -- the archived certified checkpoint no longer exists on disk anywhere. This rerun converged with all gates passing (H00 self-consistent to 1e-13 Ha, LAS reconstruction exact) but to e_tot=-327.05282363243236 Ha, 0.34 mHa below the archived -327.05248402672197 Ha. All new Part C points in this file are computed on THIS parent instance; the 500/500, 2000/2000, 5000/5000 anchor points are recomputed fresh here (not copied from h1diag2_recovery_ladder.json) so the whole curve is internally consistent on one parent instance rather than mixing two different (if very close) parent states."
+  },
+  "bfgs_selection": {
+    "20": {
+      "config": {
+        "recovery_target": 5000,
+        "las_top_k": 5000,
+        "n_ct_max": 2,
+        "threshold": 1e-06,
+        "free_coo_orbital_opt_max_iter": 20,
+        "las_seed_dets": 100,
+        "growth_factor": 1.5,
+        "max_rounds": 40,
+        "solver_kind": "auto"
+      },
+      "determinants": {
+        "P_R_requested": 5000,
+        "P_R_achieved": 5000,
+        "P_R_target_met": true,
+        "P_LAS_requested": 5000,
+        "P_LAS_actual": 5000,
+        "P_LAS_ceiling": 324000,
+        "fragment_support_sizes": [
+          1000,
+          324
+        ],
+        "union_n_dets": 329000,
+        "free_coo_n_dets": 10000
+      },
+      "energies_ha": {
+        "h00": -327.05282363243225,
+        "generalized": -327.05395443648155,
+        "union": -327.07408096392237,
+        "free_coo_before": -327.0646311314995,
+        "free_coo_after": -327.0843587431019
+      },
+      "gates": {
+        "generalized": {
+          "E_hybrid_le_H00": true,
+          "E_hybrid_le_E_C": true,
+          "S_positive_semidefinite": true,
+          "c_dagger_S_c_eq_1": true,
+          "no_pt2_mixed_with_variational": true,
+          "generalized_residual_converged": true
+        },
+        "union_certificate": {
+          "e_final": -327.07408096392237,
+          "h00": -327.05282363243225,
+          "margin": 0.021257331490119213,
+          "tol": 1e-06,
+          "passed": true
+        },
+        "free_coo": {
+          "E_after_le_E_before": true
+        },
+        "free_coo_rotation_errors": {
+          "orthogonality": 5.062616992290714e-14,
+          "h1": 3.907985046680551e-14,
+          "eri": 4.218847493575595e-15
+        },
+        "all_pass": true
+      },
+      "las_certificate_passed": true,
+      "wall_s_total": 870.8148059844971,
+      "wall_s_by_stage": {
+        "growth": 3.0898630619049072,
+        "generalized_solve": 210.21278500556946,
+        "exact_union": 619.6737780570984,
+        "free_coo": 29.421508073806763
+      },
+      "base_reused": false,
+      "derived_common_baseline_mha": {
+        "note": "recovery_union = H00 - E_exact_union (H00 baseline); free_coo_total_lowering_from_h00 = H00 - E_free_coo_after (SAME H00 baseline, comparable directly to recovery_union); free_coo_orbital_gain = E_free_coo_before - E_free_coo_after (a DIFFERENT, within-space baseline -- do not compare directly to H00-baselined figures); free_coo_minus_exact_union = E_free_coo_after - E_exact_union.",
+        "recovery_union_lowering_mha": 21.257331490119213,
+        "free_coo_orbital_gain_mha": 19.72761160243408,
+        "free_coo_total_lowering_from_h00_mha": 31.5351106696653,
+        "free_coo_minus_exact_union_mha": -10.277779179546087
+      },
+      "config_hash": "5ce43efd9cc7d147"
+    },
+    "50": {
+      "config": {
+        "recovery_target": 5000,
+        "las_top_k": 5000,
+        "n_ct_max": 2,
+        "threshold": 1e-06,
+        "free_coo_orbital_opt_max_iter": 50,
+        "las_seed_dets": 100,
+        "growth_factor": 1.5,
+        "max_rounds": 40,
+        "solver_kind": "auto"
+      },
+      "determinants": {
+        "P_R_requested": 5000,
+        "P_R_achieved": 5000,
+        "P_R_target_met": true,
+        "P_LAS_requested": 5000,
+        "P_LAS_actual": 5000,
+        "P_LAS_ceiling": 324000,
+        "fragment_support_sizes": [
+          1000,
+          324
+        ],
+        "union_n_dets": 329000,
+        "free_coo_n_dets": 10000
+      },
+      "energies_ha": {
+        "h00": -327.05282363243225,
+        "generalized": -327.05395443648155,
+        "union": -327.07408096392237,
+        "free_coo_before": -327.0646311314995,
+        "free_coo_after": -327.0907680349602
+      },
+      "gates": {
+        "generalized": {
+          "E_hybrid_le_H00": true,
+          "E_hybrid_le_E_C": true,
+          "S_positive_semidefinite": true,
+          "c_dagger_S_c_eq_1": true,
+          "no_pt2_mixed_with_variational": true,
+          "generalized_residual_converged": true
+        },
+        "union_certificate": {
+          "e_final": -327.07408096392237,
+          "h00": -327.05282363243225,
+          "margin": 0.021257331490119213,
+          "tol": 1e-06,
+          "passed": true
+        },
+        "free_coo": {
+          "E_after_le_E_before": true
+        },
+        "free_coo_rotation_errors": {
+          "orthogonality": 1.1879386363489175e-13,
+          "h1": 6.750155989720952e-14,
+          "eri": 5.773159728050814e-15
+        },
+        "all_pass": true
+      },
+      "las_certificate_passed": true,
+      "wall_s_total": 58.190109968185425,
+      "wall_s_by_stage": {
+        "growth": 3.0898630619049072,
+        "generalized_solve": 210.21278500556946,
+        "exact_union": 619.6737780570984,
+        "free_coo": 58.19009494781494
+      },
+      "base_reused": true,
+      "derived_common_baseline_mha": {
+        "note": "recovery_union = H00 - E_exact_union (H00 baseline); free_coo_total_lowering_from_h00 = H00 - E_free_coo_after (SAME H00 baseline, comparable directly to recovery_union); free_coo_orbital_gain = E_free_coo_before - E_free_coo_after (a DIFFERENT, within-space baseline -- do not compare directly to H00-baselined figures); free_coo_minus_exact_union = E_free_coo_after - E_exact_union.",
+        "recovery_union_lowering_mha": 21.257331490119213,
+        "free_coo_orbital_gain_mha": 26.13690346072417,
+        "free_coo_total_lowering_from_h00_mha": 37.94440252795539,
+        "free_coo_minus_exact_union_mha": -16.687071037836176
+      },
+      "config_hash": "27cdaab45d9a5b8a"
+    },
+    "100": {
+      "config": {
+        "recovery_target": 5000,
+        "las_top_k": 5000,
+        "n_ct_max": 2,
+        "threshold": 1e-06,
+        "free_coo_orbital_opt_max_iter": 100,
+        "las_seed_dets": 100,
+        "growth_factor": 1.5,
+        "max_rounds": 40,
+        "solver_kind": "auto"
+      },
+      "determinants": {
+        "P_R_requested": 5000,
+        "P_R_achieved": 5000,
+        "P_R_target_met": true,
+        "P_LAS_requested": 5000,
+        "P_LAS_actual": 5000,
+        "P_LAS_ceiling": 324000,
+        "fragment_support_sizes": [
+          1000,
+          324
+        ],
+        "union_n_dets": 329000,
+        "free_coo_n_dets": 10000
+      },
+      "energies_ha": {
+        "h00": -327.05282363243225,
+        "generalized": -327.05395443648155,
+        "union": -327.07408096392237,
+        "free_coo_before": -327.0646311314995,
+        "free_coo_after": -327.0919123737289
+      },
+      "gates": {
+        "generalized": {
+          "E_hybrid_le_H00": true,
+          "E_hybrid_le_E_C": true,
+          "S_positive_semidefinite": true,
+          "c_dagger_S_c_eq_1": true,
+          "no_pt2_mixed_with_variational": true,
+          "generalized_residual_converged": true
+        },
+        "union_certificate": {
+          "e_final": -327.07408096392237,
+          "h00": -327.05282363243225,
+          "margin": 0.021257331490119213,
+          "tol": 1e-06,
+          "passed": true
+        },
+        "free_coo": {
+          "E_after_le_E_before": true
+        },
+        "free_coo_rotation_errors": {
+          "orthogonality": 4.672506825897926e-11,
+          "h1": 9.592326932761353e-14,
+          "eri": 9.325873406851315e-15
+        },
+        "all_pass": true
+      },
+      "las_certificate_passed": true,
+      "wall_s_total": 104.44217896461487,
+      "wall_s_by_stage": {
+        "growth": 3.0898630619049072,
+        "generalized_solve": 210.21278500556946,
+        "exact_union": 619.6737780570984,
+        "free_coo": 104.4421660900116
+      },
+      "base_reused": true,
+      "derived_common_baseline_mha": {
+        "note": "recovery_union = H00 - E_exact_union (H00 baseline); free_coo_total_lowering_from_h00 = H00 - E_free_coo_after (SAME H00 baseline, comparable directly to recovery_union); free_coo_orbital_gain = E_free_coo_before - E_free_coo_after (a DIFFERENT, within-space baseline -- do not compare directly to H00-baselined figures); free_coo_minus_exact_union = E_free_coo_after - E_exact_union.",
+        "recovery_union_lowering_mha": 21.257331490119213,
+        "free_coo_orbital_gain_mha": 27.281242229435065,
+        "free_coo_total_lowering_from_h00_mha": 39.088741296666285,
+        "free_coo_minus_exact_union_mha": -17.83140980654707
+      },
+      "config_hash": "1ad8983adb8a7645"
+    },
+    "150": {
+      "config": {
+        "recovery_target": 5000,
+        "las_top_k": 5000,
+        "n_ct_max": 2,
+        "threshold": 1e-06,
+        "free_coo_orbital_opt_max_iter": 150,
+        "las_seed_dets": 100,
+        "growth_factor": 1.5,
+        "max_rounds": 40,
+        "solver_kind": "auto"
+      },
+      "determinants": {
+        "P_R_requested": 5000,
+        "P_R_achieved": 5000,
+        "P_R_target_met": true,
+        "P_LAS_requested": 5000,
+        "P_LAS_actual": 5000,
+        "P_LAS_ceiling": 324000,
+        "fragment_support_sizes": [
+          1000,
+          324
+        ],
+        "union_n_dets": 329000,
+        "free_coo_n_dets": 10000
+      },
+      "energies_ha": {
+        "h00": -327.05282363243225,
+        "generalized": -327.05395443648155,
+        "union": -327.07408096392237,
+        "free_coo_before": -327.0646311314995,
+        "free_coo_after": -327.09207968370436
+      },
+      "gates": {
+        "generalized": {
+          "E_hybrid_le_H00": true,
+          "E_hybrid_le_E_C": true,
+          "S_positive_semidefinite": true,
+          "c_dagger_S_c_eq_1": true,
+          "no_pt2_mixed_with_variational": true,
+          "generalized_residual_converged": true
+        },
+        "union_certificate": {
+          "e_final": -327.07408096392237,
+          "h00": -327.05282363243225,
+          "margin": 0.021257331490119213,
+          "tol": 1e-06,
+          "passed": true
+        },
+        "free_coo": {
+          "E_after_le_E_before": true
+        },
+        "free_coo_rotation_errors": {
+          "orthogonality": 9.41142719312893e-11,
+          "h1": 1.2789769243681803e-13,
+          "eri": 1.3100631690576847e-14
+        },
+        "all_pass": true
+      },
+      "las_certificate_passed": true,
+      "wall_s_total": 150.36289501190186,
+      "wall_s_by_stage": {
+        "growth": 3.0898630619049072,
+        "generalized_solve": 210.21278500556946,
+        "exact_union": 619.6737780570984,
+        "free_coo": 150.36288380622864
+      },
+      "base_reused": true,
+      "derived_common_baseline_mha": {
+        "note": "recovery_union = H00 - E_exact_union (H00 baseline); free_coo_total_lowering_from_h00 = H00 - E_free_coo_after (SAME H00 baseline, comparable directly to recovery_union); free_coo_orbital_gain = E_free_coo_before - E_free_coo_after (a DIFFERENT, within-space baseline -- do not compare directly to H00-baselined figures); free_coo_minus_exact_union = E_free_coo_after - E_exact_union.",
+        "recovery_union_lowering_mha": 21.257331490119213,
+        "free_coo_orbital_gain_mha": 27.448552204873522,
+        "free_coo_total_lowering_from_h00_mha": 39.25605127210474,
+        "free_coo_minus_exact_union_mha": -17.99871978198553
+      },
+      "config_hash": "dfc96f5984f0592b"
+    }
+  },
+  "points": {
+    "P_LAS=500_P_R=500": {
+      "config": {
+        "recovery_target": 500,
+        "las_top_k": 500,
+        "n_ct_max": 2,
+        "threshold": 1e-06,
+        "free_coo_orbital_opt_max_iter": 150,
+        "las_seed_dets": 100,
+        "growth_factor": 1.5,
+        "max_rounds": 40,
+        "solver_kind": "auto"
+      },
+      "determinants": {
+        "P_R_requested": 500,
+        "P_R_achieved": 500,
+        "P_R_target_met": true,
+        "P_LAS_requested": 500,
+        "P_LAS_actual": 500,
+        "P_LAS_ceiling": 324000,
+        "fragment_support_sizes": [
+          1000,
+          324
+        ],
+        "union_n_dets": 324500,
+        "free_coo_n_dets": 1000
+      },
+      "energies_ha": {
+        "h00": -327.05282363243225,
+        "generalized": -327.0528360255038,
+        "union": -327.0730180716376,
+        "free_coo_before": -327.0547532127988,
+        "free_coo_after": -327.0626855971981
+      },
+      "gates": {
+        "generalized": {
+          "E_hybrid_le_H00": true,
+          "E_hybrid_le_E_C": true,
+          "S_positive_semidefinite": true,
+          "c_dagger_S_c_eq_1": true,
+          "no_pt2_mixed_with_variational": true,
+          "generalized_residual_converged": true
+        },
+        "union_certificate": {
+          "e_final": -327.0730180716376,
+          "h00": -327.05282363243225,
+          "margin": 0.020194439205340586,
+          "tol": 1e-06,
+          "passed": true
+        },
+        "free_coo": {
+          "E_after_le_E_before": true
+        },
+        "free_coo_rotation_errors": {
+          "orthogonality": 2.2696466928096015e-10,
+          "h1": 1.0835776720341528e-13,
+          "eri": 1.1879386363489175e-14
+        },
+        "all_pass": true
+      },
+      "las_certificate_passed": true,
+      "wall_s_total": 634.3480513095856,
+      "wall_s_by_stage": {
+        "growth": 0.7092258930206299,
+        "generalized_solve": 17.714489221572876,
+        "exact_union": 589.6097800731659,
+        "free_coo": 18.321054220199585
+      },
+      "base_reused": false,
+      "derived_common_baseline_mha": {
+        "note": "recovery_union = H00 - E_exact_union (H00 baseline); free_coo_total_lowering_from_h00 = H00 - E_free_coo_after (SAME H00 baseline, comparable directly to recovery_union); free_coo_orbital_gain = E_free_coo_before - E_free_coo_after (a DIFFERENT, within-space baseline -- do not compare directly to H00-baselined figures); free_coo_minus_exact_union = E_free_coo_after - E_exact_union.",
+        "recovery_union_lowering_mha": 20.194439205340586,
+        "free_coo_orbital_gain_mha": 7.932384399282455,
+        "free_coo_total_lowering_from_h00_mha": 9.861964765832454,
+        "free_coo_minus_exact_union_mha": 10.332474439508132
+      },
+      "config_hash": "b4da3ac54d2ca003"
+    },
+    "P_LAS=2000_P_R=2000": {
+      "config": {
+        "recovery_target": 2000,
+        "las_top_k": 2000,
+        "n_ct_max": 2,
+        "threshold": 1e-06,
+        "free_coo_orbital_opt_max_iter": 150,
+        "las_seed_dets": 100,
+        "growth_factor": 1.5,
+        "max_rounds": 40,
+        "solver_kind": "auto"
+      },
+      "determinants": {
+        "P_R_requested": 2000,
+        "P_R_achieved": 2000,
+        "P_R_target_met": true,
+        "P_LAS_requested": 2000,
+        "P_LAS_actual": 2000,
+        "P_LAS_ceiling": 324000,
+        "fragment_support_sizes": [
+          1000,
+          324
+        ],
+        "union_n_dets": 326000,
+        "free_coo_n_dets": 4000
+      },
+      "energies_ha": {
+        "h00": -327.05282363243225,
+        "generalized": -327.05287773152895,
+        "union": -327.0730672738516,
+        "free_coo_before": -327.0601349500533,
+        "free_coo_after": -327.08102551163205
+      },
+      "gates": {
+        "generalized": {
+          "E_hybrid_le_H00": true,
+          "E_hybrid_le_E_C": true,
+          "S_positive_semidefinite": true,
+          "c_dagger_S_c_eq_1": true,
+          "no_pt2_mixed_with_variational": true,
+          "generalized_residual_converged": true
+        },
+        "union_certificate": {
+          "e_final": -327.0730672738516,
+          "h00": -327.05282363243225,
+          "margin": 0.02024364141936985,
+          "tol": 1e-06,
+          "passed": true
+        },
+        "free_coo": {
+          "E_after_le_E_before": true
+        },
+        "free_coo_rotation_errors": {
+          "orthogonality": 1.7196111201656095e-10,
+          "h1": 1.865174681370263e-13,
+          "eri": 9.992007221626409e-15
+        },
+        "all_pass": true
+      },
+      "las_certificate_passed": true,
+      "wall_s_total": 719.2937321662903,
+      "wall_s_by_stage": {
+        "growth": 1.1863269805908203,
+        "generalized_solve": 72.76542806625366,
+        "exact_union": 590.1462080478668,
+        "free_coo": 47.143534898757935
+      },
+      "base_reused": false,
+      "derived_common_baseline_mha": {
+        "note": "recovery_union = H00 - E_exact_union (H00 baseline); free_coo_total_lowering_from_h00 = H00 - E_free_coo_after (SAME H00 baseline, comparable directly to recovery_union); free_coo_orbital_gain = E_free_coo_before - E_free_coo_after (a DIFFERENT, within-space baseline -- do not compare directly to H00-baselined figures); free_coo_minus_exact_union = E_free_coo_after - E_exact_union.",
+        "recovery_union_lowering_mha": 20.24364141936985,
+        "free_coo_orbital_gain_mha": 20.89056157876712,
+        "free_coo_total_lowering_from_h00_mha": 28.20187919979844,
+        "free_coo_minus_exact_union_mha": -7.95823778042859
+      },
+      "config_hash": "5a556f234f1dffb8"
+    },
+    "P_LAS=5000_P_R=5000": {
+      "config": {
+        "recovery_target": 5000,
+        "las_top_k": 5000,
+        "n_ct_max": 2,
+        "threshold": 1e-06,
+        "free_coo_orbital_opt_max_iter": 150,
+        "las_seed_dets": 100,
+        "growth_factor": 1.5,
+        "max_rounds": 40,
+        "solver_kind": "auto"
+      },
+      "determinants": {
+        "P_R_requested": 5000,
+        "P_R_achieved": 5000,
+        "P_R_target_met": true,
+        "P_LAS_requested": 5000,
+        "P_LAS_actual": 5000,
+        "P_LAS_ceiling": 324000,
+        "fragment_support_sizes": [
+          1000,
+          324
+        ],
+        "union_n_dets": 329000,
+        "free_coo_n_dets": 10000
+      },
+      "energies_ha": {
+        "h00": -327.05282363243225,
+        "generalized": -327.05395443648155,
+        "union": -327.07408096392237,
+        "free_coo_before": -327.0646311314995,
+        "free_coo_after": -327.09207968370436
+      },
+      "gates": {
+        "generalized": {
+          "E_hybrid_le_H00": true,
+          "E_hybrid_le_E_C": true,
+          "S_positive_semidefinite": true,
+          "c_dagger_S_c_eq_1": true,
+          "no_pt2_mixed_with_variational": true,
+          "generalized_residual_converged": true
+        },
+        "union_certificate": {
+          "e_final": -327.07408096392237,
+          "h00": -327.05282363243225,
+          "margin": 0.021257331490119213,
+          "tol": 1e-06,
+          "passed": true
+        },
+        "free_coo": {
+          "E_after_le_E_before": true
+        },
+        "free_coo_rotation_errors": {
+          "orthogonality": 9.41142719312893e-11,
+          "h1": 1.2789769243681803e-13,
+          "eri": 1.3100631690576847e-14
+        },
+        "all_pass": true
+      },
+      "las_certificate_passed": true,
+      "wall_s_total": 147.69865679740906,
+      "wall_s_by_stage": {
+        "growth": 3.0898630619049072,
+        "generalized_solve": 210.21278500556946,
+        "exact_union": 619.6737780570984,
+        "free_coo": 147.6986439228058
+      },
+      "base_reused": true,
+      "derived_common_baseline_mha": {
+        "note": "recovery_union = H00 - E_exact_union (H00 baseline); free_coo_total_lowering_from_h00 = H00 - E_free_coo_after (SAME H00 baseline, comparable directly to recovery_union); free_coo_orbital_gain = E_free_coo_before - E_free_coo_after (a DIFFERENT, within-space baseline -- do not compare directly to H00-baselined figures); free_coo_minus_exact_union = E_free_coo_after - E_exact_union.",
+        "recovery_union_lowering_mha": 21.257331490119213,
+        "free_coo_orbital_gain_mha": 27.448552204873522,
+        "free_coo_total_lowering_from_h00_mha": 39.25605127210474,
+        "free_coo_minus_exact_union_mha": -17.99871978198553
+      },
+      "config_hash": "dfc96f5984f0592b"
+    },
+    "P_LAS=10000_P_R=10000": {
+      "config": {
+        "recovery_target": 10000,
+        "las_top_k": 10000,
+        "n_ct_max": 2,
+        "threshold": 1e-06,
+        "free_coo_orbital_opt_max_iter": 150,
+        "las_seed_dets": 100,
+        "growth_factor": 1.5,
+        "max_rounds": 40,
+        "solver_kind": "auto"
+      },
+      "determinants": {
+        "P_R_requested": 10000,
+        "P_R_achieved": 10000,
+        "P_R_target_met": true,
+        "P_LAS_requested": 10000,
+        "P_LAS_actual": 10000,
+        "P_LAS_ceiling": 324000,
+        "fragment_support_sizes": [
+          1000,
+          324
+        ],
+        "union_n_dets": 334000,
+        "free_coo_n_dets": 20000
+      },
+      "energies_ha": {
+        "h00": -327.05282363243225,
+        "generalized": -327.0550402927075,
+        "union": -327.09681287939014,
+        "free_coo_before": -327.0680721052303,
+        "free_coo_after": -327.1416054860265
+      },
+      "gates": {
+        "generalized": {
+          "E_hybrid_le_H00": true,
+          "E_hybrid_le_E_C": true,
+          "S_positive_semidefinite": true,
+          "c_dagger_S_c_eq_1": true,
+          "generalized_residual_converged": true,
+          "no_pt2_mixed_with_variational": true
+        },
+        "union_certificate": {
+          "e_final": -327.09681287939014,
+          "h00": -327.05282363243225,
+          "margin": 0.04398924695789219,
+          "tol": 1e-06,
+          "passed": true
+        },
+        "free_coo": {
+          "E_after_le_E_before": true
+        },
+        "free_coo_rotation_errors": {
+          "orthogonality": 3.4501734802461215e-11,
+          "h1": 1.4033219031261979e-13,
+          "eri": 1.1324274851176597e-14
+        },
+        "all_pass": true
+      },
+      "las_certificate_passed": true,
+      "wall_s_total": 1595.7153420448303,
+      "wall_s_by_stage": {
+        "growth": 12.573230981826782,
+        "generalized_solve": 592.3429338932037,
+        "exact_union": 561.3909499645233,
+        "free_coo": 420.49610590934753
+      },
+      "base_reused": false,
+      "derived_common_baseline_mha": {
+        "note": "recovery_union = H00 - E_exact_union (H00 baseline); free_coo_total_lowering_from_h00 = H00 - E_free_coo_after (SAME H00 baseline, comparable directly to recovery_union); free_coo_orbital_gain = E_free_coo_before - E_free_coo_after (a DIFFERENT, within-space baseline -- do not compare directly to H00-baselined figures); free_coo_minus_exact_union = E_free_coo_after - E_exact_union.",
+        "recovery_union_lowering_mha": 43.98924695789219,
+        "free_coo_orbital_gain_mha": 73.53338079616378,
+        "free_coo_total_lowering_from_h00_mha": 88.78185359424151,
+        "free_coo_minus_exact_union_mha": -44.79260663634932
+      },
+      "config_hash": "b4d492f1db31db5b"
+    },
+    "P_LAS=20000_P_R=20000": {
+      "config": {
+        "recovery_target": 20000,
+        "las_top_k": 20000,
+        "n_ct_max": 2,
+        "threshold": 1e-06,
+        "free_coo_orbital_opt_max_iter": 150,
+        "las_seed_dets": 100,
+        "growth_factor": 1.5,
+        "max_rounds": 40,
+        "solver_kind": "auto"
+      },
+      "determinants": {
+        "P_R_requested": 20000,
+        "P_R_achieved": 20000,
+        "P_R_target_met": true,
+        "P_LAS_requested": 20000,
+        "P_LAS_actual": 20000,
+        "P_LAS_ceiling": 324000,
+        "fragment_support_sizes": [
+          1000,
+          324
+        ],
+        "union_n_dets": 344000,
+        "free_coo_n_dets": 40000
+      },
+      "energies_ha": {
+        "h00": -327.05282363243225,
+        "generalized": -327.06851676081004,
+        "union": -327.09790591698254,
+        "free_coo_before": -327.08960932777745,
+        "free_coo_after": -327.1200810934138
+      },
+      "gates": {
+        "generalized": {
+          "E_hybrid_le_H00": true,
+          "E_hybrid_le_E_C": true,
+          "S_positive_semidefinite": true,
+          "c_dagger_S_c_eq_1": true,
+          "generalized_residual_converged": true,
+          "no_pt2_mixed_with_variational": true
+        },
+        "union_certificate": {
+          "e_final": -327.09790591698254,
+          "h00": -327.05282363243225,
+          "margin": 0.04508228455028984,
+          "tol": 1e-06,
+          "passed": true
+        },
+        "free_coo": {
+          "E_after_le_E_before": true
+        },
+        "free_coo_rotation_errors": {
+          "orthogonality": 4.1432235420302277e-10,
+          "h1": 1.4566126083082054e-13,
+          "eri": 1.0769163338864018e-14
+        },
+        "all_pass": true
+      },
+      "las_certificate_passed": true,
+      "wall_s_total": 2800.839975118637,
+      "wall_s_by_stage": {
+        "growth": 29.001267910003662,
+        "generalized_solve": 1112.903323173523,
+        "exact_union": 688.2898497581482,
+        "free_coo": 962.8538801670074
+      },
+      "base_reused": false,
+      "derived_common_baseline_mha": {
+        "note": "recovery_union = H00 - E_exact_union (H00 baseline); free_coo_total_lowering_from_h00 = H00 - E_free_coo_after (SAME H00 baseline, comparable directly to recovery_union); free_coo_orbital_gain = E_free_coo_before - E_free_coo_after (a DIFFERENT, within-space baseline -- do not compare directly to H00-baselined figures); free_coo_minus_exact_union = E_free_coo_after - E_exact_union.",
+        "recovery_union_lowering_mha": 45.08228455028984,
+        "free_coo_orbital_gain_mha": 30.471765636320924,
+        "free_coo_total_lowering_from_h00_mha": 67.25746098152285,
+        "free_coo_minus_exact_union_mha": -22.175176431233012
+      },
+      "config_hash": "f194a788178de766"
+    },
+    "P_LAS=50000_P_R=50000": {
+      "config": {
+        "recovery_target": 50000,
+        "las_top_k": 50000,
+        "n_ct_max": 2,
+        "threshold": 1e-06,
+        "free_coo_orbital_opt_max_iter": 150,
+        "las_seed_dets": 100,
+        "growth_factor": 1.5,
+        "max_rounds": 40,
+        "solver_kind": "auto"
+      },
+      "determinants": {
+        "P_R_requested": 50000,
+        "P_R_achieved": 50000,
+        "P_R_target_met": true,
+        "P_LAS_requested": 50000,
+        "P_LAS_actual": 50000,
+        "P_LAS_ceiling": 324000,
+        "fragment_support_sizes": [
+          1000,
+          324
+        ],
+        "union_n_dets": 374000,
+        "free_coo_n_dets": 100000
+      },
+      "energies_ha": {
+        "h00": -327.05282363243225,
+        "generalized": -327.08085406134614,
+        "union": -327.1036702356684,
+        "free_coo_before": -327.1011270137865,
+        "free_coo_after": -327.13885806370746
+      },
+      "gates": {
+        "generalized": {
+          "E_hybrid_le_H00": true,
+          "E_hybrid_le_E_C": true,
+          "S_positive_semidefinite": true,
+          "c_dagger_S_c_eq_1": true,
+          "generalized_residual_converged": true,
+          "no_pt2_mixed_with_variational": true
+        },
+        "union_certificate": {
+          "e_final": -327.1036702356684,
+          "h00": -327.05282363243225,
+          "margin": 0.05084660323615253,
+          "tol": 1e-06,
+          "passed": true
+        },
+        "free_coo": {
+          "E_after_le_E_before": true
+        },
+        "free_coo_rotation_errors": {
+          "orthogonality": 9.20273635074409e-10,
+          "h1": 1.545430450278218e-13,
+          "eri": 1.1435297153639112e-14
+        },
+        "all_pass": true
+      },
+      "las_certificate_passed": true,
+      "wall_s_total": 7784.514324903488,
+      "wall_s_by_stage": {
+        "growth": 110.93455076217651,
+        "generalized_solve": 3152.9934351444244,
+        "exact_union": 892.9268147945404,
+        "free_coo": 3619.6372010707855
+      },
+      "base_reused": false,
+      "derived_common_baseline_mha": {
+        "note": "recovery_union = H00 - E_exact_union (H00 baseline); free_coo_total_lowering_from_h00 = H00 - E_free_coo_after (SAME H00 baseline, comparable directly to recovery_union); free_coo_orbital_gain = E_free_coo_before - E_free_coo_after (a DIFFERENT, within-space baseline -- do not compare directly to H00-baselined figures); free_coo_minus_exact_union = E_free_coo_after - E_exact_union.",
+        "recovery_union_lowering_mha": 50.84660323615253,
+        "free_coo_orbital_gain_mha": 37.73104992097842,
+        "free_coo_total_lowering_from_h00_mha": 86.03443127520904,
+        "free_coo_minus_exact_union_mha": -35.18782803905651
+      },
+      "config_hash": "bce614c8805ac55c"
+    },
+    "P_LAS=20000_P_R=20000_BFGS300_escalation_test": {
+      "config": {
+        "recovery_target": 20000,
+        "las_top_k": 20000,
+        "n_ct_max": 2,
+        "threshold": 1e-06,
+        "free_coo_orbital_opt_max_iter": 300,
+        "las_seed_dets": 100,
+        "growth_factor": 1.5,
+        "max_rounds": 40,
+        "solver_kind": "auto"
+      },
+      "determinants": {
+        "P_R_requested": 20000,
+        "P_R_achieved": 20000,
+        "P_R_target_met": true,
+        "P_LAS_requested": 20000,
+        "P_LAS_actual": 20000,
+        "P_LAS_ceiling": 324000,
+        "fragment_support_sizes": [
+          1000,
+          324
+        ],
+        "union_n_dets": 344000,
+        "free_coo_n_dets": 40000
+      },
+      "energies_ha": {
+        "h00": -327.05282363243225,
+        "generalized": -327.06851676081004,
+        "union": -327.09790591698254,
+        "free_coo_before": -327.08960932777745,
+        "free_coo_after": -327.1200832639922
+      },
+      "gates": {
+        "generalized": {
+          "E_hybrid_le_H00": true,
+          "E_hybrid_le_E_C": true,
+          "S_positive_semidefinite": true,
+          "c_dagger_S_c_eq_1": true,
+          "generalized_residual_converged": true,
+          "no_pt2_mixed_with_variational": true
+        },
+        "union_certificate": {
+          "e_final": -327.09790591698254,
+          "h00": -327.05282363243225,
+          "margin": 0.04508228455028984,
+          "tol": 1e-06,
+          "passed": true
+        },
+        "free_coo": {
+          "E_after_le_E_before": true
+        },
+        "free_coo_rotation_errors": {
+          "orthogonality": 6.333427116089752e-10,
+          "h1": 1.6697754290362354e-13,
+          "eri": 1.3766765505351941e-14
+        },
+        "all_pass": true
+      },
+      "las_certificate_passed": true,
+      "wall_s_total": 3077.318732023239,
+      "wall_s_by_stage": {
+        "growth": 29.3999240398407,
+        "generalized_solve": 1092.2748980522156,
+        "exact_union": 687.0969920158386,
+        "free_coo": 1259.8567261695862
+      },
+      "base_reused": false,
+      "derived_common_baseline_mha": {
+        "note": "recovery_union = H00 - E_exact_union (H00 baseline); free_coo_total_lowering_from_h00 = H00 - E_free_coo_after (SAME H00 baseline, comparable directly to recovery_union); free_coo_orbital_gain = E_free_coo_before - E_free_coo_after (a DIFFERENT, within-space baseline -- do not compare directly to H00-baselined figures); free_coo_minus_exact_union = E_free_coo_after - E_exact_union.",
+        "recovery_union_lowering_mha": 45.08228455028984,
+        "free_coo_orbital_gain_mha": 30.473936214775676,
+        "free_coo_total_lowering_from_h00_mha": 67.2596315599776,
+        "free_coo_minus_exact_union_mha": -22.177347009687765
+      },
+      "config_hash": "9e4dc7ce3d41e3c6"
+    },
+    "P_LAS=20000_P_R=20000_BFGS500_escalation_test": {
+      "config": {
+        "recovery_target": 20000,
+        "las_top_k": 20000,
+        "n_ct_max": 2,
+        "threshold": 1e-06,
+        "free_coo_orbital_opt_max_iter": 500,
+        "las_seed_dets": 100,
+        "growth_factor": 1.5,
+        "max_rounds": 40,
+        "solver_kind": "auto"
+      },
+      "determinants": {
+        "P_R_requested": 20000,
+        "P_R_achieved": 20000,
+        "P_R_target_met": true,
+        "P_LAS_requested": 20000,
+        "P_LAS_actual": 20000,
+        "P_LAS_ceiling": 324000,
+        "fragment_support_sizes": [
+          1000,
+          324
+        ],
+        "union_n_dets": 344000,
+        "free_coo_n_dets": 40000
+      },
+      "energies_ha": {
+        "h00": -327.05282363243225,
+        "generalized": -327.06851676081004,
+        "union": -327.09790591698254,
+        "free_coo_before": -327.08960932777745,
+        "free_coo_after": -327.1200832639922
+      },
+      "gates": {
+        "generalized": {
+          "E_hybrid_le_H00": true,
+          "E_hybrid_le_E_C": true,
+          "S_positive_semidefinite": true,
+          "c_dagger_S_c_eq_1": true,
+          "generalized_residual_converged": true,
+          "no_pt2_mixed_with_variational": true
+        },
+        "union_certificate": {
+          "e_final": -327.09790591698254,
+          "h00": -327.05282363243225,
+          "margin": 0.04508228455028984,
+          "tol": 1e-06,
+          "passed": true
+        },
+        "free_coo": {
+          "E_after_le_E_before": true
+        },
+        "free_coo_rotation_errors": {
+          "orthogonality": 6.333427116089752e-10,
+          "h1": 1.6697754290362354e-13,
+          "eri": 1.3766765505351941e-14
+        },
+        "all_pass": true
+      },
+      "las_certificate_passed": true,
+      "wall_s_total": 1249.8279299736023,
+      "wall_s_by_stage": {
+        "growth": 29.3999240398407,
+        "generalized_solve": 1092.2748980522156,
+        "exact_union": 687.0969920158386,
+        "free_coo": 1249.8279139995575
+      },
+      "base_reused": true,
+      "derived_common_baseline_mha": {
+        "note": "recovery_union = H00 - E_exact_union (H00 baseline); free_coo_total_lowering_from_h00 = H00 - E_free_coo_after (SAME H00 baseline, comparable directly to recovery_union); free_coo_orbital_gain = E_free_coo_before - E_free_coo_after (a DIFFERENT, within-space baseline -- do not compare directly to H00-baselined figures); free_coo_minus_exact_union = E_free_coo_after - E_exact_union.",
+        "recovery_union_lowering_mha": 45.08228455028984,
+        "free_coo_orbital_gain_mha": 30.473936214775676,
+        "free_coo_total_lowering_from_h00_mha": 67.2596315599776,
+        "free_coo_minus_exact_union_mha": -22.177347009687765
+      },
+      "config_hash": "ac68351bbe425ef6"
+    },
+    "P_LAS=100000_P_R=100000": {
+      "config": {
+        "recovery_target": 100000,
+        "las_top_k": 100000,
+        "n_ct_max": 2,
+        "threshold": 1e-06,
+        "free_coo_orbital_opt_max_iter": 150,
+        "las_seed_dets": 100,
+        "growth_factor": 1.5,
+        "max_rounds": 40,
+        "solver_kind": "auto"
+      },
+      "determinants": {
+        "P_R_requested": 100000,
+        "P_R_achieved": 100000,
+        "P_R_target_met": true,
+        "P_LAS_requested": 100000,
+        "P_LAS_actual": 100000,
+        "P_LAS_ceiling": 324000,
+        "fragment_support_sizes": [
+          1000,
+          324
+        ],
+        "union_n_dets": 424000,
+        "free_coo_n_dets": 200000
+      },
+      "energies_ha": {
+        "h00": -327.05282363243236,
+        "generalized": -327.0998113027893,
+        "union": -327.12845817270073,
+        "free_coo_before": -327.1275635182758,
+        "free_coo_after": -327.17857814706963
+      },
+      "gates": {
+        "generalized": {
+          "E_hybrid_le_H00": true,
+          "E_hybrid_le_E_C": true,
+          "S_positive_semidefinite": true,
+          "c_dagger_S_c_eq_1": true,
+          "generalized_residual_converged": true,
+          "no_pt2_mixed_with_variational": true
+        },
+        "union_certificate": {
+          "e_final": -327.12845817270073,
+          "h00": -327.05282363243236,
+          "margin": 0.0756345402683678,
+          "tol": 1e-06,
+          "passed": true
+        },
+        "free_coo": {
+          "E_after_le_E_before": true
+        },
+        "free_coo_rotation_errors": {
+          "orthogonality": 2.3558044404126122e-11,
+          "h1": 8.881784197001252e-14,
+          "eri": 9.658940314238862e-15
+        },
+        "all_pass": true
+      },
+      "las_certificate_passed": true,
+      "wall_s_total": 15141.818678855896,
+      "wall_s_by_stage": {
+        "growth": 329.9670820236206,
+        "generalized_solve": 6313.046844959259,
+        "exact_union": 1248.1741347312927,
+        "free_coo": 7242.016837120056
+      },
+      "base_reused": false,
+      "derived_common_baseline_mha": {
+        "note": "recovery_union = H00 - E_exact_union (H00 baseline); free_coo_total_lowering_from_h00 = H00 - E_free_coo_after (SAME H00 baseline, comparable directly to recovery_union); free_coo_orbital_gain = E_free_coo_before - E_free_coo_after (a DIFFERENT, within-space baseline -- do not compare directly to H00-baselined figures); free_coo_minus_exact_union = E_free_coo_after - E_exact_union.",
+        "recovery_union_lowering_mha": 75.6345402683678,
+        "free_coo_orbital_gain_mha": 51.01462879383689,
+        "free_coo_total_lowering_from_h00_mha": 125.75451463726495,
+        "free_coo_minus_exact_union_mha": -50.11997436889715
+      },
+      "config_hash": "d0592c8bf3f29315"
+    },
+    "P_LAS=250000_P_R=250000": {
+      "skipped": true,
+      "reason": "projected_wall_time_exceeds_6h_cap",
+      "projected_wall_s": 36489.06176994788,
+      "projected_wall_h": 10.135850491652189,
+      "based_on_rungs": [
+        [
+          50000,
+          7776.492001771927
+        ],
+        [
+          100000,
+          15133.204898834229
+        ]
+      ]
+    }
+  },
+  "bfgs_selection_summary": {
+    "energies_by_bfgs": {
+      "20": -327.0843587431019,
+      "50": -327.0907680349602,
+      "100": -327.0919123737289,
+      "150": -327.09207968370436
+    },
+    "improve_100_vs_50_mha": 1.1443387687108952,
+    "selected_bfgs": 150
+  }
+}

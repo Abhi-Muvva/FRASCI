@@ -1,0 +1,394 @@
+{
+  "provenance": {
+    "reference_parent_checkpoint": "results/checkpoints/h1diag2_parent",
+    "reference_parent_note": "Fresh reproduction of the h1diag2 (54e,36o) parent this session -- the archived certified checkpoint no longer exists on disk (never persisted outside /tmp). This rerun converged (gates pass, H00 self-consistent, dets_per_frag=[1000,324]) but to e_tot=-327.05282363243236 Ha, 0.34 mHa below the archived -327.05248402672197 Ha -- a genuine, non-bit-identical reproduction (see final report), not a bug in this usage.",
+    "occupied_orbitals_fcidump_index": [
+      0,
+      1,
+      3,
+      5,
+      6,
+      8,
+      9,
+      10,
+      11,
+      12,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      22,
+      23,
+      24,
+      25,
+      26,
+      28,
+      30,
+      31,
+      34,
+      35
+    ],
+    "virtual_orbitals_fcidump_index": [
+      2,
+      4,
+      7,
+      13,
+      21,
+      27,
+      29,
+      32,
+      33
+    ],
+    "occupation_numbers_note": "Total (alpha+beta) natural occupation per FCIDUMP orbital index, from the certified h1diag2 parent's own correlated 1-RDM (per-fragment make_selected_rdm12s on its converged (dets, coeffs)), transformed back into the original unrotated FCIDUMP basis via each fragment's own R (dm1_orig_block = R @ dm1_local @ R.T). NEVER an HF/aufbau guess. IMPORTANT CAVEAT: this Fe4S4 cluster's correlated reference does NOT show a clean doubly-occupied/empty (occ~2 / occ~0) split -- 19 orbitals sit near occ~1.85-2.0, but the rest cluster tightly near occ~1.0 (open-shell/radical character, consistent with a high-spin Fe-S cluster), and only one orbital (orb 13, occ=0.446) is clearly low. 'Occupied'/'virtual' here means the top-27 / bottom-9 orbitals by this natural-occupation ranking, NOT a physically crisp doubly-occ/empty split. The rank-27/28 boundary itself is in a congested, nearly-flat region of the spectrum (occ=1.0036 at rank 27 vs 1.0030 at rank 28, gap=0.0006) -- reproducible/deterministic given this exact parent, but not a robust physical gap; a different (re-)converged parent instance could plausibly reorder orbitals near this boundary.",
+    "occ_virt_boundary_gap": 0.000547283255601716,
+    "full_occupation_numbers": {
+      "0": 1.9950130999780713,
+      "1": 1.9915473861833963,
+      "2": 1.001583573254933,
+      "3": 1.0155300507380736,
+      "4": 1.0030236788387878,
+      "5": 1.9134870486560756,
+      "6": 1.0035709620943896,
+      "7": 1.0021896584522056,
+      "8": 1.0264182980447747,
+      "9": 1.019215738690648,
+      "10": 1.957304377324016,
+      "11": 1.0057654406668421,
+      "12": 1.982417560775527,
+      "13": 0.446172548881146,
+      "14": 1.841153837336498,
+      "15": 1.96269771506372,
+      "16": 1.997671580694124,
+      "17": 1.9988856259724466,
+      "18": 1.9436324200576813,
+      "19": 1.949051402751731,
+      "20": 1.9982148956417773,
+      "21": 1.0006740597010928,
+      "22": 1.9994156621736254,
+      "23": 1.9858799742255142,
+      "24": 1.0292580010445211,
+      "25": 1.061009587132321,
+      "26": 1.014129471137555,
+      "27": 0.9900948981343662,
+      "28": 1.8783186794621167,
+      "29": 0.9990757748620789,
+      "30": 1.9979731524304114,
+      "31": 1.9982489585846817,
+      "32": 0.9926653905030927,
+      "33": 1.0001723599181886,
+      "34": 1.9999501244887932,
+      "35": 1.9985870061047668
+    }
+  },
+  "h1_diagonal_ordering": {
+    "convention": "Ascending sort of orbital index by h1[i,i] (the diagonal one-electron integral / diagonal-Fock-approximation orbital-energy proxy already used elsewhere in this FCIDUMP-only pipeline, see docs/superpowers/plans/2026-08-29-frasci-stage4-zero-engine-dependency.md sec 'mf.mo_energy = np.diag(h1)').",
+    "occupied_ordered_by_h1diag": [
+      11,
+      6,
+      3,
+      8,
+      25,
+      26,
+      24,
+      10,
+      28,
+      9,
+      31,
+      5,
+      20,
+      12,
+      23,
+      22,
+      15,
+      18,
+      16,
+      19,
+      17,
+      14,
+      30,
+      35,
+      1,
+      0,
+      34
+    ],
+    "virtual_ordered_by_h1diag": [
+      29,
+      27,
+      2,
+      7,
+      32,
+      21,
+      33,
+      4,
+      13
+    ]
+  },
+  "candidates": {
+    "balanced_interleaved3": {
+      "method": "round-robin distribution of h1-diagonal-ordered occupied/virtual groups",
+      "orbital_lists": [
+        [
+          1,
+          7,
+          8,
+          9,
+          11,
+          14,
+          16,
+          20,
+          22,
+          24,
+          29,
+          33
+        ],
+        [
+          0,
+          4,
+          6,
+          10,
+          12,
+          15,
+          19,
+          25,
+          27,
+          30,
+          31,
+          32
+        ],
+        [
+          2,
+          3,
+          5,
+          13,
+          17,
+          18,
+          21,
+          23,
+          26,
+          28,
+          34,
+          35
+        ]
+      ],
+      "nelec_per_frag": [
+        [
+          9,
+          9
+        ],
+        [
+          9,
+          9
+        ],
+        [
+          9,
+          9
+        ]
+      ],
+      "spin_sub": [
+        1,
+        1,
+        1
+      ],
+      "local_ci_dimension_per_frag": 48400,
+      "local_ci_dimension_formula": "C(12,9)^2 (independently computed via math.comb, not hardcoded)",
+      "partition_hash": "0d24ab96aab9ae68",
+      "one_electron_interfrag_cut_norm": 4.519420612924553,
+      "two_electron_interfrag_coupling_norm": 1.658718862134341,
+      "total_intrafragment_coupling_objective": 33.03621016393981,
+      "per_fragment_intrafragment_coupling": [
+        10.18594338361478,
+        10.74617842598658,
+        12.104088354338447
+      ],
+      "coverage_check_passed": true,
+      "nonoverlap_check_passed": true
+    },
+    "strong_pair3": {
+      "method": "Deterministic greedy same-occupancy-class swaps from balanced_interleaved3, each iteration applying the single swap (i in fragment A, j in fragment B, both occupied-class or both virtual-class) with the largest positive increase in total intrafragment coupling (ties broken by lexical (i,j) order); stops when no swap improves the objective.",
+      "coupling_metric_convention": "coupling[i,j] = |h1[i,j]| + ||eri[i,j,:,:]||_F for i != j, 0 on the diagonal. Chemist-notation two-electron integrals (ij|kl); the Frobenius norm of the eri[i,j,:,:] slice is symmetric in (i,j) because (ij|kl) = (ji|kl) for real orbitals (commutative bra product), needing no extra symmetrization. Objective maximized = sum over same-fragment orbital pairs of this coupling.",
+      "orbital_lists": [
+        [
+          2,
+          3,
+          4,
+          6,
+          7,
+          9,
+          11,
+          12,
+          14,
+          15,
+          16,
+          18
+        ],
+        [
+          8,
+          17,
+          19,
+          20,
+          24,
+          25,
+          27,
+          29,
+          31,
+          32,
+          34,
+          35
+        ],
+        [
+          0,
+          1,
+          5,
+          10,
+          13,
+          21,
+          22,
+          23,
+          26,
+          28,
+          30,
+          33
+        ]
+      ],
+      "nelec_per_frag": [
+        [
+          9,
+          9
+        ],
+        [
+          9,
+          9
+        ],
+        [
+          9,
+          9
+        ]
+      ],
+      "spin_sub": [
+        1,
+        1,
+        1
+      ],
+      "local_ci_dimension_per_frag": 48400,
+      "local_ci_dimension_formula": "C(12,9)^2 (independently computed via math.comb, not hardcoded)",
+      "partition_hash": "f88c8afecf62bb1a",
+      "one_electron_interfrag_cut_norm": 2.993461625757577,
+      "two_electron_interfrag_coupling_norm": 0.9844417194765697,
+      "total_intrafragment_coupling_objective": 53.675074190017824,
+      "per_fragment_intrafragment_coupling": [
+        16.867620359799382,
+        16.51818746308469,
+        20.289266367133745
+      ],
+      "n_swaps_applied": 11,
+      "swap_log": [
+        {
+          "iter": 1,
+          "class": "occ",
+          "frag_a": 1,
+          "frag_b": 2,
+          "i": 30,
+          "j": 17,
+          "delta_coupling": 4.828576174317888
+        },
+        {
+          "iter": 2,
+          "class": "vir",
+          "frag_a": 0,
+          "frag_b": 2,
+          "i": 33,
+          "j": 2,
+          "delta_coupling": 2.8616644881962188
+        },
+        {
+          "iter": 3,
+          "class": "occ",
+          "frag_a": 0,
+          "frag_b": 1,
+          "i": 8,
+          "j": 12,
+          "delta_coupling": 3.1813026196638035
+        },
+        {
+          "iter": 4,
+          "class": "occ",
+          "frag_a": 1,
+          "frag_b": 2,
+          "i": 10,
+          "j": 34,
+          "delta_coupling": 2.092895853223279
+        },
+        {
+          "iter": 5,
+          "class": "occ",
+          "frag_a": 1,
+          "frag_b": 2,
+          "i": 0,
+          "j": 35,
+          "delta_coupling": 1.5856185918556491
+        },
+        {
+          "iter": 6,
+          "class": "occ",
+          "frag_a": 0,
+          "frag_b": 1,
+          "i": 20,
+          "j": 6,
+          "delta_coupling": 1.2789240119050014
+        },
+        {
+          "iter": 7,
+          "class": "occ",
+          "frag_a": 0,
+          "frag_b": 1,
+          "i": 1,
+          "j": 15,
+          "delta_coupling": 1.3199780852720089
+        },
+        {
+          "iter": 8,
+          "class": "vir",
+          "frag_a": 0,
+          "frag_b": 1,
+          "i": 29,
+          "j": 4,
+          "delta_coupling": 0.815695677176933
+        },
+        {
+          "iter": 9,
+          "class": "occ",
+          "frag_a": 0,
+          "frag_b": 2,
+          "i": 22,
+          "j": 3,
+          "delta_coupling": 0.8043425513225841
+        },
+        {
+          "iter": 10,
+          "class": "occ",
+          "frag_a": 0,
+          "frag_b": 2,
+          "i": 24,
+          "j": 18,
+          "delta_coupling": 1.2740167229449142
+        },
+        {
+          "iter": 11,
+          "class": "occ",
+          "frag_a": 1,
+          "frag_b": 2,
+          "i": 1,
+          "j": 24,
+          "delta_coupling": 0.5958492501997412
+        }
+      ],
+      "coverage_check_passed": true,
+      "nonoverlap_check_passed": true,
+      "improvement_over_balanced_pct": 62.473461464432916
+    }
+  },
+  "not_used": "historical h1diag3 partition excluded entirely from this construction, per phase directive"
+}

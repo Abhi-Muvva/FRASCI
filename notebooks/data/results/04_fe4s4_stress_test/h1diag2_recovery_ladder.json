@@ -1,0 +1,283 @@
+{
+  "preflight": {
+    "parent_converged": true,
+    "parent_e_tot": -327.05248402672197,
+    "h00": -327.05248402672174,
+    "h00_diff_vs_e_tot": 2.2737367544323206e-13,
+    "certify_las_reconstruction_passed": true,
+    "fragment_support_sizes": [
+      1000,
+      324
+    ],
+    "cartesian_product": 324000
+  },
+  "points": {
+    "A_smoke": {
+      "label": "A_smoke",
+      "config": {
+        "las_top_k": 500,
+        "recovery_target": 500,
+        "free_coo_orbital_opt_max_iter": 20
+      },
+      "config_hash": "4c4dad9487657144",
+      "stopped": false,
+      "stop_reason": null,
+      "determinants": {
+        "P_R_requested": 500,
+        "P_R_achieved": 500,
+        "P_R_target_met": true,
+        "P_LAS_requested": 500,
+        "P_LAS_actual": 500,
+        "generalized_n_recovery": 500,
+        "union_n_dets": 324500,
+        "free_coo_n_dets": 1000
+      },
+      "energies_ha": {
+        "h00": -327.05248402672174,
+        "generalized": -327.05328144654214,
+        "exact_union": -327.0745557558388,
+        "free_coo": -327.06477307723856
+      },
+      "reference_ha": {
+        "value_ha": -327.192,
+        "kind": "whole-system phased TrimCI-COO (this project's own)",
+        "source": "docs/methods/fe4s4_reference_energies.md -- SAME basis as this FCIDUMP by construction (this FCIDUMP derives from this reference calculation), but itself documented as an UNDER-CONVERGED variational anchor, not the true ground state.",
+        "literature_estimates_ha": {
+          "DMRG_d4000": -327.24,
+          "TrimCI_extrapolated": -327.263,
+          "citation": "Zhang & Otten, arXiv:2511.14734 (2025) -- basis match vs this FCIDUMP is UNVERIFIED, carried as context only, not a certified comparison point."
+        }
+      },
+      "distance_to_reference_mha": {
+        "h00": 139.51597327826448,
+        "generalized": 138.71855345786344,
+        "exact_union": 117.44424416122001,
+        "free_coo": 127.22692276145153
+      },
+      "lowering_mha": {
+        "recovery_generalized": 0.7974198204010463,
+        "recovery_union": 22.07172911704447,
+        "free_coo": 8.483150240749637
+      },
+      "gates": {
+        "generalized": {
+          "E_hybrid_le_H00": true,
+          "E_hybrid_le_E_C": true,
+          "S_positive_semidefinite": true,
+          "c_dagger_S_c_eq_1": true,
+          "no_pt2_mixed_with_variational": true,
+          "generalized_residual_converged": true
+        },
+        "union_certificate": {
+          "e_final": -327.0745557558388,
+          "h00": -327.05248402672174,
+          "margin": 0.02207172911704447,
+          "tol": 1e-06,
+          "passed": true
+        },
+        "free_coo": {
+          "E_after_le_E_before": true
+        },
+        "free_coo_rotation_errors": {
+          "orthogonality": 3.863576125695545e-14,
+          "h1": 4.973799150320701e-14,
+          "eri": 4.6074255521944e-15
+        },
+        "all_pass": true
+      },
+      "wall_s_total": 445.68,
+      "wall_s_by_stage": {
+        "growth": 0.609,
+        "generalized_solve": 14.226,
+        "exact_union": 428.56,
+        "free_coo": 2.282
+      },
+      "free_coo_e_before": -327.0562899269978,
+      "free_coo_e_after": -327.06477307723856,
+      "las_certificate_passed": true,
+      "derived_common_baseline_mha": {
+        "note": "Additive, clearly-named derived fields (2026-09-26 correction) -- recovery_union in lowering_mha is H00-baselined (H00 - E_exact_union); free_coo in lowering_mha is e_before-baselined (E_free_coo_before - E_free_coo_after), a DIFFERENT baseline -- the two must not be compared directly. These fields put free-COO on the SAME H00 baseline as the exact-union figure, and give the direct absolute-energy comparison.",
+        "free_coo_total_lowering_from_h00_mha": 12.28905051681295,
+        "free_coo_minus_exact_union_mha": 9.78267860023152
+      }
+    },
+    "B_midpoint": {
+      "label": "B_midpoint",
+      "config": {
+        "las_top_k": 2000,
+        "recovery_target": 2000,
+        "free_coo_orbital_opt_max_iter": 50
+      },
+      "config_hash": "6e2e570567044035",
+      "stopped": false,
+      "stop_reason": null,
+      "determinants": {
+        "P_R_requested": 2000,
+        "P_R_achieved": 2000,
+        "P_R_target_met": true,
+        "P_LAS_requested": 2000,
+        "P_LAS_actual": 2000,
+        "generalized_n_recovery": 2000,
+        "union_n_dets": 326000,
+        "free_coo_n_dets": 4000
+      },
+      "energies_ha": {
+        "h00": -327.05248402672174,
+        "generalized": -327.05347246750426,
+        "exact_union": -327.07490922340395,
+        "free_coo": -327.08307793415656
+      },
+      "reference_ha": {
+        "value_ha": -327.192,
+        "kind": "whole-system phased TrimCI-COO (this project's own)",
+        "source": "docs/methods/fe4s4_reference_energies.md -- SAME basis as this FCIDUMP by construction (this FCIDUMP derives from this reference calculation), but itself documented as an UNDER-CONVERGED variational anchor, not the true ground state.",
+        "literature_estimates_ha": {
+          "DMRG_d4000": -327.24,
+          "TrimCI_extrapolated": -327.263,
+          "citation": "Zhang & Otten, arXiv:2511.14734 (2025) -- basis match vs this FCIDUMP is UNVERIFIED, carried as context only, not a certified comparison point."
+        }
+      },
+      "distance_to_reference_mha": {
+        "h00": 139.51597327826448,
+        "generalized": 138.52753249574334,
+        "exact_union": 117.09077659605782,
+        "free_coo": 108.92206584344422
+      },
+      "lowering_mha": {
+        "recovery_generalized": 0.9884407825211383,
+        "recovery_union": 22.42519668220666,
+        "free_coo": 20.644706847690486
+      },
+      "gates": {
+        "generalized": {
+          "E_hybrid_le_H00": true,
+          "E_hybrid_le_E_C": true,
+          "S_positive_semidefinite": true,
+          "c_dagger_S_c_eq_1": true,
+          "no_pt2_mixed_with_variational": true,
+          "generalized_residual_converged": true
+        },
+        "union_certificate": {
+          "e_final": -327.07490922340395,
+          "h00": -327.05248402672174,
+          "margin": 0.02242519668220666,
+          "tol": 1e-06,
+          "passed": true
+        },
+        "free_coo": {
+          "E_after_le_E_before": true
+        },
+        "free_coo_rotation_errors": {
+          "orthogonality": 1.5963008692665426e-11,
+          "h1": 8.348877145181177e-14,
+          "eri": 6.217248937900877e-15
+        },
+        "all_pass": true
+      },
+      "wall_s_total": 499.823,
+      "wall_s_by_stage": {
+        "growth": 1.165,
+        "generalized_solve": 58.685,
+        "exact_union": 425.256,
+        "free_coo": 14.716
+      },
+      "free_coo_e_before": -327.0624332273089,
+      "free_coo_e_after": -327.08307793415656,
+      "las_certificate_passed": true,
+      "derived_common_baseline_mha": {
+        "note": "Additive, clearly-named derived fields (2026-09-26 correction) -- recovery_union in lowering_mha is H00-baselined (H00 - E_exact_union); free_coo in lowering_mha is e_before-baselined (E_free_coo_before - E_free_coo_after), a DIFFERENT baseline -- the two must not be compared directly. These fields put free-COO on the SAME H00 baseline as the exact-union figure, and give the direct absolute-energy comparison.",
+        "free_coo_total_lowering_from_h00_mha": 30.593907434820267,
+        "free_coo_minus_exact_union_mha": -8.168710752613606
+      }
+    },
+    "C_upper": {
+      "label": "C_upper",
+      "config": {
+        "las_top_k": 5000,
+        "recovery_target": 5000,
+        "free_coo_orbital_opt_max_iter": 50
+      },
+      "config_hash": "d1e1c6a0079e5b83",
+      "stopped": false,
+      "stop_reason": null,
+      "determinants": {
+        "P_R_requested": 5000,
+        "P_R_achieved": 5000,
+        "P_R_target_met": true,
+        "P_LAS_requested": 5000,
+        "P_LAS_actual": 5000,
+        "generalized_n_recovery": 5000,
+        "union_n_dets": 329000,
+        "free_coo_n_dets": 10000
+      },
+      "energies_ha": {
+        "h00": -327.05248402672174,
+        "generalized": -327.05422180393896,
+        "exact_union": -327.0760124890227,
+        "free_coo": -327.09543009264814
+      },
+      "reference_ha": {
+        "value_ha": -327.192,
+        "kind": "whole-system phased TrimCI-COO (this project's own)",
+        "source": "docs/methods/fe4s4_reference_energies.md -- SAME basis as this FCIDUMP by construction (this FCIDUMP derives from this reference calculation), but itself documented as an UNDER-CONVERGED variational anchor, not the true ground state.",
+        "literature_estimates_ha": {
+          "DMRG_d4000": -327.24,
+          "TrimCI_extrapolated": -327.263,
+          "citation": "Zhang & Otten, arXiv:2511.14734 (2025) -- basis match vs this FCIDUMP is UNVERIFIED, carried as context only, not a certified comparison point."
+        }
+      },
+      "distance_to_reference_mha": {
+        "h00": 139.51597327826448,
+        "generalized": 137.77819606104913,
+        "exact_union": 115.98751097733384,
+        "free_coo": 96.56990735186355
+      },
+      "lowering_mha": {
+        "recovery_generalized": 1.7377772172153527,
+        "recovery_union": 23.52846230093064,
+        "free_coo": 28.17119129343837
+      },
+      "gates": {
+        "generalized": {
+          "E_hybrid_le_H00": true,
+          "E_hybrid_le_E_C": true,
+          "S_positive_semidefinite": true,
+          "c_dagger_S_c_eq_1": true,
+          "no_pt2_mixed_with_variational": true,
+          "generalized_residual_converged": true
+        },
+        "union_certificate": {
+          "e_final": -327.0760124890227,
+          "h00": -327.05248402672174,
+          "margin": 0.02352846230093064,
+          "tol": 1e-06,
+          "passed": true
+        },
+        "free_coo": {
+          "E_after_le_E_before": true
+        },
+        "free_coo_rotation_errors": {
+          "orthogonality": 1.2811973704174306e-13,
+          "h1": 8.704148513061227e-14,
+          "eri": 7.438494264988549e-15
+        },
+        "all_pass": true
+      },
+      "wall_s_total": 641.849,
+      "wall_s_by_stage": {
+        "growth": 3.508,
+        "generalized_solve": 171.474,
+        "exact_union": 420.764,
+        "free_coo": 46.102
+      },
+      "free_coo_e_before": -327.0672589013547,
+      "free_coo_e_after": -327.09543009264814,
+      "las_certificate_passed": true,
+      "derived_common_baseline_mha": {
+        "note": "Additive, clearly-named derived fields (2026-09-26 correction) -- recovery_union in lowering_mha is H00-baselined (H00 - E_exact_union); free_coo in lowering_mha is e_before-baselined (E_free_coo_before - E_free_coo_after), a DIFFERENT baseline -- the two must not be compared directly. These fields put free-COO on the SAME H00 baseline as the exact-union figure, and give the direct absolute-energy comparison.",
+        "free_coo_total_lowering_from_h00_mha": 42.946065926400934,
+        "free_coo_minus_exact_union_mha": -19.417603625470292
+      }
+    }
+  }
+}

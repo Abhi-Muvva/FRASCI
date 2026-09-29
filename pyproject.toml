@@ -1,0 +1,35 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "frasci"
+version = "0.2.0.dev0"
+description = "FRAgment-based Selected CI -- orbital-optimized selected CI for large active spaces"
+requires-python = ">=3.12"
+dependencies = [
+  "numpy>=2.4",
+  "scipy>=1.17",
+  "pyscf",
+  # Pinned to the FRASCI-specific fork's published commit, not the stock "trimci"
+  # release: recovery/free-COO needs RecoveryPolicy, make_sector_constraint_64,
+  # ExpansionConfig.allowed_orbital_pairs, and seed_trim_rngs, none of which exist
+  # in a stock trimci install. This repository is private; installing requires
+  # GitHub credentials for the Abhi-Muvva account (HTTPS via `gh auth login`, or
+  # an SSH key registered to that account).
+  "trimci @ git+https://github.com/Abhi-Muvva/TrimCI-FRASCI.git@027cb57ba2cbd811bea1230ad51af76259528785",
+  "mrh @ git+https://github.com/MatthewRHermes/mrh.git@a65600830b8ef7be963dcc203057ebf6baf7dbc4",
+]
+
+[project.optional-dependencies]
+notebooks = [
+  "jupyter>=1.1",
+  "matplotlib>=3.10",
+  "nbconvert>=7.17",
+  "pandas>=3.0",
+]
+benchmark = ["PyYAML>=6.0"]
+test = ["pytest>=9.0"]
+
+[tool.setuptools.packages.find]
+include = ["frasci*"]

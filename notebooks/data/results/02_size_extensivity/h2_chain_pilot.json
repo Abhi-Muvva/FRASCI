@@ -1,0 +1,141 @@
+{
+  "_manifest": {
+    "stage": "pilot",
+    "frozen_2026-09-26": true,
+    "content_sha256": "b06f14040a45fee9f839f44ef519df4421d759f7ba2fc3ee6283043da38b51ff",
+    "note": "Frozen pilot record -- do not overwrite. Production runs write to separate files (see PRODUCTION_MANIFEST convention) with their own config-hash-keyed filenames."
+  },
+  "data": {
+    "smoke": [
+      {
+        "system": "h2_n1",
+        "physical_space": "(2e,2o)",
+        "workflow": "phased_parent_recovery",
+        "config": {
+          "phase1_dets": 50,
+          "recovery_target": 20,
+          "las_top_k": 200,
+          "n_ct_max": 2
+        },
+        "energies_ha": {
+          "h00": -1.1372759436170443,
+          "generalized": -1.1372759436170443,
+          "union": -1.1372759436170443,
+          "free_coo": -1.1372759436170439
+        },
+        "determinants": {
+          "requested": 20,
+          "achieved": 0,
+          "target_met": false,
+          "phase1_dets_requested": 50,
+          "dets_per_frag_achieved": [
+            4
+          ]
+        },
+        "gates": {
+          "E_hybrid_le_H00": true,
+          "parent_converged": true
+        },
+        "wall_s": {
+          "fcidump_build": 0.082,
+          "parent": 0.069,
+          "recovery": 0.003,
+          "total": 0.155
+        },
+        "free_coo_gain_mha": 0.0
+      },
+      {
+        "system": "h2_n2",
+        "physical_space": "(4e,4o)",
+        "workflow": "phased_parent_recovery",
+        "config": {
+          "phase1_dets": 50,
+          "recovery_target": 20,
+          "las_top_k": 200,
+          "n_ct_max": 2
+        },
+        "energies_ha": {
+          "h00": -2.2745129772624786,
+          "generalized": -2.2745154150411637,
+          "union": -2.274539878508696,
+          "free_coo": -2.2745398785086977
+        },
+        "determinants": {
+          "requested": 20,
+          "achieved": 20,
+          "target_met": true,
+          "phase1_dets_requested": 50,
+          "dets_per_frag_achieved": [
+            4,
+            4
+          ]
+        },
+        "gates": {
+          "E_hybrid_le_H00": true,
+          "E_hybrid_le_E_C": true,
+          "S_positive_semidefinite": true,
+          "c_dagger_S_c_eq_1": true,
+          "no_pt2_mixed_with_variational": true,
+          "generalized_residual_converged": true,
+          "parent_converged": true
+        },
+        "wall_s": {
+          "fcidump_build": 0.023,
+          "parent": 0.234,
+          "recovery": 0.014,
+          "total": 0.271
+        },
+        "free_coo_gain_mha": 8.881784197001252e-13
+      }
+    ],
+    "pilot_N8": {
+      "system": "h2_n8",
+      "physical_space": "(16e,16o)",
+      "workflow": "phased_parent_recovery",
+      "config": {
+        "phase1_dets": 200,
+        "recovery_target": 2000,
+        "las_top_k": 2000,
+        "n_ct_max": 2
+      },
+      "energies_ha": {
+        "h00": -9.097929010592988,
+        "generalized": -9.097929057635797,
+        "union": -9.098103369366342,
+        "free_coo": -5.978309652943189
+      },
+      "determinants": {
+        "requested": 2000,
+        "achieved": 2000,
+        "target_met": true,
+        "phase1_dets_requested": 200,
+        "dets_per_frag_achieved": [
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4
+        ]
+      },
+      "gates": {
+        "E_hybrid_le_H00": true,
+        "E_hybrid_le_E_C": true,
+        "S_positive_semidefinite": true,
+        "c_dagger_S_c_eq_1": true,
+        "no_pt2_mixed_with_variational": true,
+        "generalized_residual_converged": true,
+        "parent_converged": true
+      },
+      "wall_s": {
+        "fcidump_build": 0.034,
+        "parent": 1.031,
+        "recovery": 18.037,
+        "total": 19.102
+      },
+      "free_coo_gain_mha": 11.541396353532463
+    }
+  }
+}

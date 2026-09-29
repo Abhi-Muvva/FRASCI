@@ -1,0 +1,47 @@
+{
+  "_manifest": {
+    "stage": "h1diag2_one_factor_sensitivity",
+    "date": "2026-09-23",
+    "source": "Frozen subset of results/free_coo_scaling_h1diag2/summary.jsonl",
+    "note": "These one-factor sweeps use an earlier converged h1diag2 parent (H00=-327.0516994835362 Ha, selected fragment supports [500,324]), not the fresh Part-C parent in h1diag2_joint_sweep.json (H00=-327.05282363243225 Ha, supports [1000,324]). Use H00-relative trends within this file only; do not mix its absolute energies with the Part-C diagonal ladder.",
+    "all_points_completed": true,
+    "all_free_coo_variational_gates_passed": true
+  },
+  "parent": {
+    "converged": true,
+    "h00_ha": -327.0516994835362,
+    "fragment_support_sizes": [500, 324],
+    "las_product_ceiling": 162000
+  },
+  "axes": {
+    "p_las": {
+      "fixed": {"p_r": 10000, "bfgs_steps": 100},
+      "points": [
+        {"cap": 10, "actual": 10, "e_before_ha": -327.015027873527, "e_after_ha": -327.070359568326, "orbital_gain_mha": 55.331695},
+        {"cap": 50, "actual": 50, "e_before_ha": -327.058651365451, "e_after_ha": -327.089750443730, "orbital_gain_mha": 31.099078},
+        {"cap": 100, "actual": 100, "e_before_ha": -327.067588368658, "e_after_ha": -327.094901081027, "orbital_gain_mha": 27.312712},
+        {"cap": 500, "actual": 500, "e_before_ha": -327.076652659992, "e_after_ha": -327.1036126696075, "orbital_gain_mha": 26.960010},
+        {"cap": 1000, "actual": 1000, "e_before_ha": -327.078759377895, "e_after_ha": -327.105825491993, "orbital_gain_mha": 27.066114},
+        {"cap": 2500, "actual": 2500, "e_before_ha": -327.083032765143, "e_after_ha": -327.109286872346, "orbital_gain_mha": 26.254107},
+        {"cap": 5000, "actual": 5000, "e_before_ha": -327.085222288527, "e_after_ha": -327.112360267268, "orbital_gain_mha": 27.137979},
+        {"cap": 10000, "actual": 10000, "e_before_ha": -327.087296616548, "e_after_ha": -327.114520880498, "orbital_gain_mha": 27.224264},
+        {"cap": 25000, "actual": 25000, "e_before_ha": -327.089634000002, "e_after_ha": -327.115013214291, "orbital_gain_mha": 25.379214},
+        {"cap": 50000, "actual": 50000, "e_before_ha": -327.090464080744, "e_after_ha": -327.115298521104, "orbital_gain_mha": 24.834440}
+      ]
+    },
+    "p_r": {
+      "fixed": {"p_las": 1000, "bfgs_steps": 100},
+      "points": [
+        {"cap": 10, "actual": 10, "e_before_ha": -327.058035846839, "e_after_ha": -327.078656065362, "orbital_gain_mha": 20.620219},
+        {"cap": 50, "actual": 50, "e_before_ha": -327.058041151832, "e_after_ha": -327.078917174752, "orbital_gain_mha": 20.876023},
+        {"cap": 100, "actual": 100, "e_before_ha": -327.058061435160, "e_after_ha": -327.079578915770, "orbital_gain_mha": 21.517481},
+        {"cap": 500, "actual": 500, "e_before_ha": -327.059252443018, "e_after_ha": -327.082477348393, "orbital_gain_mha": 23.224905},
+        {"cap": 1000, "actual": 1000, "e_before_ha": -327.059274982561, "e_after_ha": -327.082435900952, "orbital_gain_mha": 23.160918},
+        {"cap": 2500, "actual": 2500, "e_before_ha": -327.059456969948, "e_after_ha": -327.082654499811, "orbital_gain_mha": 23.197530},
+        {"cap": 5000, "actual": 5000, "e_before_ha": -327.060276596772, "e_after_ha": -327.082942252227, "orbital_gain_mha": 22.665655},
+        {"cap": 10000, "actual": 10000, "e_before_ha": -327.078759377895, "e_after_ha": -327.105825491993, "orbital_gain_mha": 27.066114},
+        {"cap": 20000, "actual": 20000, "e_before_ha": -327.081360565482, "e_after_ha": -327.109157036259, "orbital_gain_mha": 27.796471}
+      ]
+    }
+  }
+}

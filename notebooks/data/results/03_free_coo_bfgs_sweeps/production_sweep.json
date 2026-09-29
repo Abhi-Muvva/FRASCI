@@ -1,0 +1,930 @@
+{
+  "_manifest": {
+    "stage": "production",
+    "date": "2026-09-26"
+  },
+  "systems": {
+    "alfe2_11o20e": {
+      "parent": {
+        "converged": true,
+        "e_tot": -3971.890269155861,
+        "dets_per_frag": [
+          1000,
+          252
+        ],
+        "wall_s": 107.635
+      },
+      "points": {
+        "P_LAS=1000": {
+          "config": {
+            "las_top_k": 1000,
+            "recovery_target": 10000,
+            "free_coo_orbital_opt_max_iter": 50
+          },
+          "config_hash": "fa77c9d8e2aa4dba",
+          "failed": false,
+          "energies_ha": {
+            "h00": -3971.890269155861,
+            "generalized": -3971.8920273866097,
+            "union": -3971.892032520683,
+            "free_coo": -3971.892022254257
+          },
+          "determinants": {
+            "requested": 10000,
+            "achieved": 10000,
+            "target_met": true,
+            "free_coo_las_top_k_requested": 1000,
+            "free_coo_n_las_achieved": 1000
+          },
+          "gates": {
+            "E_hybrid_le_H00": true,
+            "E_hybrid_le_E_C": true,
+            "S_positive_semidefinite": true,
+            "c_dagger_S_c_eq_1": true,
+            "generalized_residual_converged": true,
+            "no_pt2_mixed_with_variational": true
+          },
+          "free_coo_gain_mha": 0.011759805147448787,
+          "wall_s": 122.068
+        },
+        "P_LAS=5000": {
+          "config": {
+            "las_top_k": 5000,
+            "recovery_target": 10000,
+            "free_coo_orbital_opt_max_iter": 50
+          },
+          "config_hash": "161356629db6c649",
+          "failed": false,
+          "energies_ha": {
+            "h00": -3971.890269155861,
+            "generalized": -3971.8920273866097,
+            "union": -3971.892032520683,
+            "free_coo": -3971.8920415948796
+          },
+          "determinants": {
+            "requested": 10000,
+            "achieved": 10000,
+            "target_met": true,
+            "free_coo_las_top_k_requested": 5000,
+            "free_coo_n_las_achieved": 5000
+          },
+          "gates": {
+            "E_hybrid_le_H00": true,
+            "E_hybrid_le_E_C": true,
+            "S_positive_semidefinite": true,
+            "c_dagger_S_c_eq_1": true,
+            "generalized_residual_converged": true,
+            "no_pt2_mixed_with_variational": true
+          },
+          "free_coo_gain_mha": 0.010116032626683591,
+          "wall_s": 137.723
+        },
+        "P_LAS=10000": {
+          "config": {
+            "las_top_k": 10000,
+            "recovery_target": 10000,
+            "free_coo_orbital_opt_max_iter": 50
+          },
+          "config_hash": "bf8109f9abb155df",
+          "failed": false,
+          "energies_ha": {
+            "h00": -3971.890269155861,
+            "generalized": -3971.8920273866097,
+            "union": -3971.892032520683,
+            "free_coo": -3971.8920418659336
+          },
+          "determinants": {
+            "requested": 10000,
+            "achieved": 10000,
+            "target_met": true,
+            "free_coo_las_top_k_requested": 10000,
+            "free_coo_n_las_achieved": 10000
+          },
+          "gates": {
+            "E_hybrid_le_H00": true,
+            "E_hybrid_le_E_C": true,
+            "S_positive_semidefinite": true,
+            "c_dagger_S_c_eq_1": true,
+            "generalized_residual_converged": true,
+            "no_pt2_mixed_with_variational": true
+          },
+          "free_coo_gain_mha": 0.00972803172771819,
+          "wall_s": 128.889
+        },
+        "P_LAS=20000": {
+          "config": {
+            "las_top_k": 20000,
+            "recovery_target": 10000,
+            "free_coo_orbital_opt_max_iter": 50
+          },
+          "config_hash": "e8bebc5d0563719b",
+          "failed": false,
+          "energies_ha": {
+            "h00": -3971.890269155861,
+            "generalized": -3971.8920273866097,
+            "union": -3971.892032520683,
+            "free_coo": -3971.8920419393576
+          },
+          "determinants": {
+            "requested": 10000,
+            "achieved": 10000,
+            "target_met": true,
+            "free_coo_las_top_k_requested": 20000,
+            "free_coo_n_las_achieved": 20000
+          },
+          "gates": {
+            "E_hybrid_le_H00": true,
+            "E_hybrid_le_E_C": true,
+            "S_positive_semidefinite": true,
+            "c_dagger_S_c_eq_1": true,
+            "generalized_residual_converged": true,
+            "no_pt2_mixed_with_variational": true
+          },
+          "free_coo_gain_mha": 0.00970653763943119,
+          "wall_s": 141.07
+        },
+        "P_LAS=50000": {
+          "config": {
+            "las_top_k": 50000,
+            "recovery_target": 10000,
+            "free_coo_orbital_opt_max_iter": 50
+          },
+          "config_hash": "3579b69fc50a5b42",
+          "failed": false,
+          "energies_ha": {
+            "h00": -3971.890269155861,
+            "generalized": -3971.8920273866097,
+            "union": -3971.892032520683,
+            "free_coo": -3971.892042255325
+          },
+          "determinants": {
+            "requested": 10000,
+            "achieved": 10000,
+            "target_met": true,
+            "free_coo_las_top_k_requested": 50000,
+            "free_coo_n_las_achieved": 50000
+          },
+          "gates": {
+            "E_hybrid_le_H00": true,
+            "E_hybrid_le_E_C": true,
+            "S_positive_semidefinite": true,
+            "c_dagger_S_c_eq_1": true,
+            "generalized_residual_converged": true,
+            "no_pt2_mixed_with_variational": true
+          },
+          "free_coo_gain_mha": 0.009945916644937824,
+          "wall_s": 151.377
+        },
+        "P_R=1000": {
+          "config": {
+            "las_top_k": 10000,
+            "recovery_target": 1000,
+            "free_coo_orbital_opt_max_iter": 50
+          },
+          "config_hash": "444cb5945b7e1942",
+          "failed": false,
+          "energies_ha": {
+            "h00": -3971.890269155861,
+            "generalized": -3971.8903959006543,
+            "union": -3971.890396526057,
+            "free_coo": -3971.890410797366
+          },
+          "determinants": {
+            "requested": 1000,
+            "achieved": 1000,
+            "target_met": true,
+            "free_coo_las_top_k_requested": 10000,
+            "free_coo_n_las_achieved": 10000
+          },
+          "gates": {
+            "E_hybrid_le_H00": true,
+            "E_hybrid_le_E_C": true,
+            "S_positive_semidefinite": true,
+            "c_dagger_S_c_eq_1": true,
+            "no_pt2_mixed_with_variational": true,
+            "generalized_residual_converged": true
+          },
+          "free_coo_gain_mha": 0.0145269059430575,
+          "wall_s": 34.158
+        },
+        "P_R=5000": {
+          "config": {
+            "las_top_k": 10000,
+            "recovery_target": 5000,
+            "free_coo_orbital_opt_max_iter": 50
+          },
+          "config_hash": "beb040ded5548d8c",
+          "failed": false,
+          "energies_ha": {
+            "h00": -3971.890269155861,
+            "generalized": -3971.891958131714,
+            "union": -3971.8919631756016,
+            "free_coo": -3971.8919766520366
+          },
+          "determinants": {
+            "requested": 5000,
+            "achieved": 5000,
+            "target_met": true,
+            "free_coo_las_top_k_requested": 10000,
+            "free_coo_n_las_achieved": 10000
+          },
+          "gates": {
+            "E_hybrid_le_H00": true,
+            "E_hybrid_le_E_C": true,
+            "S_positive_semidefinite": true,
+            "c_dagger_S_c_eq_1": true,
+            "no_pt2_mixed_with_variational": true,
+            "generalized_residual_converged": true
+          },
+          "free_coo_gain_mha": 0.013849669812771026,
+          "wall_s": 96.368
+        },
+        "P_R=10000": {
+          "config": {
+            "las_top_k": 10000,
+            "recovery_target": 10000,
+            "free_coo_orbital_opt_max_iter": 50
+          },
+          "config_hash": "bf8109f9abb155df",
+          "failed": false,
+          "energies_ha": {
+            "h00": -3971.890269155861,
+            "generalized": -3971.8920273866097,
+            "union": -3971.892032520683,
+            "free_coo": -3971.8920418659336
+          },
+          "determinants": {
+            "requested": 10000,
+            "achieved": 10000,
+            "target_met": true,
+            "free_coo_las_top_k_requested": 10000,
+            "free_coo_n_las_achieved": 10000
+          },
+          "gates": {
+            "E_hybrid_le_H00": true,
+            "E_hybrid_le_E_C": true,
+            "S_positive_semidefinite": true,
+            "c_dagger_S_c_eq_1": true,
+            "generalized_residual_converged": true,
+            "no_pt2_mixed_with_variational": true
+          },
+          "free_coo_gain_mha": 0.00972803172771819,
+          "wall_s": 115.625
+        },
+        "P_R=20000": {
+          "config": {
+            "las_top_k": 10000,
+            "recovery_target": 20000,
+            "free_coo_orbital_opt_max_iter": 50
+          },
+          "config_hash": "3bfbc9be2a2aef1d",
+          "failed": false,
+          "energies_ha": {
+            "h00": -3971.890269155861,
+            "generalized": -3971.8920996342663,
+            "union": -3971.892105062077,
+            "free_coo": -3971.8921198479616
+          },
+          "determinants": {
+            "requested": 20000,
+            "achieved": 20000,
+            "target_met": true,
+            "free_coo_las_top_k_requested": 10000,
+            "free_coo_n_las_achieved": 10000
+          },
+          "gates": {
+            "E_hybrid_le_H00": true,
+            "E_hybrid_le_E_C": true,
+            "S_positive_semidefinite": true,
+            "c_dagger_S_c_eq_1": true,
+            "generalized_residual_converged": true,
+            "no_pt2_mixed_with_variational": true
+          },
+          "free_coo_gain_mha": 0.015180039099504938,
+          "wall_s": 189.067
+        },
+        "BFGS=20": {
+          "config": {
+            "las_top_k": 10000,
+            "recovery_target": 10000,
+            "free_coo_orbital_opt_max_iter": 20
+          },
+          "config_hash": "1aa094ec1c97cf9a",
+          "failed": false,
+          "energies_ha": {
+            "h00": -3971.890269155861,
+            "generalized": -3971.8920273866097,
+            "union": -3971.892032520683,
+            "free_coo": -3971.8920418585617
+          },
+          "determinants": {
+            "requested": 10000,
+            "achieved": 10000,
+            "target_met": true,
+            "free_coo_las_top_k_requested": 10000,
+            "free_coo_n_las_achieved": 10000
+          },
+          "gates": {
+            "E_hybrid_le_H00": true,
+            "E_hybrid_le_E_C": true,
+            "S_positive_semidefinite": true,
+            "c_dagger_S_c_eq_1": true,
+            "generalized_residual_converged": true,
+            "no_pt2_mixed_with_variational": true
+          },
+          "free_coo_gain_mha": 0.009720659818412969,
+          "wall_s": 113.379
+        },
+        "BFGS=50": {
+          "config": {
+            "las_top_k": 10000,
+            "recovery_target": 10000,
+            "free_coo_orbital_opt_max_iter": 50
+          },
+          "config_hash": "bf8109f9abb155df",
+          "failed": false,
+          "energies_ha": {
+            "h00": -3971.890269155861,
+            "generalized": -3971.8920273866097,
+            "union": -3971.892032520683,
+            "free_coo": -3971.8920418659336
+          },
+          "determinants": {
+            "requested": 10000,
+            "achieved": 10000,
+            "target_met": true,
+            "free_coo_las_top_k_requested": 10000,
+            "free_coo_n_las_achieved": 10000
+          },
+          "gates": {
+            "E_hybrid_le_H00": true,
+            "E_hybrid_le_E_C": true,
+            "S_positive_semidefinite": true,
+            "c_dagger_S_c_eq_1": true,
+            "generalized_residual_converged": true,
+            "no_pt2_mixed_with_variational": true
+          },
+          "free_coo_gain_mha": 0.00972803172771819,
+          "wall_s": 142.107
+        },
+        "BFGS=100": {
+          "config": {
+            "las_top_k": 10000,
+            "recovery_target": 10000,
+            "free_coo_orbital_opt_max_iter": 100
+          },
+          "config_hash": "d4abdc409b25576c",
+          "failed": false,
+          "energies_ha": {
+            "h00": -3971.890269155861,
+            "generalized": -3971.8920273866097,
+            "union": -3971.892032520683,
+            "free_coo": -3971.8920418659336
+          },
+          "determinants": {
+            "requested": 10000,
+            "achieved": 10000,
+            "target_met": true,
+            "free_coo_las_top_k_requested": 10000,
+            "free_coo_n_las_achieved": 10000
+          },
+          "gates": {
+            "E_hybrid_le_H00": true,
+            "E_hybrid_le_E_C": true,
+            "S_positive_semidefinite": true,
+            "c_dagger_S_c_eq_1": true,
+            "generalized_residual_converged": true,
+            "no_pt2_mixed_with_variational": true
+          },
+          "free_coo_gain_mha": 0.00972803172771819,
+          "wall_s": 129.137
+        },
+        "BFGS=150": {
+          "config": {
+            "las_top_k": 10000,
+            "recovery_target": 10000,
+            "free_coo_orbital_opt_max_iter": 150
+          },
+          "config_hash": "a9c55dfc2c981912",
+          "failed": false,
+          "energies_ha": {
+            "h00": -3971.890269155861,
+            "generalized": -3971.8920273866097,
+            "union": -3971.892032520683,
+            "free_coo": -3971.8920418659336
+          },
+          "determinants": {
+            "requested": 10000,
+            "achieved": 10000,
+            "target_met": true,
+            "free_coo_las_top_k_requested": 10000,
+            "free_coo_n_las_achieved": 10000
+          },
+          "gates": {
+            "E_hybrid_le_H00": true,
+            "E_hybrid_le_E_C": true,
+            "S_positive_semidefinite": true,
+            "c_dagger_S_c_eq_1": true,
+            "generalized_residual_converged": true,
+            "no_pt2_mixed_with_variational": true
+          },
+          "free_coo_gain_mha": 0.00972803172771819,
+          "wall_s": 138.651
+        },
+        "combined_best": {
+          "config": {
+            "las_top_k": 1000,
+            "recovery_target": 20000,
+            "free_coo_orbital_opt_max_iter": 50
+          },
+          "config_hash": "a143abea5f85f244",
+          "failed": false,
+          "energies_ha": {
+            "h00": -3971.890269155861,
+            "generalized": -3971.8920996342663,
+            "union": -3971.892105062077,
+            "free_coo": -3971.8921003843648
+          },
+          "determinants": {
+            "requested": 20000,
+            "achieved": 20000,
+            "target_met": true,
+            "free_coo_las_top_k_requested": 1000,
+            "free_coo_n_las_achieved": 1000
+          },
+          "gates": {
+            "E_hybrid_le_H00": true,
+            "E_hybrid_le_E_C": true,
+            "S_positive_semidefinite": true,
+            "c_dagger_S_c_eq_1": true,
+            "generalized_residual_converged": true,
+            "no_pt2_mixed_with_variational": true
+          },
+          "free_coo_gain_mha": 0.017545613900438184,
+          "wall_s": 246.905
+        }
+      }
+    },
+    "fes_dimer_3minus": {
+      "parent": {
+        "converged": true,
+        "e_tot": -5068.747825360229,
+        "dets_per_frag": [
+          1000,
+          252
+        ],
+        "wall_s": 112.434
+      },
+      "points": {
+        "P_LAS=1000": {
+          "config": {
+            "las_top_k": 1000,
+            "recovery_target": 10000,
+            "free_coo_orbital_opt_max_iter": 50
+          },
+          "config_hash": "fa77c9d8e2aa4dba",
+          "failed": false,
+          "energies_ha": {
+            "h00": -5068.747825360229,
+            "generalized": -5068.754884297775,
+            "union": -5068.754983183753,
+            "free_coo": -5068.754985862961
+          },
+          "determinants": {
+            "requested": 10000,
+            "achieved": 10000,
+            "target_met": true,
+            "free_coo_las_top_k_requested": 1000,
+            "free_coo_n_las_achieved": 1000
+          },
+          "gates": {
+            "E_hybrid_le_H00": true,
+            "E_hybrid_le_E_C": true,
+            "S_positive_semidefinite": true,
+            "c_dagger_S_c_eq_1": true,
+            "generalized_residual_converged": true,
+            "no_pt2_mixed_with_variational": true
+          },
+          "free_coo_gain_mha": 0.1007672663035919,
+          "wall_s": 240.693
+        },
+        "P_LAS=5000": {
+          "config": {
+            "las_top_k": 5000,
+            "recovery_target": 10000,
+            "free_coo_orbital_opt_max_iter": 50
+          },
+          "config_hash": "161356629db6c649",
+          "failed": false,
+          "energies_ha": {
+            "h00": -5068.747825360229,
+            "generalized": -5068.754884297775,
+            "union": -5068.754983183753,
+            "free_coo": -5068.7550124063955
+          },
+          "determinants": {
+            "requested": 10000,
+            "achieved": 10000,
+            "target_met": true,
+            "free_coo_las_top_k_requested": 5000,
+            "free_coo_n_las_achieved": 5000
+          },
+          "gates": {
+            "E_hybrid_le_H00": true,
+            "E_hybrid_le_E_C": true,
+            "S_positive_semidefinite": true,
+            "c_dagger_S_c_eq_1": true,
+            "generalized_residual_converged": true,
+            "no_pt2_mixed_with_variational": true
+          },
+          "free_coo_gain_mha": 0.0738190265110461,
+          "wall_s": 242.674
+        },
+        "P_LAS=10000": {
+          "config": {
+            "las_top_k": 10000,
+            "recovery_target": 10000,
+            "free_coo_orbital_opt_max_iter": 50
+          },
+          "config_hash": "bf8109f9abb155df",
+          "failed": false,
+          "energies_ha": {
+            "h00": -5068.747825360229,
+            "generalized": -5068.754884297775,
+            "union": -5068.754983183753,
+            "free_coo": -5068.75501362471
+          },
+          "determinants": {
+            "requested": 10000,
+            "achieved": 10000,
+            "target_met": true,
+            "free_coo_las_top_k_requested": 10000,
+            "free_coo_n_las_achieved": 10000
+          },
+          "gates": {
+            "E_hybrid_le_H00": true,
+            "E_hybrid_le_E_C": true,
+            "S_positive_semidefinite": true,
+            "c_dagger_S_c_eq_1": true,
+            "generalized_residual_converged": true,
+            "no_pt2_mixed_with_variational": true
+          },
+          "free_coo_gain_mha": 0.05303294710756745,
+          "wall_s": 273.641
+        },
+        "P_LAS=20000": {
+          "config": {
+            "las_top_k": 20000,
+            "recovery_target": 10000,
+            "free_coo_orbital_opt_max_iter": 50
+          },
+          "config_hash": "e8bebc5d0563719b",
+          "failed": false,
+          "energies_ha": {
+            "h00": -5068.747825360229,
+            "generalized": -5068.754884297775,
+            "union": -5068.754983183753,
+            "free_coo": -5068.755019210711
+          },
+          "determinants": {
+            "requested": 10000,
+            "achieved": 10000,
+            "target_met": true,
+            "free_coo_las_top_k_requested": 20000,
+            "free_coo_n_las_achieved": 20000
+          },
+          "gates": {
+            "E_hybrid_le_H00": true,
+            "E_hybrid_le_E_C": true,
+            "S_positive_semidefinite": true,
+            "c_dagger_S_c_eq_1": true,
+            "generalized_residual_converged": true,
+            "no_pt2_mixed_with_variational": true
+          },
+          "free_coo_gain_mha": 0.03989828383055283,
+          "wall_s": 293.268
+        },
+        "P_LAS=50000": {
+          "config": {
+            "las_top_k": 50000,
+            "recovery_target": 10000,
+            "free_coo_orbital_opt_max_iter": 50
+          },
+          "config_hash": "3579b69fc50a5b42",
+          "failed": false,
+          "energies_ha": {
+            "h00": -5068.747825360229,
+            "generalized": -5068.754884297775,
+            "union": -5068.754983183753,
+            "free_coo": -5068.7550632453585
+          },
+          "determinants": {
+            "requested": 10000,
+            "achieved": 10000,
+            "target_met": true,
+            "free_coo_las_top_k_requested": 50000,
+            "free_coo_n_las_achieved": 50000
+          },
+          "gates": {
+            "E_hybrid_le_H00": true,
+            "E_hybrid_le_E_C": true,
+            "S_positive_semidefinite": true,
+            "c_dagger_S_c_eq_1": true,
+            "generalized_residual_converged": true,
+            "no_pt2_mixed_with_variational": true
+          },
+          "free_coo_gain_mha": 0.08239862108894158,
+          "wall_s": 352.014
+        },
+        "P_R=1000": {
+          "config": {
+            "las_top_k": 10000,
+            "recovery_target": 1000,
+            "free_coo_orbital_opt_max_iter": 50
+          },
+          "config_hash": "444cb5945b7e1942",
+          "failed": false,
+          "energies_ha": {
+            "h00": -5068.747825360229,
+            "generalized": -5068.748084076239,
+            "union": -5068.748086846059,
+            "free_coo": -5068.748127927668
+          },
+          "determinants": {
+            "requested": 1000,
+            "achieved": 1000,
+            "target_met": true,
+            "free_coo_las_top_k_requested": 10000,
+            "free_coo_n_las_achieved": 10000
+          },
+          "gates": {
+            "E_hybrid_le_H00": true,
+            "E_hybrid_le_E_C": true,
+            "S_positive_semidefinite": true,
+            "c_dagger_S_c_eq_1": true,
+            "no_pt2_mixed_with_variational": true,
+            "generalized_residual_converged": true
+          },
+          "free_coo_gain_mha": 0.04228254965710221,
+          "wall_s": 126.2
+        },
+        "P_R=5000": {
+          "config": {
+            "las_top_k": 10000,
+            "recovery_target": 5000,
+            "free_coo_orbital_opt_max_iter": 50
+          },
+          "config_hash": "beb040ded5548d8c",
+          "failed": false,
+          "energies_ha": {
+            "h00": -5068.747825360229,
+            "generalized": -5068.748677156472,
+            "union": -5068.7486822321625,
+            "free_coo": -5068.748925887977
+          },
+          "determinants": {
+            "requested": 5000,
+            "achieved": 5000,
+            "target_met": true,
+            "free_coo_las_top_k_requested": 10000,
+            "free_coo_n_las_achieved": 10000
+          },
+          "gates": {
+            "E_hybrid_le_H00": true,
+            "E_hybrid_le_E_C": true,
+            "S_positive_semidefinite": true,
+            "c_dagger_S_c_eq_1": true,
+            "no_pt2_mixed_with_variational": true,
+            "generalized_residual_converged": true
+          },
+          "free_coo_gain_mha": 0.2454282885082648,
+          "wall_s": 186.75
+        },
+        "P_R=10000": {
+          "config": {
+            "las_top_k": 10000,
+            "recovery_target": 10000,
+            "free_coo_orbital_opt_max_iter": 50
+          },
+          "config_hash": "bf8109f9abb155df",
+          "failed": false,
+          "energies_ha": {
+            "h00": -5068.747825360229,
+            "generalized": -5068.754884297775,
+            "union": -5068.754983183753,
+            "free_coo": -5068.75501362471
+          },
+          "determinants": {
+            "requested": 10000,
+            "achieved": 10000,
+            "target_met": true,
+            "free_coo_las_top_k_requested": 10000,
+            "free_coo_n_las_achieved": 10000
+          },
+          "gates": {
+            "E_hybrid_le_H00": true,
+            "E_hybrid_le_E_C": true,
+            "S_positive_semidefinite": true,
+            "c_dagger_S_c_eq_1": true,
+            "generalized_residual_converged": true,
+            "no_pt2_mixed_with_variational": true
+          },
+          "free_coo_gain_mha": 0.05303294710756745,
+          "wall_s": 269.438
+        },
+        "P_R=20000": {
+          "config": {
+            "las_top_k": 10000,
+            "recovery_target": 20000,
+            "free_coo_orbital_opt_max_iter": 50
+          },
+          "config_hash": "3bfbc9be2a2aef1d",
+          "failed": false,
+          "energies_ha": {
+            "h00": -5068.747825360229,
+            "generalized": -5068.755134208911,
+            "union": -5068.755236459414,
+            "free_coo": -5068.755266222481
+          },
+          "determinants": {
+            "requested": 20000,
+            "achieved": 20000,
+            "target_met": true,
+            "free_coo_las_top_k_requested": 10000,
+            "free_coo_n_las_achieved": 10000
+          },
+          "gates": {
+            "E_hybrid_le_H00": true,
+            "E_hybrid_le_E_C": true,
+            "S_positive_semidefinite": true,
+            "c_dagger_S_c_eq_1": true,
+            "generalized_residual_converged": true,
+            "no_pt2_mixed_with_variational": true
+          },
+          "free_coo_gain_mha": 0.05339771632861812,
+          "wall_s": 397.79
+        },
+        "BFGS=20": {
+          "config": {
+            "las_top_k": 10000,
+            "recovery_target": 10000,
+            "free_coo_orbital_opt_max_iter": 20
+          },
+          "config_hash": "1aa094ec1c97cf9a",
+          "failed": false,
+          "energies_ha": {
+            "h00": -5068.747825360229,
+            "generalized": -5068.754884297775,
+            "union": -5068.754983183753,
+            "free_coo": -5068.755013443979
+          },
+          "determinants": {
+            "requested": 10000,
+            "achieved": 10000,
+            "target_met": true,
+            "free_coo_las_top_k_requested": 10000,
+            "free_coo_n_las_achieved": 10000
+          },
+          "gates": {
+            "E_hybrid_le_H00": true,
+            "E_hybrid_le_E_C": true,
+            "S_positive_semidefinite": true,
+            "c_dagger_S_c_eq_1": true,
+            "generalized_residual_converged": true,
+            "no_pt2_mixed_with_variational": true
+          },
+          "free_coo_gain_mha": 0.05285221595840994,
+          "wall_s": 240.096
+        },
+        "BFGS=50": {
+          "config": {
+            "las_top_k": 10000,
+            "recovery_target": 10000,
+            "free_coo_orbital_opt_max_iter": 50
+          },
+          "config_hash": "bf8109f9abb155df",
+          "failed": false,
+          "energies_ha": {
+            "h00": -5068.747825360229,
+            "generalized": -5068.754884297775,
+            "union": -5068.754983183753,
+            "free_coo": -5068.75501362471
+          },
+          "determinants": {
+            "requested": 10000,
+            "achieved": 10000,
+            "target_met": true,
+            "free_coo_las_top_k_requested": 10000,
+            "free_coo_n_las_achieved": 10000
+          },
+          "gates": {
+            "E_hybrid_le_H00": true,
+            "E_hybrid_le_E_C": true,
+            "S_positive_semidefinite": true,
+            "c_dagger_S_c_eq_1": true,
+            "generalized_residual_converged": true,
+            "no_pt2_mixed_with_variational": true
+          },
+          "free_coo_gain_mha": 0.05303294710756745,
+          "wall_s": 269.327
+        },
+        "BFGS=100": {
+          "config": {
+            "las_top_k": 10000,
+            "recovery_target": 10000,
+            "free_coo_orbital_opt_max_iter": 100
+          },
+          "config_hash": "d4abdc409b25576c",
+          "failed": false,
+          "energies_ha": {
+            "h00": -5068.747825360229,
+            "generalized": -5068.754884297775,
+            "union": -5068.754983183753,
+            "free_coo": -5068.755013680134
+          },
+          "determinants": {
+            "requested": 10000,
+            "achieved": 10000,
+            "target_met": true,
+            "free_coo_las_top_k_requested": 10000,
+            "free_coo_n_las_achieved": 10000
+          },
+          "gates": {
+            "E_hybrid_le_H00": true,
+            "E_hybrid_le_E_C": true,
+            "S_positive_semidefinite": true,
+            "c_dagger_S_c_eq_1": true,
+            "generalized_residual_converged": true,
+            "no_pt2_mixed_with_variational": true
+          },
+          "free_coo_gain_mha": 0.05308837080519879,
+          "wall_s": 284.069
+        },
+        "BFGS=150": {
+          "config": {
+            "las_top_k": 10000,
+            "recovery_target": 10000,
+            "free_coo_orbital_opt_max_iter": 150
+          },
+          "config_hash": "a9c55dfc2c981912",
+          "failed": false,
+          "energies_ha": {
+            "h00": -5068.747825360229,
+            "generalized": -5068.754884297775,
+            "union": -5068.754983183753,
+            "free_coo": -5068.755013680134
+          },
+          "determinants": {
+            "requested": 10000,
+            "achieved": 10000,
+            "target_met": true,
+            "free_coo_las_top_k_requested": 10000,
+            "free_coo_n_las_achieved": 10000
+          },
+          "gates": {
+            "E_hybrid_le_H00": true,
+            "E_hybrid_le_E_C": true,
+            "S_positive_semidefinite": true,
+            "c_dagger_S_c_eq_1": true,
+            "generalized_residual_converged": true,
+            "no_pt2_mixed_with_variational": true
+          },
+          "free_coo_gain_mha": 0.05308837080519879,
+          "wall_s": 284.032
+        },
+        "combined_best": {
+          "config": {
+            "las_top_k": 1000,
+            "recovery_target": 5000,
+            "free_coo_orbital_opt_max_iter": 100
+          },
+          "config_hash": "31ebeab03c591ff9",
+          "failed": false,
+          "energies_ha": {
+            "h00": -5068.747825360229,
+            "generalized": -5068.748677156472,
+            "union": -5068.7486822321625,
+            "free_coo": -5068.748898430888
+          },
+          "determinants": {
+            "requested": 5000,
+            "achieved": 5000,
+            "target_met": true,
+            "free_coo_las_top_k_requested": 1000,
+            "free_coo_n_las_achieved": 1000
+          },
+          "gates": {
+            "E_hybrid_le_H00": true,
+            "E_hybrid_le_E_C": true,
+            "S_positive_semidefinite": true,
+            "c_dagger_S_c_eq_1": true,
+            "no_pt2_mixed_with_variational": true,
+            "generalized_residual_converged": true
+          },
+          "free_coo_gain_mha": 0.24443634538329206,
+          "wall_s": 186.15
+        }
+      }
+    }
+  }
+}
