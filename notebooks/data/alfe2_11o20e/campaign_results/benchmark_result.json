@@ -1,0 +1,206 @@
+{
+  "system": "alfe2_11o20e",
+  "parent_dir": "/private/tmp/claude-501/-Users-abhimuvva-Documents-Masters-Projs-Proj-Flow-LASSCF-TRIMCI-COO/a4039e20-d4f2-4cf3-84a4-86c55264b9b5/scratchpad/campaign_runs/alfe2_11o20e/parent_dir",
+  "requested_targets": [
+    1000,
+    4000,
+    12000,
+    50000,
+    150000,
+    300000,
+    500000
+  ],
+  "stop_reason": "energy_plateau",
+  "checkpoint_status": {
+    "reservoir": "reused",
+    "rungs_reused": 2,
+    "rungs_computed": 1,
+    "fingerprint_hash": "ae05ed0b4e3e3c6a897a2dc347dbe5354f5e806bda19529eecfeaaa9b9d85064"
+  },
+  "rungs": [
+    {
+      "checkpoint_status": "reused",
+      "classification": {
+        "ct1": 307322,
+        "ct2": 18732,
+        "ct_gt2": 0,
+        "ct_gt2_by_rank": {},
+        "dispersion": 173946,
+        "duplicates": 0,
+        "same_sector_absent": 0,
+        "same_sector_present": 100
+      },
+      "coupling_backend": "row_sliced_matvec",
+      "coupling_preflight": {
+        "cartesian_product_size": 252000,
+        "combined_size": 752000,
+        "estimated_peak_mib": 48.76708984375,
+        "fragment_support_sizes": [
+          1000,
+          252
+        ],
+        "use_row_sliced_matvec": true
+      },
+      "coupling_timings": {
+        "index_and_diagonal_s": 0.17882299982011318,
+        "parent_reconstruction_s": 1.6911318749189377,
+        "row_sliced_matvec_s": 6.966861207969487
+      },
+      "energy_ha": -3971.8922192251594,
+      "frame_errors": {
+        "eri": 0.0,
+        "h1": 0.0,
+        "rotation": 0.0
+      },
+      "gates": {
+        "E_hybrid_le_E_C": true,
+        "E_hybrid_le_H00": true,
+        "S_positive_semidefinite": true,
+        "c_dagger_S_c_eq_1": true,
+        "generalized_residual_converged": true,
+        "no_pt2_mixed_with_variational": true
+      },
+      "generalized_residual_norm": 1.544305873886291e-08,
+      "incremental_gain_mha": null,
+      "native_actual_n": 500000,
+      "native_target_met": true,
+      "peak_memory_mib": 1702.609375,
+      "requested_n": 1000,
+      "solver_kind": "matrix_free",
+      "spin": {
+        "complete_spin_orbits": 7,
+        "orbits_incomplete_within_recovery_space": 65551,
+        "orbits_intersecting_owned_space": 6735,
+        "orbits_skipped_too_large": 0,
+        "spin_closure_status": "blocked_by_owned_space",
+        "total_spin_orbits": 72293
+      },
+      "support_sha256": "975194b5d433bee2aa7cbd5665e66506af68405fad3653569b462e869929cf9c",
+      "termination_reason": "target_already_present",
+      "wall_s": 2476.304788708221
+    },
+    {
+      "checkpoint_status": "reused",
+      "classification": {
+        "ct1": 307322,
+        "ct2": 18732,
+        "ct_gt2": 0,
+        "ct_gt2_by_rank": {},
+        "dispersion": 173946,
+        "duplicates": 0,
+        "same_sector_absent": 0,
+        "same_sector_present": 100
+      },
+      "coupling_backend": "row_sliced_matvec",
+      "coupling_preflight": {
+        "cartesian_product_size": 252000,
+        "combined_size": 752000,
+        "estimated_peak_mib": 48.76708984375,
+        "fragment_support_sizes": [
+          1000,
+          252
+        ],
+        "use_row_sliced_matvec": true
+      },
+      "coupling_timings": {
+        "index_and_diagonal_s": 0.17957270797342062,
+        "parent_reconstruction_s": 1.625240916851908,
+        "row_sliced_matvec_s": 7.073927583172917
+      },
+      "energy_ha": -3971.8922192251625,
+      "frame_errors": {
+        "eri": 0.0,
+        "h1": 0.0,
+        "rotation": 0.0
+      },
+      "gates": {
+        "E_hybrid_le_E_C": true,
+        "E_hybrid_le_H00": true,
+        "S_positive_semidefinite": true,
+        "c_dagger_S_c_eq_1": true,
+        "generalized_residual_converged": true,
+        "no_pt2_mixed_with_variational": true
+      },
+      "generalized_residual_norm": 1.3299030263270095e-11,
+      "incremental_gain_mha": 3.183231456205249e-09,
+      "native_actual_n": 500000,
+      "native_target_met": true,
+      "peak_memory_mib": 1838.140625,
+      "requested_n": 4000,
+      "solver_kind": "matrix_free",
+      "spin": {
+        "complete_spin_orbits": 7,
+        "orbits_incomplete_within_recovery_space": 65551,
+        "orbits_intersecting_owned_space": 6735,
+        "orbits_skipped_too_large": 0,
+        "spin_closure_status": "blocked_by_owned_space",
+        "total_spin_orbits": 72293
+      },
+      "support_sha256": "975194b5d433bee2aa7cbd5665e66506af68405fad3653569b462e869929cf9c",
+      "termination_reason": "target_already_present",
+      "wall_s": 2449.1505607501604
+    },
+    {
+      "requested_n": 12000,
+      "native_actual_n": 500000,
+      "native_target_met": true,
+      "energy_ha": -3971.8922192251625,
+      "incremental_gain_mha": 0.0,
+      "generalized_residual_norm": 1.3299030263270095e-11,
+      "gates": {
+        "E_hybrid_le_E_C": true,
+        "E_hybrid_le_H00": true,
+        "S_positive_semidefinite": true,
+        "c_dagger_S_c_eq_1": true,
+        "generalized_residual_converged": true,
+        "no_pt2_mixed_with_variational": true
+      },
+      "solver_kind": "matrix_free",
+      "termination_reason": "target_already_present",
+      "frame_errors": {
+        "rotation": 0.0,
+        "h1": 0.0,
+        "eri": 0.0
+      },
+      "support_sha256": "975194b5d433bee2aa7cbd5665e66506af68405fad3653569b462e869929cf9c",
+      "spin": {
+        "total_spin_orbits": 72293,
+        "complete_spin_orbits": 7,
+        "orbits_intersecting_owned_space": 6735,
+        "orbits_incomplete_within_recovery_space": 65551,
+        "orbits_skipped_too_large": 0,
+        "spin_closure_status": "blocked_by_owned_space"
+      },
+      "classification": {
+        "same_sector_present": 100,
+        "same_sector_absent": 0,
+        "dispersion": 173946,
+        "ct1": 307322,
+        "ct2": 18732,
+        "ct_gt2": 0,
+        "duplicates": 0,
+        "ct_gt2_by_rank": {}
+      },
+      "coupling_backend": "row_sliced_matvec",
+      "coupling_preflight": {
+        "cartesian_product_size": 252000,
+        "combined_size": 752000,
+        "estimated_peak_mib": 48.76708984375,
+        "fragment_support_sizes": [
+          1000,
+          252
+        ],
+        "use_row_sliced_matvec": true
+      },
+      "coupling_timings": {
+        "index_and_diagonal_s": 0.17957270797342062,
+        "parent_reconstruction_s": 1.625240916851908,
+        "row_sliced_matvec_s": 7.073927583172917
+      },
+      "wall_s": 0.0,
+      "peak_memory_mib": 1039.359375,
+      "checkpoint_status": "computed_and_saved"
+    }
+  ],
+  "total_wall_s": 21.754633042030036
+}

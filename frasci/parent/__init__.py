@@ -29,7 +29,8 @@ from frasci.parent._convergence import (
     MacroRecord, TailConvergencePolicy, classify_trace, decide_extension,
     rdm_block_change)
 from frasci.parent._frame import compute_frame_transport
-from frasci.parent._kernel import make_phased_kernel, patch_large_fragment_aufbau
+from frasci.parent._kernel import (make_phased_kernel, patch_large_fragment_aufbau,
+                                   patch_mrh_zero_gradient_preconditioner)
 from frasci.parent._lassis_adapter import build_lassis_ready_las
 from frasci.parent._parallel import parallel_fragment_dispatch
 
@@ -703,6 +704,7 @@ def solve(
             las.fciboxes[i] = make_fcibox(
                 mf.mol, kernel=kernel_fn, spin=spin_sub[i] - 1, smult=spin_sub[i])
         patch_large_fragment_aufbau(las, ncas_sub, nelec_per_frag)
+        patch_mrh_zero_gradient_preconditioner()
         las.kernel(mo)
 
         convergence_diagnostics = None

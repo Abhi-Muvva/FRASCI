@@ -1,0 +1,146 @@
+{
+  "system": "bisdiazene",
+  "parent_dir": "/private/tmp/claude-501/-Users-abhimuvva-Documents-Masters-Projs-Proj-Flow-LASSCF-TRIMCI-COO/a4039e20-d4f2-4cf3-84a4-86c55264b9b5/scratchpad/campaign_runs/bisdiazene/parent_dir",
+  "requested_targets": [
+    1000,
+    4000,
+    16000,
+    25000,
+    50000,
+    63000
+  ],
+  "stop_reason": "energy_plateau",
+  "checkpoint_status": {
+    "reservoir": "not_configured",
+    "rungs_reused": 2,
+    "rungs_computed": 0,
+    "fingerprint_hash": "cb7408f879204e582ba5b81919518bc912fc39fc44d02d813d8c3471b89c46ce"
+  },
+  "rungs": [
+    {
+      "checkpoint_status": "reused",
+      "classification": {
+        "ct1": 33600,
+        "ct2": 17664,
+        "ct_gt2": 0,
+        "ct_gt2_by_rank": {},
+        "dispersion": 4424,
+        "duplicates": 0,
+        "same_sector_absent": 0,
+        "same_sector_present": 100
+      },
+      "coupling_backend": "row_sliced_matvec",
+      "coupling_preflight": {
+        "cartesian_product_size": 5184,
+        "combined_size": 60872,
+        "estimated_peak_mib": 3.3670196533203125,
+        "fragment_support_sizes": [
+          36,
+          4,
+          36
+        ],
+        "use_row_sliced_matvec": true
+      },
+      "coupling_timings": {
+        "index_and_diagonal_s": 0.008000957779586315,
+        "parent_reconstruction_s": 0.020682041998952627,
+        "row_sliced_matvec_s": 0.7688528746366501
+      },
+      "energy_ha": -295.5843846089233,
+      "frame_errors": {
+        "eri": 0.0,
+        "h1": 0.0,
+        "rotation": 0.0
+      },
+      "gates": {
+        "E_hybrid_le_E_C": true,
+        "E_hybrid_le_H00": true,
+        "S_positive_semidefinite": true,
+        "c_dagger_S_c_eq_1": true,
+        "generalized_residual_converged": true,
+        "no_pt2_mixed_with_variational": true
+      },
+      "generalized_residual_norm": 4.0304177731889173e-13,
+      "incremental_gain_mha": null,
+      "native_actual_n": 55688,
+      "native_target_met": true,
+      "peak_memory_mib": 1076.203125,
+      "requested_n": 1000,
+      "solver_kind": "matrix_free",
+      "spin": {
+        "complete_spin_orbits": 7120,
+        "orbits_incomplete_within_recovery_space": 0,
+        "orbits_intersecting_owned_space": 663,
+        "orbits_skipped_too_large": 0,
+        "spin_closure_status": "blocked_by_owned_space",
+        "total_spin_orbits": 7783
+      },
+      "support_sha256": "a4900cdf9c65cd47246d75aa3b87cb400c2b45a943095269984e8d1d704feba8",
+      "termination_reason": "target_already_present",
+      "wall_s": 286.9209116669372
+    },
+    {
+      "checkpoint_status": "reused",
+      "classification": {
+        "ct1": 33600,
+        "ct2": 17664,
+        "ct_gt2": 0,
+        "ct_gt2_by_rank": {},
+        "dispersion": 4424,
+        "duplicates": 0,
+        "same_sector_absent": 0,
+        "same_sector_present": 100
+      },
+      "coupling_backend": "row_sliced_matvec",
+      "coupling_preflight": {
+        "cartesian_product_size": 5184,
+        "combined_size": 60872,
+        "estimated_peak_mib": 3.3670196533203125,
+        "fragment_support_sizes": [
+          36,
+          4,
+          36
+        ],
+        "use_row_sliced_matvec": true
+      },
+      "coupling_timings": {
+        "index_and_diagonal_s": 0.007483458146452904,
+        "parent_reconstruction_s": 0.020208832807838917,
+        "row_sliced_matvec_s": 0.734247958753258
+      },
+      "energy_ha": -295.58438460892324,
+      "frame_errors": {
+        "eri": 0.0,
+        "h1": 0.0,
+        "rotation": 0.0
+      },
+      "gates": {
+        "E_hybrid_le_E_C": true,
+        "E_hybrid_le_H00": true,
+        "S_positive_semidefinite": true,
+        "c_dagger_S_c_eq_1": true,
+        "generalized_residual_converged": true,
+        "no_pt2_mixed_with_variational": true
+      },
+      "generalized_residual_norm": 3.4591844497756204e-13,
+      "incremental_gain_mha": -5.6843418860808015e-11,
+      "native_actual_n": 55688,
+      "native_target_met": true,
+      "peak_memory_mib": 1076.203125,
+      "requested_n": 4000,
+      "solver_kind": "matrix_free",
+      "spin": {
+        "complete_spin_orbits": 7120,
+        "orbits_incomplete_within_recovery_space": 0,
+        "orbits_intersecting_owned_space": 663,
+        "orbits_skipped_too_large": 0,
+        "spin_closure_status": "blocked_by_owned_space",
+        "total_spin_orbits": 7783
+      },
+      "support_sha256": "a4900cdf9c65cd47246d75aa3b87cb400c2b45a943095269984e8d1d704feba8",
+      "termination_reason": "target_already_present",
+      "wall_s": 289.3009055829607
+    }
+  ],
+  "total_wall_s": 0.429712874814868
+}

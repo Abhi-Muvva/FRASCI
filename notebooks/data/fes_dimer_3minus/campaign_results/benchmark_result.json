@@ -1,0 +1,261 @@
+{
+  "system": "fes_dimer_3minus",
+  "parent_dir": "/private/tmp/claude-501/-Users-abhimuvva-Documents-Masters-Projs-Proj-Flow-LASSCF-TRIMCI-COO/a4039e20-d4f2-4cf3-84a4-86c55264b9b5/scratchpad/campaign_runs/fes_dimer_3minus/parent_dir",
+  "requested_targets": [
+    1000,
+    4000,
+    12000,
+    50000,
+    150000,
+    300000,
+    500000
+  ],
+  "stop_reason": "schedule_exhausted_not_plateaued",
+  "checkpoint_status": {
+    "reservoir": "rebuilt",
+    "rungs_reused": 3,
+    "rungs_computed": 4,
+    "fingerprint_hash": "95adf4ceacb1a374a577ce52d7d4823b682e76ea6e8f95c1fc1ec7aa7f07aeb3"
+  },
+  "rungs": [
+    {
+      "checkpoint_status": "reused",
+      "energy_ha": -5068.754889100185,
+      "frame_errors": {
+        "eri": 0.0,
+        "h1": 0.0,
+        "rotation": 0.0
+      },
+      "gates": {
+        "E_hybrid_le_E_C": true,
+        "E_hybrid_le_H00": true,
+        "S_positive_semidefinite": true,
+        "c_dagger_S_c_eq_1": true,
+        "generalized_residual_converged": true,
+        "no_pt2_mixed_with_variational": true
+      },
+      "generalized_residual_norm": 0.0,
+      "incremental_gain_mha": null,
+      "native_actual_n": 1000,
+      "native_target_met": true,
+      "peak_memory_mib": 234.625,
+      "requested_n": 1000,
+      "solver_kind": "dense",
+      "spin": {
+        "complete_spin_orbits": 0,
+        "orbits_incomplete_within_recovery_space": 778,
+        "orbits_intersecting_owned_space": 5,
+        "spin_closure_status": "blocked_by_owned_space",
+        "total_spin_orbits": 783
+      },
+      "support_sha256": "d6b82ef9cc412442766ed3171f744325eead27e6509a7083ecd06f017c50962d",
+      "termination_reason": "recovery_target_met",
+      "wall_s": 7.8059614999219775
+    },
+    {
+      "checkpoint_status": "reused",
+      "energy_ha": -5068.755630674649,
+      "frame_errors": {
+        "eri": 0.0,
+        "h1": 0.0,
+        "rotation": 0.0
+      },
+      "gates": {
+        "E_hybrid_le_E_C": true,
+        "E_hybrid_le_H00": true,
+        "S_positive_semidefinite": true,
+        "c_dagger_S_c_eq_1": true,
+        "generalized_residual_converged": true,
+        "no_pt2_mixed_with_variational": true
+      },
+      "generalized_residual_norm": 0.0,
+      "incremental_gain_mha": 0.7415744639729382,
+      "native_actual_n": 4000,
+      "native_target_met": true,
+      "peak_memory_mib": 1324.859375,
+      "requested_n": 4000,
+      "solver_kind": "dense",
+      "spin": {
+        "complete_spin_orbits": 0,
+        "orbits_incomplete_within_recovery_space": 2633,
+        "orbits_intersecting_owned_space": 75,
+        "spin_closure_status": "blocked_by_owned_space",
+        "total_spin_orbits": 2708
+      },
+      "support_sha256": "06026ca32378f1a2915c06d131721b4c9a8ee27a8ecd40e06a1a304f211a5c3c",
+      "termination_reason": "recovery_target_met",
+      "wall_s": 39.92354570841417
+    },
+    {
+      "checkpoint_status": "reused",
+      "energy_ha": -5068.755784012782,
+      "frame_errors": {
+        "eri": 0.0,
+        "h1": 0.0,
+        "rotation": 0.0
+      },
+      "gates": {
+        "E_hybrid_le_E_C": true,
+        "E_hybrid_le_H00": true,
+        "S_positive_semidefinite": true,
+        "c_dagger_S_c_eq_1": true,
+        "generalized_residual_converged": true,
+        "no_pt2_mixed_with_variational": true
+      },
+      "generalized_residual_norm": 3.8260010992293996e-12,
+      "incremental_gain_mha": 0.1533381328044925,
+      "native_actual_n": 12000,
+      "native_target_met": true,
+      "peak_memory_mib": 1324.859375,
+      "requested_n": 12000,
+      "solver_kind": "matrix_free",
+      "spin": {
+        "complete_spin_orbits": 0,
+        "orbits_incomplete_within_recovery_space": 7249,
+        "orbits_intersecting_owned_space": 324,
+        "spin_closure_status": "blocked_by_owned_space",
+        "total_spin_orbits": 7573
+      },
+      "support_sha256": "b0f0b95affb53dfd8c7981f37bb43de7e2e0cdf59869cb377f32367190d8ce4f",
+      "termination_reason": "recovery_target_met",
+      "wall_s": 70.28191424999386
+    },
+    {
+      "requested_n": 50000,
+      "native_actual_n": 50000,
+      "native_target_met": true,
+      "energy_ha": -5068.755873471478,
+      "incremental_gain_mha": 0.08945869558374397,
+      "generalized_residual_norm": 3.4624729365181568e-12,
+      "gates": {
+        "E_hybrid_le_H00": true,
+        "E_hybrid_le_E_C": true,
+        "S_positive_semidefinite": true,
+        "c_dagger_S_c_eq_1": true,
+        "generalized_residual_converged": true,
+        "no_pt2_mixed_with_variational": true
+      },
+      "solver_kind": "matrix_free",
+      "termination_reason": "recovery_target_met",
+      "frame_errors": {
+        "rotation": 0.0,
+        "h1": 0.0,
+        "eri": 0.0
+      },
+      "support_sha256": "2ae8fcf1910dba3876de25480bef02c922d598faacb4308f9f35032ed4bf231d",
+      "spin": {
+        "total_spin_orbits": 26992,
+        "complete_spin_orbits": 0,
+        "orbits_intersecting_owned_space": 1903,
+        "orbits_incomplete_within_recovery_space": 25089,
+        "spin_closure_status": "blocked_by_owned_space"
+      },
+      "wall_s": 286.79954149993137,
+      "peak_memory_mib": 385.109375,
+      "checkpoint_status": "computed_and_saved"
+    },
+    {
+      "requested_n": 150000,
+      "native_actual_n": 150000,
+      "native_target_met": true,
+      "energy_ha": -5068.756074868442,
+      "incremental_gain_mha": 0.20139696425758302,
+      "generalized_residual_norm": 7.1156287111857684e-12,
+      "gates": {
+        "E_hybrid_le_H00": true,
+        "E_hybrid_le_E_C": true,
+        "S_positive_semidefinite": true,
+        "c_dagger_S_c_eq_1": true,
+        "generalized_residual_converged": true,
+        "no_pt2_mixed_with_variational": true
+      },
+      "solver_kind": "matrix_free",
+      "termination_reason": "recovery_target_met",
+      "frame_errors": {
+        "rotation": 0.0,
+        "h1": 0.0,
+        "eri": 0.0
+      },
+      "support_sha256": "19a62be0e72bbc73e3a6dc26a21f8148dc9963d4e6d03cfef34d7186f0bd4c83",
+      "spin": {
+        "total_spin_orbits": 64347,
+        "complete_spin_orbits": 0,
+        "orbits_intersecting_owned_space": 5039,
+        "orbits_incomplete_within_recovery_space": 59308,
+        "spin_closure_status": "blocked_by_owned_space"
+      },
+      "wall_s": 1035.6687593748793,
+      "peak_memory_mib": 888.296875,
+      "checkpoint_status": "computed_and_saved"
+    },
+    {
+      "requested_n": 300000,
+      "native_actual_n": 300000,
+      "native_target_met": true,
+      "energy_ha": -5068.756186869661,
+      "incremental_gain_mha": 0.11200121934962226,
+      "generalized_residual_norm": 1.1240085624579372e-11,
+      "gates": {
+        "E_hybrid_le_H00": true,
+        "E_hybrid_le_E_C": true,
+        "S_positive_semidefinite": true,
+        "c_dagger_S_c_eq_1": true,
+        "generalized_residual_converged": true,
+        "no_pt2_mixed_with_variational": true
+      },
+      "solver_kind": "matrix_free",
+      "termination_reason": "recovery_target_met",
+      "frame_errors": {
+        "rotation": 0.0,
+        "h1": 0.0,
+        "eri": 0.0
+      },
+      "support_sha256": "cedf7f9ff068f4b3f2e2b5bb8becba75950568d75d4ee2cadb2e9d09010f4ee6",
+      "spin": {
+        "total_spin_orbits": 66635,
+        "complete_spin_orbits": 0,
+        "orbits_intersecting_owned_space": 5868,
+        "orbits_incomplete_within_recovery_space": 60767,
+        "spin_closure_status": "blocked_by_owned_space"
+      },
+      "wall_s": 2464.1103248340078,
+      "peak_memory_mib": 1760.59375,
+      "checkpoint_status": "computed_and_saved"
+    },
+    {
+      "requested_n": 500000,
+      "native_actual_n": 500000,
+      "native_target_met": true,
+      "energy_ha": -5068.756237034177,
+      "incremental_gain_mha": 0.05016451541450806,
+      "generalized_residual_norm": 1.1321752930649432e-09,
+      "gates": {
+        "E_hybrid_le_H00": true,
+        "E_hybrid_le_E_C": true,
+        "S_positive_semidefinite": true,
+        "c_dagger_S_c_eq_1": true,
+        "generalized_residual_converged": true,
+        "no_pt2_mixed_with_variational": true
+      },
+      "solver_kind": "matrix_free",
+      "termination_reason": "recovery_target_met",
+      "frame_errors": {
+        "rotation": 0.0,
+        "h1": 0.0,
+        "eri": 0.0
+      },
+      "support_sha256": "30e83c8351409b017b5e3c6ed919b1de3bb904ffcbc6d8d9bdaa8982e7b6ed85",
+      "spin": {
+        "total_spin_orbits": 69349,
+        "complete_spin_orbits": 23,
+        "orbits_intersecting_owned_space": 6524,
+        "orbits_incomplete_within_recovery_space": 62802,
+        "spin_closure_status": "blocked_by_owned_space"
+      },
+      "wall_s": 4248.4729733751155,
+      "peak_memory_mib": 3076.046875,
+      "checkpoint_status": "computed_and_saved"
+    }
+  ],
+  "total_wall_s": 10021.133423834108
+}

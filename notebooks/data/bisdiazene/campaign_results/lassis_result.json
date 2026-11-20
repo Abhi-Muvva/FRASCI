@@ -1,0 +1,9 @@
+{
+  "system": "bisdiazene",
+  "n_roots": 321,
+  "e_ground": -295.57352311362234,
+  "parent_e_tot": -295.5694327173421,
+  "variational_vs_parent": true,
+  "adapter_wall_s": 0.011802999768406153,
+  "lassis_wall_s": 65.4180615413934
+}

@@ -1,0 +1,17 @@
+{
+  "system": "alfe2_11o10e",
+  "h00_exact": -3971.791490906558,
+  "cartesian_product_size": 5,
+  "plateau_threshold_mha": 0.001,
+  "stop_reason": "schedule_exhausted_not_plateaued",
+  "rungs": [
+    {
+      "k": 5,
+      "actual_n": 5,
+      "energy_ha": -3971.7914909065585,
+      "gain_mha": null,
+      "gap_to_exact_mha": -4.547473508864641e-10,
+      "wall_s": 0.0001844167709350586
+    }
+  ]
+}

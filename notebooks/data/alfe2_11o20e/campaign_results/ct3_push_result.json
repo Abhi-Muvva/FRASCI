@@ -1,0 +1,59 @@
+{
+  "nctmax2_target500000_thresh1e-06": {
+    "n_ct_max": 2,
+    "target": 500000,
+    "threshold": 1e-06,
+    "energy_ha": -3971.892161242549,
+    "gain_vs_parent_mha": 1.8920865486506955,
+    "actual_n": 332672,
+    "termination_reason": "filtered_saturated",
+    "beats_accepted_lassis": false,
+    "wall_s": 3553.8432620000094,
+    "gates": {
+      "E_hybrid_le_H00": true,
+      "E_hybrid_le_E_C": true,
+      "S_positive_semidefinite": true,
+      "c_dagger_S_c_eq_1": true,
+      "generalized_residual_converged": true,
+      "no_pt2_mixed_with_variational": true
+    }
+  },
+  "nctmax3_target500000_thresh1e-06": {
+    "n_ct_max": 3,
+    "target": 500000,
+    "threshold": 1e-06,
+    "energy_ha": -3971.892161242549,
+    "gain_vs_parent_mha": 1.8920865486506955,
+    "actual_n": 332672,
+    "termination_reason": "filtered_saturated",
+    "beats_accepted_lassis": false,
+    "wall_s": 3426.979785709176,
+    "gates": {
+      "E_hybrid_le_H00": true,
+      "E_hybrid_le_E_C": true,
+      "S_positive_semidefinite": true,
+      "c_dagger_S_c_eq_1": true,
+      "generalized_residual_converged": true,
+      "no_pt2_mixed_with_variational": true
+    }
+  },
+  "nctmax3_target500000_thresh1e-08": {
+    "n_ct_max": 3,
+    "target": 500000,
+    "threshold": 1e-08,
+    "energy_ha": -3971.892161242447,
+    "gain_vs_parent_mha": 1.8920864467872889,
+    "actual_n": 324183,
+    "termination_reason": "filtered_saturated",
+    "beats_accepted_lassis": false,
+    "wall_s": 3271.6754563748837,
+    "gates": {
+      "E_hybrid_le_H00": true,
+      "E_hybrid_le_E_C": true,
+      "S_positive_semidefinite": true,
+      "c_dagger_S_c_eq_1": true,
+      "generalized_residual_converged": true,
+      "no_pt2_mixed_with_variational": true
+    }
+  }
+}

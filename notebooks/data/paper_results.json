@@ -1,0 +1,1043 @@
+{
+  "schema_version": 2,
+  "scope": "Curated machine-readable values used by the public paper notebooks. Electronic-structure calculations are reproducible from notebook code; these frozen records make plot regeneration fast and deterministic.",
+  "systems": [
+    {
+      "label": "Tetrazene",
+      "system_id": "c2h6n4_paper",
+      "active_space": "(8e,8o)",
+      "parent_energy_ha": -296.87952920307333,
+      "lassis_energy_ha": -296.879559091,
+      "lassis_status": "valid same-Hamiltonian comparator",
+      "frasci_energy_ha": -296.879559222884,
+      "selected_n": 3538,
+      "baseline_energy_ha": -296.879578838,
+      "baseline_kind": "verified FCI",
+      "frasci_difference_signed_mha": 0.019615116002569266,
+      "endpoint_status": "pool exhausted",
+      "include_in_endpoint_gap_figure": true,
+      "endpoint_source": "campaign_runs/c2h6n4_paper/benchmark_result.json",
+      "endpoint_source_sha256": "fe6545c68164b738b82c9ab92d9eab35abc6f32fefa4854e58bfd93acf666779",
+      "composition_source": "campaign_runs/c2h6n4_paper/benchmark_checkpoints/reservoir.npz",
+      "composition_source_sha256": "df46a3156b1d5494153b57d92bf2b9f69244d254b5337142d3ff181b06886857",
+      "composition": {
+        "owned": 100,
+        "same_sector_outside": 0,
+        "dispersion": 514,
+        "ct1": 2368,
+        "ct2": 656,
+        "ct3": null,
+        "ct4": null,
+        "ct_gt2_aggregate": 0
+      },
+      "compatible_ladder": [
+        {
+          "requested_n": 2,
+          "achieved_n": 2,
+          "energy_ha": -296.87952944624504
+        },
+        {
+          "requested_n": 5,
+          "achieved_n": 5,
+          "energy_ha": -296.8795294766182
+        },
+        {
+          "requested_n": 10,
+          "achieved_n": 10,
+          "energy_ha": -296.8795304588893
+        },
+        {
+          "requested_n": 20,
+          "achieved_n": 20,
+          "energy_ha": -296.87953148773096
+        },
+        {
+          "requested_n": 5000,
+          "achieved_n": 3454,
+          "energy_ha": -296.87955922288216
+        },
+        {
+          "requested_n": 4800,
+          "achieved_n": 3538,
+          "energy_ha": -296.879559222884
+        }
+      ]
+    },
+    {
+      "label": "AlFe$_2$ (11e,10o)",
+      "system_id": "alfe2_11o10e",
+      "active_space": "(11e,10o)",
+      "parent_energy_ha": -3971.791490906558,
+      "lassis_energy_ha": -3971.792767168,
+      "lassis_status": "valid same-Hamiltonian comparator",
+      "frasci_energy_ha": -3971.7927711093303,
+      "selected_n": 47870,
+      "baseline_energy_ha": -3971.7927711093557,
+      "baseline_kind": "certified FCI",
+      "frasci_difference_signed_mha": 2.546585164964199e-08,
+      "endpoint_status": "pool exhausted",
+      "include_in_endpoint_gap_figure": true,
+      "endpoint_source": "campaign_runs/alfe2_11o10e/benchmark_result.json",
+      "endpoint_source_sha256": "9871b9d0d0c7e49ec58cb8ef41e43b173e5f471da36581a4f1c075189e5da945",
+      "composition_source": "campaign_runs/alfe2_11o10e/benchmark_checkpoints/reservoir.npz",
+      "composition_source_sha256": "c05f2f9d938fef2137e94e132ec7bcf8361eb3739c45f44093b8cfc4d42b7259",
+      "composition": {
+        "owned": 5,
+        "same_sector_outside": 0,
+        "dispersion": 15646,
+        "ct1": 23281,
+        "ct2": 8943,
+        "ct3": null,
+        "ct4": null,
+        "ct_gt2_aggregate": 0
+      },
+      "compatible_ladder": [
+        {
+          "requested_n": 50,
+          "achieved_n": 50,
+          "energy_ha": -3971.792698885275
+        },
+        {
+          "requested_n": 150,
+          "achieved_n": 150,
+          "energy_ha": -3971.792701143382
+        },
+        {
+          "requested_n": 500,
+          "achieved_n": 500,
+          "energy_ha": -3971.7927088431857
+        },
+        {
+          "requested_n": 1500,
+          "achieved_n": 1500,
+          "energy_ha": -3971.7927393134637
+        },
+        {
+          "requested_n": 5000,
+          "achieved_n": 5000,
+          "energy_ha": -3971.7927448138003
+        },
+        {
+          "requested_n": 15000,
+          "achieved_n": 15000,
+          "energy_ha": -3971.792760680041
+        },
+        {
+          "requested_n": 50000,
+          "achieved_n": 47870,
+          "energy_ha": -3971.7927711093303
+        }
+      ]
+    },
+    {
+      "label": "Bisdiazene",
+      "system_id": "bisdiazene",
+      "active_space": "(10e,10o)",
+      "parent_energy_ha": -295.56943274621267,
+      "lassis_energy_ha": -295.573523114,
+      "lassis_status": "valid same-Hamiltonian comparator",
+      "frasci_energy_ha": -295.5843846089233,
+      "selected_n": 55688,
+      "baseline_energy_ha": -295.58516214,
+      "baseline_kind": "verified FCI",
+      "frasci_difference_signed_mha": 0.777531076721516,
+      "endpoint_status": "pool exhausted",
+      "include_in_endpoint_gap_figure": true,
+      "endpoint_source": "campaign_runs/bisdiazene/benchmark_result.json",
+      "endpoint_source_sha256": "e13931d92ae415da82efd3f0fcd9133e79500762442a96f9860aac6548867604",
+      "composition_source": "campaign_runs/bisdiazene/benchmark_checkpoints/reservoir.npz",
+      "composition_source_sha256": "ea40d1a7ec24714812c0c6cbdc15db97276f78724d2794d52ab3eaf660a8c013",
+      "composition": {
+        "owned": 100,
+        "same_sector_outside": 0,
+        "dispersion": 4424,
+        "ct1": 33600,
+        "ct2": 17664,
+        "ct3": null,
+        "ct4": null,
+        "ct_gt2_aggregate": 0
+      },
+      "compatible_ladder": [
+        {
+          "requested_n": 10,
+          "achieved_n": 10,
+          "energy_ha": -295.5694562034595
+        },
+        {
+          "requested_n": 1000,
+          "achieved_n": 1000,
+          "energy_ha": -295.58381661948
+        },
+        {
+          "requested_n": 5000,
+          "achieved_n": 5000,
+          "energy_ha": -295.5843723383496
+        },
+        {
+          "requested_n": 10000,
+          "achieved_n": 10000,
+          "energy_ha": -295.5843833591808
+        },
+        {
+          "requested_n": 20000,
+          "achieved_n": 20000,
+          "energy_ha": -295.584384600405
+        },
+        {
+          "requested_n": 63000,
+          "achieved_n": 55688,
+          "energy_ha": -295.5843846089233
+        }
+      ]
+    },
+    {
+      "label": "AlFe$_2$ (11e,20o)",
+      "system_id": "alfe2_11o20e",
+      "active_space": "(11e,20o)",
+      "parent_energy_ha": -3971.890269155861,
+      "lassis_energy_ha": -3971.8922206998186,
+      "lassis_status": "valid converged 927-state paper-auto comparator on the accepted paper Fe-site parent; a separate phased-parent adapter trial failed its variational check and is excluded",
+      "lassis_source": "mols/LASSIS/alfe2_11o20e/CHANGES.md; progress/historical-results-catalog.md",
+      "frasci_energy_ha": -3971.8922440986903,
+      "selected_n": 1000000,
+      "baseline_energy_ha": -3971.892278,
+      "baseline_kind": "external DMRG",
+      "frasci_difference_signed_mha": 0.03390130971880967,
+      "endpoint_status": "target reached",
+      "include_in_endpoint_gap_figure": true,
+      "endpoint_source": "release/FRASCI/notebooks/data/alfe2_11o20e/campaign_results/ct2_1m_isolation_result.json",
+      "endpoint_source_sha256": "873a11f3f6940680f98d4d6430c37776231099ca253a004ed0a2fe5ce7bc8bae",
+      "composition_source": "campaign_runs/alfe2_11o20e/benchmark_checkpoints/reservoir.npz",
+      "composition_source_sha256": "a95b5eb053be070d8181890f8d039c23b105fe57880e13a3ed622e1e4cf4ac84",
+      "composition_n": 500000,
+      "composition": {
+        "owned": 100,
+        "same_sector_outside": 0,
+        "dispersion": 173946,
+        "ct1": 307322,
+        "ct2": 18732,
+        "ct3": null,
+        "ct4": null,
+        "ct_gt2_aggregate": 0
+      },
+      "compatible_ladder": [
+        {
+          "requested_n": 1000,
+          "achieved_n": 1000,
+          "energy_ha": -3971.8919773581056
+        },
+        {
+          "requested_n": 4000,
+          "achieved_n": 4000,
+          "energy_ha": -3971.892133690034
+        },
+        {
+          "requested_n": 12000,
+          "achieved_n": 12000,
+          "energy_ha": -3971.892151364908
+        },
+        {
+          "requested_n": 50000,
+          "achieved_n": 50000,
+          "energy_ha": -3971.892157147211
+        },
+        {
+          "requested_n": 150000,
+          "achieved_n": 150000,
+          "energy_ha": -3971.892172701304
+        },
+        {
+          "requested_n": 300000,
+          "achieved_n": 300000,
+          "energy_ha": -3971.8922141035687
+        },
+        {
+          "requested_n": 500000,
+          "achieved_n": 500000,
+          "energy_ha": -3971.8922192251653
+        },
+        {
+          "requested_n": 1000000,
+          "achieved_n": 1000000,
+          "energy_ha": -3971.8922440986903,
+          "adjacent_to_previous": false
+        }
+      ]
+    },
+    {
+      "label": "FeS dimer(3-)",
+      "system_id": "fes_dimer_3minus",
+      "active_space": "(11e,20o)",
+      "parent_energy_ha": -5068.7478253602285,
+      "lassis_energy_ha": -5068.753401372,
+      "lassis_status": "valid same-Hamiltonian comparator",
+      "frasci_energy_ha": -5068.756237034177,
+      "selected_n": 500000,
+      "baseline_energy_ha": -5068.75665440243,
+      "baseline_kind": "external DMRG",
+      "frasci_difference_signed_mha": 0.4173682536929846,
+      "endpoint_status": "target reached",
+      "include_in_endpoint_gap_figure": true,
+      "endpoint_source": "campaign_runs/fes_dimer_3minus/benchmark_result.json",
+      "endpoint_source_sha256": "4b4e007aa4019003f00769e5da1fd42c015958508f12d3ed78fd92f7e4d5010f",
+      "composition_source": "campaign_runs/fes_dimer_3minus/benchmark_checkpoints/reservoir.npz",
+      "composition_source_sha256": "bfce943478a5a9201bdaee3887401775aa5b59e936c364a7177d6869b4474bf8",
+      "composition": {
+        "owned": 100,
+        "same_sector_outside": 0,
+        "dispersion": 182733,
+        "ct1": 291287,
+        "ct2": 25980,
+        "ct3": null,
+        "ct4": null,
+        "ct_gt2_aggregate": 0
+      },
+      "compatible_ladder": [
+        {
+          "requested_n": 1000,
+          "achieved_n": 1000,
+          "energy_ha": -5068.754889100185
+        },
+        {
+          "requested_n": 4000,
+          "achieved_n": 4000,
+          "energy_ha": -5068.755630674649
+        },
+        {
+          "requested_n": 12000,
+          "achieved_n": 12000,
+          "energy_ha": -5068.755784012782
+        },
+        {
+          "requested_n": 50000,
+          "achieved_n": 50000,
+          "energy_ha": -5068.755873471478
+        },
+        {
+          "requested_n": 150000,
+          "achieved_n": 150000,
+          "energy_ha": -5068.756074868442
+        },
+        {
+          "requested_n": 300000,
+          "achieved_n": 300000,
+          "energy_ha": -5068.756186869661
+        },
+        {
+          "requested_n": 500000,
+          "achieved_n": 500000,
+          "energy_ha": -5068.756237034177
+        }
+      ]
+    },
+    {
+      "label": "Fe$_4$S$_4$",
+      "system_id": "fe4s4",
+      "active_space": "(54e,36o)",
+      "parent_energy_ha": -327.05265929840476,
+      "lassis_energy_ha": null,
+      "lassis_status": "not available",
+      "frasci_energy_ha": -327.15303874070844,
+      "selected_n": 1000000,
+      "baseline_energy_ha": -327.1999447417774,
+      "baseline_kind": "same-FCIDUMP whole-system phased TrimCI+COO comparator",
+      "baseline_label": "same-FCIDUMP TrimCI+COO",
+      "baseline_source": "release/FRASCI/notebooks/data/results/04_fe4s4_stress_test/fe4s4_energy_references.json",
+      "baseline_source_sha256": "595951efc4156cb5fcfe3f275f9a9ec707204dd6e3eefe02c13fe1c1baa2fa3e",
+      "baseline_fcidump_sha256": "6edfff7f36281cd1966eac42990b84d3636568bdce213808cabaf7bf9d2839a4",
+      "literature_dmrg_context_energy_ha": -327.24,
+      "literature_dmrg_status": "bond dimension 4000; orbital/Hamiltonian identity with the release FCIDUMP is unverified, so this value is contextual and is not the plotting baseline",
+      "frasci_difference_signed_mha": 46.90600106897591,
+      "endpoint_status": "target reached; schedule not plateaued",
+      "include_in_endpoint_gap_figure": false,
+      "endpoint_source": "notebooks/data/fe4s4/campaign_results/benchmark_checkpoints/benchmark_ladder_rung_000001000000.json",
+      "endpoint_source_sha256": "bb4426709f5c930299c3b8e09c07e6e4cd7e11c3a9d369b99302c08785dcfa03",
+      "composition_source": "same endpoint rung record",
+      "composition_source_sha256": "bb4426709f5c930299c3b8e09c07e6e4cd7e11c3a9d369b99302c08785dcfa03",
+      "composition": {
+        "owned": 100,
+        "same_sector_outside": 0,
+        "dispersion": 150653,
+        "ct1": 496108,
+        "ct2": 353239,
+        "ct3": null,
+        "ct4": null,
+        "ct_gt2_aggregate": 0
+      },
+      "compatible_ladder": [
+        {
+          "requested_n": 5000,
+          "achieved_n": 5000,
+          "energy_ha": -327.1008808987978
+        },
+        {
+          "requested_n": 20000,
+          "achieved_n": 20000,
+          "energy_ha": -327.11286806336244
+        },
+        {
+          "requested_n": 60000,
+          "achieved_n": 60000,
+          "energy_ha": -327.1213699338882
+        },
+        {
+          "requested_n": 150000,
+          "achieved_n": 150000,
+          "energy_ha": -327.1283271219809
+        },
+        {
+          "requested_n": 300000,
+          "achieved_n": 300000,
+          "energy_ha": -327.13452346996684
+        },
+        {
+          "requested_n": 500000,
+          "achieved_n": 500000,
+          "energy_ha": -327.14148923019997
+        },
+        {
+          "requested_n": 750000,
+          "achieved_n": 750000,
+          "energy_ha": -327.1484603323044,
+          "incremental_gain_mha": 6.971102104444071,
+          "wall_s": 22274.921830874868,
+          "gates": {
+            "E_hybrid_le_E_C": true,
+            "E_hybrid_le_H00": true,
+            "S_positive_semidefinite": true,
+            "c_dagger_S_c_eq_1": true,
+            "generalized_residual_converged": true,
+            "no_pt2_mixed_with_variational": true
+          }
+        },
+        {
+          "requested_n": 1000000,
+          "achieved_n": 1000000,
+          "energy_ha": -327.15303874070844,
+          "incremental_gain_mha": 4.578408404029233,
+          "wall_s": 32522.27889029123,
+          "gates": {
+            "E_hybrid_le_E_C": true,
+            "E_hybrid_le_H00": true,
+            "S_positive_semidefinite": true,
+            "c_dagger_S_c_eq_1": true,
+            "generalized_residual_converged": true,
+            "no_pt2_mixed_with_variational": true
+          }
+        }
+      ],
+      "composition_n": 1000000
+    }
+  ],
+  "generated_from": [
+    "../../manuscript/notes/restored_results_manifest.json",
+    "notebooks/data/*/campaign_results/*.json",
+    "notebooks/data/fe4s4/campaign_results/benchmark_checkpoints/benchmark_ladder_rung_*.json"
+  ],
+  "expanded_parent": {
+    "c2h6n4_paper": {
+      "system": "c2h6n4_paper",
+      "h00_exact": -296.87952920307333,
+      "cartesian_product_size": 1296,
+      "plateau_threshold_mha": 0.001,
+      "stop_reason": "schedule_exhausted_not_plateaued",
+      "rungs": [
+        {
+          "k": 10,
+          "actual_n": 10,
+          "energy_ha": -294.4863789776231,
+          "gain_mha": null,
+          "gap_to_exact_mha": 2393.150225450256,
+          "wall_s": 0.0028039170429110527
+        },
+        {
+          "k": 25,
+          "actual_n": 25,
+          "energy_ha": -294.9214215430907,
+          "gain_mha": 435.04256546759734,
+          "gap_to_exact_mha": 1958.1076599826588,
+          "wall_s": 0.0006602080538868904
+        },
+        {
+          "k": 50,
+          "actual_n": 50,
+          "energy_ha": -295.6880240979009,
+          "gain_mha": 766.6025548102198,
+          "gap_to_exact_mha": 1191.505105172439,
+          "wall_s": 0.0035143746063113213
+        },
+        {
+          "k": 100,
+          "actual_n": 100,
+          "energy_ha": -295.91021136391697,
+          "gain_mha": 222.1872660160784,
+          "gap_to_exact_mha": 969.3178391563606,
+          "wall_s": 0.0043264999985694885
+        },
+        {
+          "k": 250,
+          "actual_n": 250,
+          "energy_ha": -296.83851864823447,
+          "gain_mha": 928.3072843174978,
+          "gap_to_exact_mha": 41.010554838862845,
+          "wall_s": 0.02049441635608673
+        },
+        {
+          "k": 500,
+          "actual_n": 500,
+          "energy_ha": -296.8679897578202,
+          "gain_mha": 29.471109585756494,
+          "gap_to_exact_mha": 11.53944525310635,
+          "wall_s": 0.017632999923080206
+        },
+        {
+          "k": 1000,
+          "actual_n": 1000,
+          "energy_ha": -296.87943260422867,
+          "gain_mha": 11.44284640844262,
+          "gap_to_exact_mha": 0.09659884466373114,
+          "wall_s": 0.07486191717907786
+        },
+        {
+          "k": 1296,
+          "actual_n": 1296,
+          "energy_ha": -296.87954904461253,
+          "gain_mha": 0.11644038386293687,
+          "gap_to_exact_mha": -0.019841539199205727,
+          "wall_s": 0.11251637479290366
+        }
+      ]
+    },
+    "alfe2_11o10e": {
+      "system": "alfe2_11o10e",
+      "h00_exact": -3971.791490906558,
+      "cartesian_product_size": 5,
+      "plateau_threshold_mha": 0.001,
+      "stop_reason": "schedule_exhausted_not_plateaued",
+      "rungs": [
+        {
+          "k": 5,
+          "actual_n": 5,
+          "energy_ha": -3971.7914909065585,
+          "gain_mha": null,
+          "gap_to_exact_mha": -4.547473508864641e-10,
+          "wall_s": 0.0001844167709350586
+        }
+      ]
+    },
+    "bisdiazene": {
+      "system": "bisdiazene",
+      "h00_exact": -295.56943274621267,
+      "cartesian_product_size": 5184,
+      "plateau_threshold_mha": 0.001,
+      "stop_reason": "energy_plateau",
+      "rungs": [
+        {
+          "k": 10,
+          "actual_n": 10,
+          "energy_ha": -295.07697723770457,
+          "gain_mha": null,
+          "gap_to_exact_mha": 492.45550850810105,
+          "wall_s": 0.00043516699224710464
+        },
+        {
+          "k": 25,
+          "actual_n": 25,
+          "energy_ha": -295.3279318868964,
+          "gain_mha": 250.95464919183996,
+          "gap_to_exact_mha": 241.50085931626109,
+          "wall_s": 0.0006671668961644173
+        },
+        {
+          "k": 50,
+          "actual_n": 50,
+          "energy_ha": -295.4373752983024,
+          "gain_mha": 109.443411406005,
+          "gap_to_exact_mha": 132.0574479102561,
+          "wall_s": 0.0016296249814331532
+        },
+        {
+          "k": 100,
+          "actual_n": 100,
+          "energy_ha": -295.47755722851275,
+          "gain_mha": 40.18193021033767,
+          "gap_to_exact_mha": 91.87551769991842,
+          "wall_s": 0.005030166823416948
+        },
+        {
+          "k": 250,
+          "actual_n": 250,
+          "energy_ha": -295.5480465367418,
+          "gain_mha": 70.48930822907096,
+          "gap_to_exact_mha": 21.38620947084746,
+          "wall_s": 0.02497637504711747
+        },
+        {
+          "k": 500,
+          "actual_n": 500,
+          "energy_ha": -295.56590909863667,
+          "gain_mha": 17.862561894844475,
+          "gap_to_exact_mha": 3.523647576002986,
+          "wall_s": 0.016945709008723497
+        },
+        {
+          "k": 1000,
+          "actual_n": 1000,
+          "energy_ha": -295.57011483927926,
+          "gain_mha": 4.205740642589717,
+          "gap_to_exact_mha": -0.6820930665867309,
+          "wall_s": 0.04037724994122982
+        },
+        {
+          "k": 2500,
+          "actual_n": 2500,
+          "energy_ha": -295.57022896863754,
+          "gain_mha": 0.11412935828047921,
+          "gap_to_exact_mha": -0.7962224248672101,
+          "wall_s": 0.24564566602930427
+        },
+        {
+          "k": 5000,
+          "actual_n": 5000,
+          "energy_ha": -295.5702386432922,
+          "gain_mha": 0.009674654677382932,
+          "gap_to_exact_mha": -0.805897079544593,
+          "wall_s": 0.7629732079803944
+        },
+        {
+          "k": 5184,
+          "actual_n": 5184,
+          "energy_ha": -295.5702386996938,
+          "gain_mha": 5.6401574966002954e-05,
+          "gap_to_exact_mha": -0.805953481119559,
+          "wall_s": 0.7799321669153869
+        }
+      ]
+    },
+    "alfe2_11o20e": {
+      "system": "alfe2_11o20e",
+      "h00_exact": -3971.890269155861,
+      "cartesian_product_size": 252000,
+      "plateau_threshold_mha": 0.001,
+      "stop_reason": "energy_plateau",
+      "rungs": [
+        {
+          "k": 10,
+          "actual_n": 10,
+          "energy_ha": -3971.8349282586446,
+          "gain_mha": null,
+          "gap_to_exact_mha": 55.34089721641067,
+          "wall_s": 0.00304116727784276
+        },
+        {
+          "k": 25,
+          "actual_n": 25,
+          "energy_ha": -3971.881000443334,
+          "gain_mha": 46.0721846893648,
+          "gap_to_exact_mha": 9.268712527045864,
+          "wall_s": 0.0033552907407283783
+        },
+        {
+          "k": 50,
+          "actual_n": 50,
+          "energy_ha": -3971.887590924081,
+          "gain_mha": 6.590480747036054,
+          "gap_to_exact_mha": 2.67823178000981,
+          "wall_s": 0.004070749972015619
+        },
+        {
+          "k": 100,
+          "actual_n": 100,
+          "energy_ha": -3971.8891466120544,
+          "gain_mha": 1.5556879734504037,
+          "gap_to_exact_mha": 1.1225438065594062,
+          "wall_s": 0.010589334182441235
+        },
+        {
+          "k": 250,
+          "actual_n": 250,
+          "energy_ha": -3971.889980476619,
+          "gain_mha": 0.8338645643561904,
+          "gap_to_exact_mha": 0.28867924220321584,
+          "wall_s": 0.03838562499731779
+        },
+        {
+          "k": 500,
+          "actual_n": 500,
+          "energy_ha": -3971.890219194319,
+          "gain_mha": 0.2387177000855445,
+          "gap_to_exact_mha": 0.04996154211767134,
+          "wall_s": 0.008959332946687937
+        },
+        {
+          "k": 1000,
+          "actual_n": 1000,
+          "energy_ha": -3971.890250028858,
+          "gain_mha": 0.03083453930230462,
+          "gap_to_exact_mha": 0.019127002815366723,
+          "wall_s": 0.022525792010128498
+        },
+        {
+          "k": 2500,
+          "actual_n": 2500,
+          "energy_ha": -3971.8902679547514,
+          "gain_mha": 0.017925893189385533,
+          "gap_to_exact_mha": 0.0012011096259811893,
+          "wall_s": 0.09464195789769292
+        },
+        {
+          "k": 5000,
+          "actual_n": 5000,
+          "energy_ha": -3971.8902690413283,
+          "gain_mha": 0.0010865769581869245,
+          "gap_to_exact_mha": 0.00011453266779426485,
+          "wall_s": 0.2469047079794109
+        },
+        {
+          "k": 10000,
+          "actual_n": 10000,
+          "energy_ha": -3971.890269308131,
+          "gain_mha": 0.00026680254450184293,
+          "gap_to_exact_mha": -0.00015226987670757808,
+          "wall_s": 0.6059899590909481
+        }
+      ]
+    },
+    "fes_dimer_3minus": {
+      "system": "fes_dimer_3minus",
+      "h00_exact": -5068.7478253602285,
+      "cartesian_product_size": 252000,
+      "plateau_threshold_mha": 0.001,
+      "stop_reason": "energy_plateau",
+      "rungs": [
+        {
+          "k": 10,
+          "actual_n": 10,
+          "energy_ha": -5068.689872698271,
+          "gain_mha": null,
+          "gap_to_exact_mha": 57.952661957642704,
+          "wall_s": 0.0046446663327515125
+        },
+        {
+          "k": 25,
+          "actual_n": 25,
+          "energy_ha": -5068.738011835679,
+          "gain_mha": 48.139137407815724,
+          "gap_to_exact_mha": 9.81352454982698,
+          "wall_s": 0.002177333924919367
+        },
+        {
+          "k": 50,
+          "actual_n": 50,
+          "energy_ha": -5068.744960350111,
+          "gain_mha": 6.948514432224329,
+          "gap_to_exact_mha": 2.865010117602651,
+          "wall_s": 0.0051565831527113914
+        },
+        {
+          "k": 100,
+          "actual_n": 100,
+          "energy_ha": -5068.746443978662,
+          "gain_mha": 1.4836285508863511,
+          "gap_to_exact_mha": 1.3813815667162999,
+          "wall_s": 0.011705707758665085
+        },
+        {
+          "k": 250,
+          "actual_n": 250,
+          "energy_ha": -5068.7474454729545,
+          "gain_mha": 1.0014942927227821,
+          "gap_to_exact_mha": 0.37988727399351774,
+          "wall_s": 0.04628133401274681
+        },
+        {
+          "k": 500,
+          "actual_n": 500,
+          "energy_ha": -5068.747762285293,
+          "gain_mha": 0.3168123384966748,
+          "gap_to_exact_mha": 0.06307493549684295,
+          "wall_s": 0.012186500243842602
+        },
+        {
+          "k": 1000,
+          "actual_n": 1000,
+          "energy_ha": -5068.747801206778,
+          "gain_mha": 0.0389214847018593,
+          "gap_to_exact_mha": 0.024153450794983655,
+          "wall_s": 0.031064750161021948
+        },
+        {
+          "k": 2500,
+          "actual_n": 2500,
+          "energy_ha": -5068.747824478168,
+          "gain_mha": 0.023271390091395006,
+          "gap_to_exact_mha": 0.0008820607035886496,
+          "wall_s": 0.12431624997407198
+        },
+        {
+          "k": 5000,
+          "actual_n": 5000,
+          "energy_ha": -5068.747826488153,
+          "gain_mha": 0.002009985109907575,
+          "gap_to_exact_mha": -0.0011279244063189253,
+          "wall_s": 0.37372395768761635
+        },
+        {
+          "k": 10000,
+          "actual_n": 10000,
+          "energy_ha": -5068.747826915576,
+          "gain_mha": 0.00042742340156110004,
+          "gap_to_exact_mha": -0.0015553478078800254,
+          "wall_s": 0.9755230001173913
+        }
+      ]
+    },
+    "fe4s4": {
+      "system": "fe4s4",
+      "h00_exact": -327.05265929840465,
+      "cartesian_product_size": 324000,
+      "plateau_threshold_mha": 0.001,
+      "stop_reason": "schedule_exhausted_not_plateaued",
+      "rungs": [
+        {
+          "k": 10,
+          "actual_n": 10,
+          "energy_ha": -326.98660855822027,
+          "gain_mha": null,
+          "gap_to_exact_mha": 66.05074018438017,
+          "wall_s": 0.009448083117604256
+        },
+        {
+          "k": 25,
+          "actual_n": 25,
+          "energy_ha": -327.025623917229,
+          "gain_mha": 39.01535900871522,
+          "gap_to_exact_mha": 27.035381175664952,
+          "wall_s": 0.01174612483009696
+        },
+        {
+          "k": 50,
+          "actual_n": 50,
+          "energy_ha": -327.0351078131828,
+          "gain_mha": 9.483895953792398,
+          "gap_to_exact_mha": 17.551485221872554,
+          "wall_s": 0.026460917200893164
+        },
+        {
+          "k": 100,
+          "actual_n": 100,
+          "energy_ha": -327.04362918319384,
+          "gain_mha": 8.52137001106712,
+          "gap_to_exact_mha": 9.030115210805434,
+          "wall_s": 0.0621633748523891
+        },
+        {
+          "k": 250,
+          "actual_n": 250,
+          "energy_ha": -327.0522537302588,
+          "gain_mha": 8.624547064982835,
+          "gap_to_exact_mha": 0.40556814582259904,
+          "wall_s": 0.29069854225963354
+        },
+        {
+          "k": 500,
+          "actual_n": 500,
+          "energy_ha": -327.05512036057564,
+          "gain_mha": 2.866630316816554,
+          "gap_to_exact_mha": -2.461062170993955,
+          "wall_s": 0.04400179209187627
+        },
+        {
+          "k": 1000,
+          "actual_n": 1000,
+          "energy_ha": -327.05821598724816,
+          "gain_mha": 3.0956266725183923,
+          "gap_to_exact_mha": -5.556688843512347,
+          "wall_s": 0.15298120770603418
+        },
+        {
+          "k": 2500,
+          "actual_n": 2500,
+          "energy_ha": -327.06124978069806,
+          "gain_mha": 3.033793449901623,
+          "gap_to_exact_mha": -8.59048229341397,
+          "wall_s": 0.7032037912867963
+        },
+        {
+          "k": 5000,
+          "actual_n": 5000,
+          "energy_ha": -327.0640308844394,
+          "gain_mha": 2.781103741313018,
+          "gap_to_exact_mha": -11.371586034726988,
+          "wall_s": 1.7600228330120444
+        },
+        {
+          "k": 10000,
+          "actual_n": 10000,
+          "energy_ha": -327.06612680701267,
+          "gain_mha": 2.0959225732894993,
+          "gap_to_exact_mha": -13.467508608016487,
+          "wall_s": 4.780298958066851
+        },
+        {
+          "k": 25000,
+          "actual_n": 25000,
+          "energy_ha": -327.06814071881075,
+          "gain_mha": 2.01391179808752,
+          "gap_to_exact_mha": -15.481420406104007,
+          "wall_s": 19.55035512475297
+        },
+        {
+          "k": 50000,
+          "actual_n": 50000,
+          "energy_ha": -327.06939395030895,
+          "gain_mha": 1.253231498196783,
+          "gap_to_exact_mha": -16.73465190430079,
+          "wall_s": 54.010852166917175
+        },
+        {
+          "k": 100000,
+          "actual_n": 100000,
+          "energy_ha": -327.07009156343,
+          "gain_mha": 0.6976131210763015,
+          "gap_to_exact_mha": -17.43226502537709,
+          "wall_s": 173.34687833301723
+        },
+        {
+          "k": 250000,
+          "actual_n": 250000,
+          "energy_ha": -327.0705525055746,
+          "gain_mha": 0.4609421445707085,
+          "gap_to_exact_mha": -17.8932071699478,
+          "wall_s": 717.6993966661394
+        },
+        {
+          "k": 324000,
+          "actual_n": 324000,
+          "energy_ha": -327.0705846968095,
+          "gain_mha": 0.03219123487951947,
+          "gap_to_exact_mha": -17.92539840482732,
+          "wall_s": 964.1941672079265
+        }
+      ]
+    }
+  },
+  "fe4s4_post_recovery_coo": {
+    "points": [
+      {
+        "system": "fe4s4",
+        "rung": 300000,
+        "las_top_k": 200000,
+        "n_las": 200000,
+        "n_recovery": 300000,
+        "n_overlap": 0,
+        "total_dets": 500000,
+        "e_before_ha": -327.1692060436937,
+        "e_after_ha": -327.1819473830982,
+        "gain_mha": 12.741339404499286,
+        "orbital_opt_max_iter": 150,
+        "cross_fragment_rotation_norm": 1.2466649061413977,
+        "rotation_errors": {
+          "orthogonality": 8.968381592922015e-13,
+          "h1": 7.815970093361102e-14,
+          "eri": 8.326672684688674e-15
+        },
+        "gates": {
+          "E_after_le_E_before": true
+        },
+        "wall_s": 7972.263225042261
+      },
+      {
+        "system": "fe4s4",
+        "rung": 500000,
+        "las_top_k": 300000,
+        "n_las": 300000,
+        "n_recovery": 500000,
+        "n_overlap": 0,
+        "total_dets": 800000,
+        "e_before_ha": -327.1737660512314,
+        "e_after_ha": -327.1872186663727,
+        "gain_mha": 13.452615141318347,
+        "orbital_opt_max_iter": 150,
+        "cross_fragment_rotation_norm": 1.2111766893368352,
+        "rotation_errors": {
+          "orthogonality": 2.932909470843015e-10,
+          "h1": 1.0480505352461478e-13,
+          "eri": 9.103828801926284e-15
+        },
+        "gates": {
+          "E_after_le_E_before": true
+        },
+        "wall_s": 22481.145948916674
+      },
+      {
+        "system": "fe4s4",
+        "rung": 1000000,
+        "las_top_k": 100000,
+        "n_las": 100000,
+        "n_recovery": 1000000,
+        "n_overlap": 0,
+        "total_dets": 1100000,
+        "e_before_ha": -327.17857908165917,
+        "e_after_ha": -327.1923260447032,
+        "gain_mha": 13.746963044013683,
+        "orbital_opt_max_iter": 150,
+        "cross_fragment_rotation_norm": 1.212259181842183,
+        "rotation_errors": {
+          "orthogonality": 2.079593164339144e-09,
+          "h1": 1.4210854715202004e-13,
+          "eri": 1.4876988529977098e-14
+        },
+        "gates": {
+          "E_after_le_E_before": true
+        },
+        "wall_s": 71570.2907497501
+      }
+    ],
+    "status": "variational candidates; each reached its stated orbital-iteration limit"
+  },
+  "size_extensivity": {
+    "description": "Noninteracting block-diagonal replicas of linear H6 at R=1.55 Angstrom in STO-3G; one complete (6e,6o) unit per fragment.",
+    "n_units": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "lasscf_energy_ha": [
+      -2.9732776267780396,
+      -5.946555253556079,
+      -8.91983288033412,
+      -11.89311050711216,
+      -14.866388133890203,
+      -17.839665760668236
+    ],
+    "parent_energy_ha": [
+      -2.973277626775828,
+      -5.946555253551654,
+      -8.919832880327483,
+      -11.893110507103314,
+      -14.866388133879143,
+      -17.839665760654963
+    ],
+    "whole_system_trimci_energy_ha": [
+      -2.973275938533697,
+      -5.9460488221639505,
+      -8.831713919438293,
+      -11.684357637554386,
+      -14.460332917854293,
+      -17.3252194897662
+    ],
+    "whole_system_trimci_phase2_dets": [
+      400,
+      80000,
+      80000,
+      640000,
+      640000,
+      2560000
+    ],
+    "source": "paper figure manifest and release notebook calculation records"
+  }
+}

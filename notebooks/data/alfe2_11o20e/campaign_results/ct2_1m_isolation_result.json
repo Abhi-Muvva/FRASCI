@@ -1,0 +1,28 @@
+{
+  "n_ct_max": 2,
+  "schedule": [
+    1000,
+    4000,
+    12000,
+    50000,
+    150000,
+    300000,
+    500000,
+    750000,
+    1000000
+  ],
+  "energy_ha": -3971.8922440986903,
+  "gain_vs_parent_mha": 1.9749426901398692,
+  "actual_n": 1000000,
+  "termination_reason": "recovery_target_met",
+  "beats_accepted_lassis": true,
+  "wall_s": 13088.11676299991,
+  "gates": {
+    "E_hybrid_le_H00": true,
+    "E_hybrid_le_E_C": true,
+    "S_positive_semidefinite": true,
+    "c_dagger_S_c_eq_1": true,
+    "generalized_residual_converged": true,
+    "no_pt2_mixed_with_variational": true
+  }
+}

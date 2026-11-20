@@ -334,7 +334,7 @@ def transform_fragment_ci_block(frag: dict, u_block: np.ndarray) -> dict:
 
 def _assemble_contracted_reference(bundle, meta: dict, mo0: np.ndarray, frags: list[dict],
                                    *, parent_dir: Path, parent_e_tot: float, source: str,
-                                   parent_converged: bool,
+                                   parent_converged: bool, convergence_status: str | None = None,
                                    fallback_lasci_energy=None, fallback_converged=None,
                                    fallback_dims=None) -> dict:
     """Assemble H00 and the sparse LAS reference once fragment wavefunctions are known."""
@@ -366,6 +366,7 @@ def _assemble_contracted_reference(bundle, meta: dict, mo0: np.ndarray, frags: l
         ref_sectors=ref_sectors, frags=frags, mo_final=mo_final, h1=h1, eri=eri,
         e_const=e_const, h00=h00, checkpoint_e_tot=parent_e_tot,
         source=source, parent_converged=bool(parent_converged),
+        convergence_status=convergence_status,
         fallback_lasci_energy=fallback_lasci_energy,
         fallback_converged=fallback_converged, fallback_dimensions=fallback_dims,
         gates=dict(orbitals_orthonormal=True,
@@ -472,6 +473,7 @@ def _build_contracted_reference_from_parent_object(parent: Parent, bundle) -> di
         bundle, meta, mo0, frags, parent_dir="<in-memory Parent object>",
         parent_e_tot=float(parent.e_tot), source="in_memory_parent_object",
         parent_converged=bool(parent.converged),
+        convergence_status=parent.convergence_status,
         fallback_lasci_energy=None, fallback_converged=None, fallback_dims=None)
 
 
@@ -526,6 +528,7 @@ def _build_contracted_reference_from_path(parent_dir: Path, bundle) -> dict:
     return _assemble_contracted_reference(
         bundle, meta, mo0, frags, parent_dir=parent_dir, parent_e_tot=parent_e_tot,
         source=source, parent_converged=bool(meta["converged"]),
+        convergence_status=meta.get("convergence_status"),
         fallback_lasci_energy=fallback_lasci_energy,
         fallback_converged=fallback_converged, fallback_dims=fallback_dims)
 
@@ -729,6 +732,121 @@ def h0d_batch(candidates: Sequence[Determinant], state: dict, kernel, *,
     return results
 
 
+def parent_support_preflight(state: dict, n_candidates: int, *,
+                             max_combined_dets: int = 2_000_000) -> dict:
+    """Decide whether the exact row-sliced-matvec coupling backend is safe to use:
+    the complete factorized Parent's own Cartesian-product support (the product of
+    each fragment's own RETAINED determinant count -- bounded by that fragment's own
+    selected-CI budget, never its full dense CI dimension) must, combined with
+    ``n_candidates``, fit comfortably in memory for one native ``ABIndex`` plus a
+    double row-sliced matvec workspace.
+
+    Returns ``{"cartesian_product_size", "combined_size", "estimated_peak_mib",
+    "use_row_sliced_matvec"}``. ``False`` is the safe default on any uncertainty --
+    callers fall back to the exact, if slower, ``h0d_batch`` neighbor-enumeration path.
+    """
+    fragment_support_sizes = [len(frag["dets"]) for frag in state["frags"]]
+    cartesian_product_size = int(math.prod(fragment_support_sizes))
+    combined_size = int(n_candidates) + cartesian_product_size
+    n_orb = int(state["n_orb"])
+    # Rough, deliberately generous workspace estimate: alpha/beta/diagonal/overlap
+    # arrays (a handful of 8-byte floats/uint64s per combined determinant) plus the
+    # ABIndex's own internal bookkeeping (bounded by a small multiple of n_orb per
+    # entry) -- orders of magnitude below what would actually exhaust memory at the
+    # sizes this preflight is meant to admit.
+    estimated_peak_mib = combined_size * (8 * 6 + n_orb) / (1024.0 * 1024.0)
+    use_row_sliced_matvec = (
+        n_orb <= 64
+        and combined_size <= int(max_combined_dets)
+        and estimated_peak_mib <= 4096.0
+    )
+    return {
+        "cartesian_product_size": cartesian_product_size,
+        "fragment_support_sizes": fragment_support_sizes,
+        "combined_size": combined_size,
+        "estimated_peak_mib": estimated_peak_mib,
+        "use_row_sliced_matvec": use_row_sliced_matvec,
+    }
+
+
+def h0d_batch_via_parent_matvec(candidates: Sequence[Determinant], state: dict, *,
+                                parent_certificate: dict | None = None) -> tuple[np.ndarray, dict]:
+    """Exact ``<Phi_LAS|H|D>`` for every candidate ``D``, via ONE native row-sliced
+    matvec over ``[candidates, nonduplicate Parent determinants]`` instead of
+    ``h0d_batch``'s per-candidate rank<=2 neighbor enumeration.
+
+    ``h0d_batch`` is exact but its cost scales with EACH candidate's own neighbor
+    count -- documented there as "up to ~85k at Fe4S4 scale" -- independent of how
+    large the Parent's own explicit support actually is. This backend instead scales
+    with the (typically far smaller, selected-CI-bounded) complete Parent Cartesian
+    product: stack one coefficient vector ``c = [0,...,0 (one per candidate),
+    c_P1, c_P2, ...]`` over the combined determinant list ``[candidates, nonduplicate
+    Parent dets]``, and take the exact Hamiltonian action restricted to the rows
+    belonging to the candidates via ``fast_expansion.matvec_row_sliced``. Row ``i`` of
+    that restricted output is exactly ``sum_P c_P <D_i|H|P> = <D_i|H|Phi_LAS>``'s
+    electronic part; ``e_const * overlap`` is added explicitly afterward -- normally
+    zero (corrected A' candidates never coincide with an owned Parent determinant by
+    construction), but computed generally in case they ever do: a candidate that
+    duplicates a Parent determinant is excluded from the "nonduplicate Parent" list
+    and its OWN input-vector entry carries that Parent coefficient directly, so it is
+    never double-counted against a separate Parent-list row for the same determinant.
+
+    Returns ``(coupling, timings)`` with ``timings`` reporting
+    ``parent_reconstruction_s``, ``index_and_diagonal_s``, and ``row_sliced_matvec_s``
+    separately. Candidate selection, Parent contraction, and the generalized hybrid
+    solve are untouched by this function -- it only replaces how the coupling vector
+    going into that solve is computed.
+    """
+    import time
+
+    from trimci import trimci_core
+
+    timings: dict[str, float] = {}
+    started = time.perf_counter()
+    if parent_certificate is None:
+        from frasci.recovery._las_reconstruct import certify_las_reconstruction
+        parent_certificate = certify_las_reconstruction(state, tol=1e-8)
+    timings["parent_reconstruction_s"] = time.perf_counter() - started
+
+    n_orb = int(state["n_orb"])
+    if n_orb > 64:
+        raise NotImplementedError(
+            "row-sliced-matvec parent coupling currently supports n_orb <= 64")
+    candidates = [tuple(map(int, d)) for d in candidates]
+    n_candidates = len(candidates)
+    candidate_set = frozenset(candidates)
+    parent_coeff_lookup = {
+        tuple(map(int, det)): float(c)
+        for det, c in zip(parent_certificate["dets"], parent_certificate["coeffs"])}
+    nonduplicate_parent = [
+        tuple(map(int, det)) for det in parent_certificate["dets"]
+        if tuple(map(int, det)) not in candidate_set]
+    combined = candidates + nonduplicate_parent
+    overlap = np.asarray(
+        [parent_coeff_lookup.get(det, 0.0) for det in combined], dtype=float)
+
+    started = time.perf_counter()
+    alpha = np.ascontiguousarray([det[0] for det in combined], dtype=np.uint64)
+    beta = np.ascontiguousarray([det[1] for det in combined], dtype=np.uint64)
+    h1 = np.ascontiguousarray(state["h1"], dtype=float)
+    eri = np.ascontiguousarray(state["eri"], dtype=float).ravel()
+    backend = trimci_core.fast_expansion
+    index = backend.ABIndex()
+    index.build(alpha, beta, n_orb)
+    diagonal = np.asarray(
+        backend.compute_diagonals(alpha, beta, h1, eri, n_orb), dtype=float)
+    timings["index_and_diagonal_s"] = time.perf_counter() - started
+
+    started = time.perf_counter()
+    electronic = backend.matvec_row_sliced(
+        index, alpha, beta, overlap, diagonal, h1, eri, n_orb, 0, n_candidates)
+    timings["row_sliced_matvec_s"] = time.perf_counter() - started
+
+    coupling = (np.asarray(electronic, dtype=float)
+               + float(state["e_const"]) * overlap[:n_candidates])
+    return coupling, timings
+
+
 def retain_candidates(dets: Sequence[Determinant], coeffs: Sequence[float], state: dict,
                       *, n_ct_max: int = 2, include_same_sector: bool = False) -> tuple[dict, dict]:
     """Classify every candidate determinant and drop those with n_ct > n_ct_max.
@@ -743,10 +861,17 @@ def retain_candidates(dets: Sequence[Determinant], coeffs: Sequence[float], stat
     Returns ``(eligible, counts)``: ``eligible`` maps each retained determinant to its
     proposal coefficient, S_0D (owned dets only), label, and n_ct; ``counts`` tallies how
     many candidates fell into each classification bucket (including dropped/duplicate ones).
+    ``counts["ct_gt2_by_rank"]`` additionally breaks the aggregate ``ct_gt2`` count down by
+    its exact rank (``{3: n_ct3_count, 4: n_ct4_count, ...}``) for bookkeeping -- e.g. to
+    see exactly how many rank-3, rank-4, ... determinants were encountered (and, with
+    ``n_ct_max=2``, dropped) even though they are never individually labeled: the
+    per-determinant ``label`` stays the fixed "ct_gt2" (see ``_solve.py``'s
+    ``strict_labels``), this is purely an additive aggregate.
     """
     eligible = {}
     counts = dict(same_sector_present=0, same_sector_absent=0,
-                  dispersion=0, ct1=0, ct2=0, ct_gt2=0, duplicates=0)
+                  dispersion=0, ct1=0, ct2=0, ct_gt2=0, duplicates=0,
+                  ct_gt2_by_rank={})
     for det, c in zip(dets, coeffs):
         det = tuple(map(int, det))
         if det in eligible:
@@ -772,7 +897,9 @@ def retain_candidates(dets: Sequence[Determinant], coeffs: Sequence[float], stat
             # already assumes; a dynamic f"ct{n_ct}" key here caused a KeyError against the
             # counts dict for any n_ct > 2 (counts only ever pre-declares ct1/ct2/ct_gt2).
             counts["ct_gt2"] += 1
+            counts["ct_gt2_by_rank"][n_ct] = counts["ct_gt2_by_rank"].get(n_ct, 0) + 1
             eligible[det] = dict(coeff=float(c), s=0.0, label="ct_gt2", n_ct=n_ct)
         else:
             counts["ct_gt2"] += 1
+            counts["ct_gt2_by_rank"][n_ct] = counts["ct_gt2_by_rank"].get(n_ct, 0) + 1
     return eligible, counts

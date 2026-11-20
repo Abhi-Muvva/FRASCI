@@ -126,4 +126,50 @@ def test_result_defaults_reflect_the_ordinary_converged_path():
     result = Result(hybrid_produced=True, energy=-1.0, n_dets=0, converged=True, gates={},
                     h00=-1.0, wall_s=0.0, diagnostics={})
     assert result.parent_converged is True
+    assert result.parent_convergence_status is None
     assert result.diagnostic_only is False
+
+
+# --- confirmed stationary_plateau: accepted like strict convergence (2026-09-30) --------
+#
+# ParentConfig.tail_convergence exists so a parent that plateaus (RDM-stable, confirmed by
+# an actual extension block -- see frasci.parent._convergence) short of strict
+# conv_tol_grad is still usable, not just diagnosable. Without this, the guard above
+# refused a confirmed plateau exactly like genuine non-convergence, defeating the point of
+# building the tail-confirmation protocol in the first place.
+
+def test_solve_accepts_confirmed_stationary_plateau_in_memory_parent_without_override(
+        h6_parent, h6_fcidump):
+    plateaued = dataclasses.replace(h6_parent, converged=False,
+                                    convergence_status="stationary_plateau")
+    bundle = FCIDUMPInput.from_file(h6_fcidump)
+    result = solve_recovery(plateaued, bundle, _rcfg())
+    assert result.parent_converged is False
+    assert result.parent_convergence_status == "stationary_plateau"
+    assert result.diagnostic_only is False
+
+
+def test_solve_accepts_confirmed_stationary_plateau_persisted_parent_without_override(
+        h6_persisted_parent_dir, h6_fcidump):
+    meta_path = h6_persisted_parent_dir / "checkpoint_metadata.json"
+    meta = json.loads(meta_path.read_text())
+    meta["converged"] = False
+    meta["convergence_status"] = "stationary_plateau"
+    meta_path.write_text(json.dumps(meta))
+
+    bundle = FCIDUMPInput.from_file(h6_fcidump)
+    result = solve_recovery(h6_persisted_parent_dir, bundle, _rcfg())
+    assert result.parent_converged is False
+    assert result.parent_convergence_status == "stationary_plateau"
+    assert result.diagnostic_only is False
+
+
+def test_solve_still_rejects_unconfirmed_plateau_candidate(h6_parent, h6_fcidump):
+    # stationary_plateau_candidate is the NOT-YET-confirmed status (classify_trace never
+    # promotes to stationary_plateau without an extension block + RDM stability) -- the
+    # guard must not treat "still awaiting confirmation" the same as "confirmed".
+    candidate = dataclasses.replace(h6_parent, converged=False,
+                                    convergence_status="stationary_plateau_candidate")
+    bundle = FCIDUMPInput.from_file(h6_fcidump)
+    with pytest.raises(ValueError, match="converged=False"):
+        solve_recovery(candidate, bundle, _rcfg())

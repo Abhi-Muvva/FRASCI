@@ -1,0 +1,9 @@
+{
+  "system": "fes_dimer_3minus",
+  "n_roots": 927,
+  "e_ground": -5068.753401372405,
+  "parent_e_tot": -5068.7478253602285,
+  "variational_vs_parent": true,
+  "adapter_wall_s": 0.01452750014141202,
+  "lassis_wall_s": 91.0278400410898
+}

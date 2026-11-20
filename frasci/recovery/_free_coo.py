@@ -91,8 +91,16 @@ def solve_free_orbital_union(state: dict, dets, initial_guess: np.ndarray, *,
     n_orb = int(state["n_orb"])
     dets_arr = np.asarray([tuple(map(int, d)) for d in dets], dtype=np.int64)
 
+    # max_subspace=200 (native default 40): root-caused via captured real failures.
+    # The required subspace scales with problem size -- 80 sufficed at ~40,400 dets
+    # (run_fixed_filtered_ladder's growth-ladder rediagonalization) but NOT at
+    # ~80,000 dets (this union, N=4 K=40000: converged=False even at 80, needed
+    # >=120; 200 gives comfortable margin, confirmed clean convergence directly on
+    # the captured failing snapshot). Revisit if N=5/N=6's much larger unions
+    # (hundreds of thousands to millions of dets) hit this again -- this fixed
+    # value is not derived from a scaling law, just the largest case tested so far.
     before = _fixed_support_ground_state(state["h1"], state["eri"], dets_arr,
-                                         initial_guess, n_orb)
+                                         initial_guess, n_orb, max_subspace=200)
     e_before = float(before.energy) + float(state["e_const"])
     before_dets = [tuple(map(int, d)) for d in before.determinants]
     before_coeffs = np.asarray(before.coefficients, dtype=float)
@@ -110,9 +118,8 @@ def solve_free_orbital_union(state: dict, dets, initial_guess: np.ndarray, *,
     # Independently rediagonalize at the rotated frame instead.
     after = _fixed_support_ground_state(
         coo["h1_final"], coo["eri_final"], after_dets,
-        np.asarray(coo["coeffs"], dtype=float), n_orb)
+        np.asarray(coo["coeffs"], dtype=float), n_orb, max_subspace=200)
     e_after = float(after.energy) + float(state["e_const"])
-
     gain_mha = (e_before - e_after) * 1000.0
     gate_passed = bool(e_after <= e_before + gate_tol)
     if not gate_passed:

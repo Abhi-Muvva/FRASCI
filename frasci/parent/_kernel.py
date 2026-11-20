@@ -32,7 +32,8 @@ def _nearest_orthogonal(matrix):
     return left @ right_t
 
 
-def _fixed_support_ground_state(h1, eri, determinants, coefficients, n_orb: int):
+def _fixed_support_ground_state(h1, eri, determinants, coefficients, n_orb: int, *,
+                                extra_guesses=None, max_subspace=None):
     """Rediagonalize a fixed determinant support without running selection.
 
     The recovery rebuild uses this after its first fragment solve so small capped
@@ -41,6 +42,24 @@ def _fixed_support_ground_state(h1, eri, determinants, coefficients, n_orb: int)
     retain two Davidson starts as a ground-root safeguard. The returned energy and
     residual are independently checked by matrix-free multiplication rather than
     trusted from a native result scalar.
+
+    ``extra_guesses`` (optional, default None -- old behavior unchanged): additional
+    deterministic starting vectors to try alongside the two built-in candidates, e.g.
+    a parent-state projection into this support. Each is a length-``len(determinants)``
+    array aligned with ``determinants``' order; any that fail to converge are simply
+    dropped from the candidate pool, same as the two built-in starts. This only ever
+    WIDENS the deterministic safeguard against missing the true ground root (never a
+    random guess).
+
+    ``max_subspace`` (optional, default None -- native default of 40 unchanged):
+    override the Davidson Krylov subspace cap before a restart. Root-caused via a
+    captured real failure (N=4's 40,400-determinant recovery rediagonalization,
+    "Davidson failed for 40400 determinants"): at the native default of 40 the
+    solver hit its max_iter=500 restart cycles WITHOUT converging
+    (``result.converged=False``); raising max_subspace to 80 on the identical
+    frozen snapshot converged cleanly in 304 iterations and was faster in wall
+    time (fewer restarts). This -- not the starting guess -- was the actual
+    cause of that failure class; ``extra_guesses`` alone did not fix it.
     """
     dets = np.asarray(determinants)
     if dets.ndim != 2 or dets.shape[1] != 2 or len(dets) == 0:
@@ -110,6 +129,8 @@ def _fixed_support_ground_state(h1, eri, determinants, coefficients, n_orb: int)
         # iterations on the SAME problem. This function's own residual gate below
         # is independent of and unaffected by this -- it is not being loosened.
         params.energy_tol = 0.0
+        if max_subspace is not None:
+            params.max_subspace = int(max_subspace)
         result = fe.davidson_solve_matfree(
             alpha, beta, h1c, eric, int(n_orb), params, guess)
         if not result.converged:
@@ -132,11 +153,18 @@ def _fixed_support_ground_state(h1, eri, determinants, coefficients, n_orb: int)
             # equivalence.
             run(np.ascontiguousarray(previous).reshape(1, -1)),
             run(np.empty((0, 0))),
+            *(run(np.ascontiguousarray(
+                  np.asarray(g, dtype=float).reshape(-1) /
+                  np.linalg.norm(np.asarray(g, dtype=float).reshape(-1))
+              ).reshape(1, -1))
+              for g in (extra_guesses or [])),
         ) if candidate is not None
     ]
     if not candidates:
         raise RuntimeError(
-            f"fixed-support Davidson failed for {len(dets)} determinants")
+            f"fixed-support Davidson failed for {len(dets)} determinants"
+            + (f" (also tried {len(extra_guesses)} extra guess(es), all failed)"
+               if extra_guesses else ""))
     energy, residual, n_iters, coeffs = min(candidates, key=lambda item: item[0])
     if residual >= 1e-8:
         raise RuntimeError(
@@ -411,6 +439,61 @@ def patch_large_fragment_aufbau(las, ncas_sub, nelec_per_frag, max_dense_bytes=N
         print(f"[frasci.parent] F{i}: CSF aufbau init-guess infeasible "
               f"({norb}o {na}a{nb}b, dense civec ~{dense_bytes / 1024 ** 3:.1f} GiB) "
               f"-> analytic single-determinant RDM seed")
+
+
+def patch_mrh_zero_gradient_preconditioner():
+    """Guard a ZeroDivisionError in mrh's LASSCF orbital-optimization preconditioner.
+
+    mrh.my_pyscf.mcscf.lasscf_sync_o0.LASSCF_HessianOperator.get_prec divides the
+    norm of the "unstable" gradient by b = norm(the full gradient) without checking
+    b == 0. When the orbital gradient is EXACTLY zero -- a genuine degenerate
+    stationary point, observed 2026-10-01 on deeply-stretched, perfectly-symmetric
+    multi-fragment H4 chains (N>=2 identical fragments) -- every entry of
+    probe_x0 = b/Hdiag is also exactly zero, so idx_unstable is already all-False
+    and there is trivially nothing to mask; the correct behavior is to return the
+    unmodified preconditioner, not divide by zero.
+
+    mrh is a shared external dependency (other local projects use the same
+    checkout, and anyone installing frasci against a stock/unpatched mrh would hit
+    the identical crash), so this vendors the one-line fix as a class-level
+    monkeypatch here rather than editing mrh's source file. get_prec is NOT
+    overridden by mrh.my_pyscf.mcscf.lasscf_rdm.LASSCF_HessianOperator (the
+    RDM-based solver frasci.parent actually drives), so patching the inherited
+    base-class method here covers that path too.
+    """
+    from mrh.my_pyscf.mcscf.lasscf_sync_o0 import LASSCF_HessianOperator
+    if getattr(LASSCF_HessianOperator, "_frasci_zero_gradient_patched", False):
+        return
+
+    def _get_prec_patched(self):
+        from scipy import linalg
+        from pyscf import lib
+        log = lib.logger.new_logger(self.las, self.las.verbose)
+        Hdiag = self._get_Hdiag() + self.level_shift
+        Hdiag[np.abs(Hdiag) < 1e-8] = 1e-8
+        g_vec = self.get_grad()
+        b = linalg.norm(g_vec)
+        probe_x0 = b / Hdiag
+        log.debug('|probe_x0| / ndeg = %g', linalg.norm(probe_x0) / len(probe_x0))
+        ndeg = len(probe_x0)
+        idx_unstable = np.abs(probe_x0) > np.pi
+        ndeg_unstable = np.count_nonzero(idx_unstable)
+        ndeg_stable = np.count_nonzero(~idx_unstable)
+        g_unst = linalg.norm(g_vec[idx_unstable]) if ndeg_unstable else 0
+        # frasci patch: b == 0 means the gradient is exactly zero -- nothing
+        # unstable to mask (idx_unstable is already all-False) -- not a 0/0 to
+        # raise on.
+        if ndeg_stable and (b == 0 or round(g_unst / b, 2) < 1):
+            Hdiag[idx_unstable] = np.inf
+            ndeg_unstable = ndeg - ndeg_stable
+            log.debug('%d/%d d.o.f. masked in LASSCF sync preconditioner (masked gradient = %g)',
+                      ndeg_unstable, ndeg, g_unst)
+        else:
+            log.warn('LASSCF encountered an unmaskable instability; calculation may not converge')
+        return self.PrecOp(Hdiag, log)
+
+    LASSCF_HessianOperator.get_prec = _get_prec_patched
+    LASSCF_HessianOperator._frasci_zero_gradient_patched = True
 
 
 def make_phased_kernel(
@@ -975,6 +1058,7 @@ def make_phased_kernel(
                         "[frasci.parent] secondary callback failure while recording "
                         f"rdm_failed: {callback_exc}", file=sys.stderr)
             raise
+
         dm1a = _back_rotate_dm1(dm1a_r, R)
         dm1b = _back_rotate_dm1(dm1b_r, R)
         dm1s = np.stack([dm1a, dm1b], axis=0)

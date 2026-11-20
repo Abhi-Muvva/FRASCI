@@ -471,11 +471,13 @@ def solve_contracted_hybrid_matrix_free(
         hybrid_matvec_calls=hybrid_calls)
 
 
-def solve_recovery_point(state: dict, dets, coeffs, *, n_ct_max: int = 2,
-                         edge_kernel=None, lookup_cache=None,
+def solve_recovery_point(state: dict, dets, coeffs, *,
+                         n_ct_max: int = 2, edge_kernel=None, lookup_cache=None,
                          solver_kind: str = "matrix_free",
                          dense_dimension_threshold: int = 5000,
-                         max_memory_gb: float = 16.0) -> dict:
+                         max_memory_gb: float = 16.0,
+                         initial_coefficients=None,
+                         coupling_backend: str = "auto") -> dict:
     """Classify a fixed (dets, coeffs) support against ``state`` and solve the resulting
     ``{Phi_LAS, R}`` generalized eigenproblem.
 
@@ -484,6 +486,13 @@ def solve_recovery_point(state: dict, dets, coeffs, *, n_ct_max: int = 2,
     classify to an empty eligible set (no interfragment determinants), returns the parent
     H00 itself as the energy (same "no interfragment determinants exist" convention
     ``fixed_frame_sweep.py`` already uses), never raises.
+
+    ``initial_coefficients``, if given, is a ``[c0, d_1, ..., d_R]`` warm-start vector
+    (shape ``(len(eligible)+1,)``, in the order ``eligible`` iterates) -- e.g. a previous
+    recovery rung's converged generalized coefficients, zero-padded for any newly admitted
+    determinant. Forwarded to :func:`solve_contracted_hybrid_matrix_free`'s own
+    ``initial_coefficients`` parameter; has no effect on the ``"dense"`` path, which always
+    solves via a direct ``eigh`` call that needs no starting vector.
 
     ``solver_kind``:
     - ``"matrix_free"`` (default -- unchanged production behavior): the linear-memory
@@ -500,13 +509,30 @@ def solve_recovery_point(state: dict, dets, coeffs, *, n_ct_max: int = 2,
       dense's exact solve trivially satisfies the residual-convergence gate
       (``generalized_residual_norm=0.0``, ``generalized_residual_converged=True``), added
       to its gates dict for parity with the matrix-free one.
+
+    ``coupling_backend`` picks how the ``<Phi_LAS|H|D>`` coupling vector is computed --
+    purely an implementation/resource choice, never a change to candidate selection,
+    Parent contraction, A-prime ordering, or the generalized solve itself:
+    - ``"auto"`` (default): :func:`frasci.recovery._state.parent_support_preflight`
+      decides, per call, whether the complete factorized Parent's own Cartesian-product
+      support is small enough to use the exact row-sliced-matvec backend; falls back to
+      ``h0d_batch`` otherwise.
+    - ``"row_sliced_matvec"``: force :func:`frasci.recovery._state.h0d_batch_via_parent_matvec`
+      regardless of what the preflight would have recommended -- explicit caller opt-in
+      only (e.g. for the small-system validation tests below).
+    - ``"h0d_batch"``: force the original per-candidate neighbor-enumeration path.
     """
     if solver_kind not in ("matrix_free", "dense", "auto"):
         raise ValueError(
             f"solver_kind must be 'matrix_free', 'dense', or 'auto', got {solver_kind!r}")
+    if coupling_backend not in ("auto", "row_sliced_matvec", "h0d_batch"):
+        raise ValueError(
+            "coupling_backend must be 'auto', 'row_sliced_matvec', or 'h0d_batch', "
+            f"got {coupling_backend!r}")
     from frasci.recovery._slater_condon import RealSlaterCondon
-    from frasci.recovery._state import (h0d_batch, prepare_owned_coefficient_lookup,
-                                        retain_candidates)
+    from frasci.recovery._state import (h0d_batch, h0d_batch_via_parent_matvec,
+                                        parent_support_preflight,
+                                        prepare_owned_coefficient_lookup, retain_candidates)
 
     eligible, classification = retain_candidates(
         dets, coeffs, state, n_ct_max=n_ct_max, include_same_sector=False)
@@ -514,15 +540,25 @@ def solve_recovery_point(state: dict, dets, coeffs, *, n_ct_max: int = 2,
         return dict(e_tot=float(state["h00"]), n_recovery=0, eligible=eligible,
                    classification=classification, gates={"E_hybrid_le_H00": True},
                    generalized_residual_norm=0.0, solver_kind="none",
-                   energy_note="no interfragment determinants exist/found; parent retained")
-
-    if edge_kernel is None:
-        edge_kernel = RealSlaterCondon(state["h1"], state["eri"], e_const=state["e_const"])
-    if lookup_cache is None:
-        lookup_cache = prepare_owned_coefficient_lookup(state)
+                   energy_note="no interfragment determinants exist/found; parent retained",
+                   explicit_determinants=(), coefficients=np.asarray([1.0]),
+                   coupling_backend="none", coupling_preflight={}, coupling_timings={})
 
     eligible_dets = list(eligible)
-    coupling = h0d_batch(eligible_dets, state, edge_kernel, lookup_cache=lookup_cache)
+    preflight = parent_support_preflight(state, len(eligible_dets))
+    use_matvec = (coupling_backend == "row_sliced_matvec"
+                 or (coupling_backend == "auto" and preflight["use_row_sliced_matvec"]))
+    if use_matvec:
+        coupling, coupling_timings = h0d_batch_via_parent_matvec(eligible_dets, state)
+        coupling_backend_used = "row_sliced_matvec"
+    else:
+        if edge_kernel is None:
+            edge_kernel = RealSlaterCondon(state["h1"], state["eri"], e_const=state["e_const"])
+        if lookup_cache is None:
+            lookup_cache = prepare_owned_coefficient_lookup(state)
+        coupling = h0d_batch(eligible_dets, state, edge_kernel, lookup_cache=lookup_cache)
+        coupling_timings = {}
+        coupling_backend_used = "h0d_batch"
 
     effective_kind = solver_kind
     if effective_kind == "auto":
@@ -535,14 +571,22 @@ def solve_recovery_point(state: dict, dets, coeffs, *, n_ct_max: int = 2,
         gates = dict(solved["gates"])
         gates["generalized_residual_converged"] = True
         residual = 0.0
+        generalized_coefficients = solved["overlap"]["coefficients"]
     else:
         solved = solve_contracted_hybrid_matrix_free(
             state, eligible, coupling_vector=coupling, max_memory_gb=max_memory_gb,
-            tol=1e-11, max_iter=5000, max_subspace=200)
+            tol=1e-11, max_iter=5000, max_subspace=200,
+            initial_coefficients=initial_coefficients)
         gates = solved["gates"]
         residual = float(solved["generalized_residual_norm"])
+        generalized_coefficients = solved["coefficients"]
 
     return dict(e_tot=float(solved["e_tot"]), n_recovery=len(eligible_dets),
                eligible=eligible, classification=classification,
                gates=gates, generalized_residual_norm=residual, solver_kind=effective_kind,
-               energy_note=f"{effective_kind} contracted {{Phi_LAS,R}} variational solve")
+               energy_note=f"{effective_kind} contracted {{Phi_LAS,R}} variational solve",
+               explicit_determinants=eligible_dets,
+               coefficients=np.asarray(generalized_coefficients, dtype=float),
+               coupling_backend=coupling_backend_used,
+               coupling_preflight=preflight,
+               coupling_timings=coupling_timings)

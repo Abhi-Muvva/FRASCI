@@ -1,0 +1,38 @@
+{
+  "parent_h00_ha": -327.0526592984,
+  "points": [
+    {"label": "Native recovery only (no COO)", "rung": 300000, "las_top_k": null,
+     "energy_ha": -327.13452346996684, "wall_s": null, "pipeline": "native_only"},
+    {"label": "Post-recovery COO, K=50,000", "rung": 300000, "las_top_k": 50000,
+     "energy_ha": -327.181671116, "wall_s": 10267.78339041723, "pipeline": "legacy_coo_at_end"},
+    {"label": "Post-recovery COO, K=100,000", "rung": 300000, "las_top_k": 100000,
+     "energy_ha": -327.18185411652667, "wall_s": 9190.321603292134, "pipeline": "legacy_coo_at_end"},
+    {"label": "Expand-first pipeline, K=50,000", "rung": 300000, "las_top_k": 50000,
+     "energy_ha": -327.15569307449897, "wall_s": 14610.549957498914, "pipeline": "expand_first_experimental"},
+    {"label": "Native recovery only (no COO)", "rung": 500000, "las_top_k": null,
+     "energy_ha": -327.14148923019997, "wall_s": null, "pipeline": "native_only"},
+    {"label": "Post-recovery COO, K=100,000", "rung": 500000, "las_top_k": 100000,
+     "energy_ha": -327.1870973464374, "wall_s": 14512.544475458097, "pipeline": "legacy_coo_at_end"}
+  ],
+  "winner": {"rung": 500000, "las_top_k": 100000, "energy_ha": -327.1870973464374,
+             "pipeline": "legacy_coo_at_end"},
+  "waterfall_500k_k100000": [
+    {"stage": "Parent (starting point)", "energy_ha": -327.0526592984},
+    {"stage": "+ 500,000 recovery determinants (no expansion, no COO)",
+     "energy_ha": -327.14148923019997},
+    {"stage": "+ expand to K=100,000 explicit Parent terms, unioned in (still no COO)",
+     "energy_ha": -327.1734473295391},
+    {"stage": "+ COO (free orbital rotation on that union)",
+     "energy_ha": -327.1870973464374}
+  ],
+  "waterfall_300k_k100000": [
+    {"stage": "Parent (starting point)", "energy_ha": -327.0526592984},
+    {"stage": "+ 300,000 recovery determinants (no expansion, no COO)",
+     "energy_ha": -327.13452346996684},
+    {"stage": "+ expand to K=100,000 explicit Parent terms, unioned in (still no COO)",
+     "energy_ha": -327.16895382796366},
+    {"stage": "+ COO (free orbital rotation on that union)",
+     "energy_ha": -327.18185411652667}
+  ],
+  "expand_first_verdict": "Decisively does not beat legacy post-recovery COO at matched (rung=300000, K=50000): 103.03 mHa vs 129.01 mHa gain vs Parent. Separately, at H4 N=4 R_sep=1.55 (release/FRASCI/notebooks/data/h4_n4_rsep1.55, not part of the 6-system campaign), the same expand-first module hit a reproducible pathology -- converges cleanly to an unphysical ~-20.5 Ha in TWO independent code paths at that strongly-coupled geometry, ~12-13 Ha below anything physical. Working theory: unconstrained free cross-fragment rotation at very close/strong coupling can drive fragment-local orbitals into near-degeneracy, a basis-collapse artifact the module's only gate (E_after<=E_before) cannot catch. Not promoted into frasci.recovery; stays isolated in _expand_coo_frame_experimental.py."
+}

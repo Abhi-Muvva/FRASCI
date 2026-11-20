@@ -1,0 +1,326 @@
+{
+  "system": "fe4s4",
+  "parent_dir": "/private/tmp/claude-501/-Users-abhimuvva-Documents-Masters-Projs-Proj-Flow-LASSCF-TRIMCI-COO/a4039e20-d4f2-4cf3-84a4-86c55264b9b5/scratchpad/campaign_runs/fe4s4/parent_dir",
+  "requested_targets": [
+    5000,
+    20000,
+    60000,
+    150000,
+    300000,
+    500000
+  ],
+  "stop_reason": "schedule_exhausted_not_plateaued",
+  "checkpoint_status": {
+    "reservoir": "reused",
+    "rungs_reused": 4,
+    "rungs_computed": 2,
+    "fingerprint_hash": "20e5bb35c2e22bbddf7bc29894e49939aef92da6857dafffddf1050e91733622"
+  },
+  "rungs": [
+    {
+      "checkpoint_status": "reused",
+      "energy_ha": -327.1008808987978,
+      "frame_errors": {
+        "eri": 0.0,
+        "h1": 0.0,
+        "rotation": 0.0
+      },
+      "gates": {
+        "E_hybrid_le_E_C": true,
+        "E_hybrid_le_H00": true,
+        "S_positive_semidefinite": true,
+        "c_dagger_S_c_eq_1": true,
+        "generalized_residual_converged": true,
+        "no_pt2_mixed_with_variational": true
+      },
+      "generalized_residual_norm": 0.0,
+      "incremental_gain_mha": null,
+      "native_actual_n": 5000,
+      "native_target_met": true,
+      "peak_memory_mib": 2275.578125,
+      "requested_n": 5000,
+      "solver_kind": "dense",
+      "spin": {
+        "complete_spin_orbits": 0,
+        "orbits_incomplete_within_recovery_space": 3575,
+        "orbits_intersecting_owned_space": 135,
+        "spin_closure_status": "blocked_by_owned_space",
+        "total_spin_orbits": 3710
+      },
+      "support_sha256": "42c9449c0b8ba5c25ecbb55c8ef82d0432c94bad252b09cb0b53fdd84c0bed7a",
+      "termination_reason": "recovery_target_met",
+      "wall_s": 172.94964937493205,
+      "classification": {
+        "same_sector_present": 100,
+        "same_sector_absent": 0,
+        "dispersion": 182,
+        "ct1": 3847,
+        "ct2": 971,
+        "ct_gt2": 0,
+        "duplicates": 0
+      },
+      "coupling_backend": "unknown_legacy_checkpoint",
+      "coupling_preflight": {},
+      "coupling_timings": {}
+    },
+    {
+      "checkpoint_status": "reused",
+      "energy_ha": -327.11286806336244,
+      "frame_errors": {
+        "eri": 0.0,
+        "h1": 0.0,
+        "rotation": 0.0
+      },
+      "gates": {
+        "E_hybrid_le_E_C": true,
+        "E_hybrid_le_H00": true,
+        "S_positive_semidefinite": true,
+        "c_dagger_S_c_eq_1": true,
+        "generalized_residual_converged": true,
+        "no_pt2_mixed_with_variational": true
+      },
+      "generalized_residual_norm": 4.5103715616179454e-13,
+      "incremental_gain_mha": 11.987164564629893,
+      "native_actual_n": 20000,
+      "native_target_met": true,
+      "peak_memory_mib": 799.953125,
+      "requested_n": 20000,
+      "solver_kind": "matrix_free",
+      "spin": {
+        "complete_spin_orbits": 0,
+        "orbits_incomplete_within_recovery_space": 14386,
+        "orbits_intersecting_owned_space": 854,
+        "spin_closure_status": "blocked_by_owned_space",
+        "total_spin_orbits": 15240
+      },
+      "support_sha256": "4973657891f28957603d7a5d862d4baaaf96448330a0d5c968a3d9f6aed1a8fb",
+      "termination_reason": "recovery_target_met",
+      "wall_s": 882.3999513750896,
+      "classification": {
+        "same_sector_present": 100,
+        "same_sector_absent": 0,
+        "dispersion": 1032,
+        "ct1": 12951,
+        "ct2": 6017,
+        "ct_gt2": 0,
+        "duplicates": 0
+      },
+      "coupling_backend": "unknown_legacy_checkpoint",
+      "coupling_preflight": {},
+      "coupling_timings": {}
+    },
+    {
+      "checkpoint_status": "reused",
+      "energy_ha": -327.1213699338882,
+      "frame_errors": {
+        "eri": 0.0,
+        "h1": 0.0,
+        "rotation": 0.0
+      },
+      "gates": {
+        "E_hybrid_le_E_C": true,
+        "E_hybrid_le_H00": true,
+        "S_positive_semidefinite": true,
+        "c_dagger_S_c_eq_1": true,
+        "generalized_residual_converged": true,
+        "no_pt2_mixed_with_variational": true
+      },
+      "generalized_residual_norm": 6.935100032910397e-13,
+      "incremental_gain_mha": 8.501870525776667,
+      "native_actual_n": 60000,
+      "native_target_met": true,
+      "peak_memory_mib": 890.4375,
+      "requested_n": 60000,
+      "solver_kind": "matrix_free",
+      "spin": {
+        "complete_spin_orbits": 0,
+        "orbits_incomplete_within_recovery_space": 40890,
+        "orbits_intersecting_owned_space": 2756,
+        "spin_closure_status": "blocked_by_owned_space",
+        "total_spin_orbits": 43646
+      },
+      "support_sha256": "7f63b2a3827e1cb57f697a339f1e7fa32e34d27c7aca9bde5d9cdec1593559b7",
+      "termination_reason": "recovery_target_met",
+      "wall_s": 2761.421709500253,
+      "classification": {
+        "same_sector_present": 100,
+        "same_sector_absent": 0,
+        "dispersion": 3337,
+        "ct1": 35079,
+        "ct2": 21584,
+        "ct_gt2": 0,
+        "duplicates": 0
+      },
+      "coupling_backend": "unknown_legacy_checkpoint",
+      "coupling_preflight": {},
+      "coupling_timings": {}
+    },
+    {
+      "checkpoint_status": "reused",
+      "energy_ha": -327.1283271219809,
+      "frame_errors": {
+        "eri": 0.0,
+        "h1": 0.0,
+        "rotation": 0.0
+      },
+      "gates": {
+        "E_hybrid_le_E_C": true,
+        "E_hybrid_le_H00": true,
+        "S_positive_semidefinite": true,
+        "c_dagger_S_c_eq_1": true,
+        "generalized_residual_converged": true,
+        "no_pt2_mixed_with_variational": true
+      },
+      "generalized_residual_norm": 8.409658759825097e-13,
+      "incremental_gain_mha": 6.957188092655997,
+      "native_actual_n": 150000,
+      "native_target_met": true,
+      "peak_memory_mib": 1858.09375,
+      "requested_n": 150000,
+      "solver_kind": "matrix_free",
+      "spin": {
+        "complete_spin_orbits": 0,
+        "orbits_incomplete_within_recovery_space": 95415,
+        "orbits_intersecting_owned_space": 7663,
+        "spin_closure_status": "blocked_by_owned_space",
+        "total_spin_orbits": 103078
+      },
+      "support_sha256": "2bf326fb8692ca2191aacf5c15d597b0e6ab8aa8cebef09de06d66a5fcdd2ca4",
+      "termination_reason": "recovery_target_met",
+      "wall_s": 7290.409736208152,
+      "classification": {
+        "same_sector_present": 100,
+        "same_sector_absent": 0,
+        "dispersion": 9641,
+        "ct1": 80829,
+        "ct2": 59530,
+        "ct_gt2": 0,
+        "duplicates": 0
+      },
+      "coupling_backend": "unknown_legacy_checkpoint",
+      "coupling_preflight": {},
+      "coupling_timings": {}
+    },
+    {
+      "requested_n": 300000,
+      "native_actual_n": 300000,
+      "native_target_met": true,
+      "energy_ha": -327.13452346996684,
+      "incremental_gain_mha": 6.196347985962802,
+      "generalized_residual_norm": 1.058379030170695e-12,
+      "gates": {
+        "E_hybrid_le_H00": true,
+        "E_hybrid_le_E_C": true,
+        "S_positive_semidefinite": true,
+        "c_dagger_S_c_eq_1": true,
+        "generalized_residual_converged": true,
+        "no_pt2_mixed_with_variational": true
+      },
+      "solver_kind": "matrix_free",
+      "termination_reason": "target_already_present",
+      "frame_errors": {
+        "rotation": 0.0,
+        "h1": 0.0,
+        "eri": 0.0
+      },
+      "support_sha256": "a4263faa623a8d63e764f6167faffe7b0d30804920a8aaf163c8e3bf11132427",
+      "spin": {
+        "total_spin_orbits": 195249,
+        "complete_spin_orbits": 0,
+        "orbits_intersecting_owned_space": 519,
+        "orbits_incomplete_within_recovery_space": 4072,
+        "orbits_skipped_too_large": 190658,
+        "spin_closure_status": "blocked_by_owned_space"
+      },
+      "classification": {
+        "same_sector_present": 100,
+        "same_sector_absent": 0,
+        "dispersion": 25227,
+        "ct1": 154158,
+        "ct2": 120615,
+        "ct_gt2": 0,
+        "duplicates": 0
+      },
+      "coupling_backend": "row_sliced_matvec",
+      "coupling_preflight": {
+        "cartesian_product_size": 324000,
+        "fragment_support_sizes": [
+          1000,
+          324
+        ],
+        "combined_size": 624000,
+        "estimated_peak_mib": 49.98779296875,
+        "use_row_sliced_matvec": true
+      },
+      "coupling_timings": {
+        "parent_reconstruction_s": 6.3698179996572435,
+        "index_and_diagonal_s": 1.3429078753106296,
+        "row_sliced_matvec_s": 21.31020237505436
+      },
+      "wall_s": 6724.196692083031,
+      "peak_memory_mib": 1106.625,
+      "checkpoint_status": "computed_and_saved"
+    },
+    {
+      "requested_n": 500000,
+      "native_actual_n": 500000,
+      "native_target_met": true,
+      "energy_ha": -327.14148923019997,
+      "incremental_gain_mha": 6.965760233129004,
+      "generalized_residual_norm": 1.388302956244296e-12,
+      "gates": {
+        "E_hybrid_le_H00": true,
+        "E_hybrid_le_E_C": true,
+        "S_positive_semidefinite": true,
+        "c_dagger_S_c_eq_1": true,
+        "generalized_residual_converged": true,
+        "no_pt2_mixed_with_variational": true
+      },
+      "solver_kind": "matrix_free",
+      "termination_reason": "recovery_target_met",
+      "frame_errors": {
+        "rotation": 0.0,
+        "h1": 0.0,
+        "eri": 0.0
+      },
+      "support_sha256": "4bde4cfa531c3f9bff4a046ee11a5dbb0fa90bc8a7fe821ac993af6e410cfcf3",
+      "spin": {
+        "total_spin_orbits": 308783,
+        "complete_spin_orbits": 0,
+        "orbits_intersecting_owned_space": 2587,
+        "orbits_incomplete_within_recovery_space": 7578,
+        "orbits_skipped_too_large": 298618,
+        "spin_closure_status": "blocked_by_owned_space"
+      },
+      "classification": {
+        "same_sector_present": 100,
+        "same_sector_absent": 0,
+        "dispersion": 56884,
+        "ct1": 252317,
+        "ct2": 190799,
+        "ct_gt2": 0,
+        "duplicates": 0
+      },
+      "coupling_backend": "row_sliced_matvec",
+      "coupling_preflight": {
+        "cartesian_product_size": 324000,
+        "fragment_support_sizes": [
+          1000,
+          324
+        ],
+        "combined_size": 824000,
+        "estimated_peak_mib": 66.009521484375,
+        "use_row_sliced_matvec": true
+      },
+      "coupling_timings": {
+        "parent_reconstruction_s": 5.912023416720331,
+        "index_and_diagonal_s": 1.6281369589269161,
+        "row_sliced_matvec_s": 33.80805724998936
+      },
+      "wall_s": 14626.672692124732,
+      "peak_memory_mib": 4601.40625,
+      "checkpoint_status": "computed_and_saved"
+    }
+  ],
+  "total_wall_s": 25159.450568249915
+}

@@ -1,0 +1,9 @@
+{
+  "system": "c2h6n4_paper",
+  "n_roots": 49,
+  "e_ground": -296.87955909069757,
+  "parent_e_tot": -296.87952920307333,
+  "variational_vs_parent": true,
+  "adapter_wall_s": 0.0028636250644922256,
+  "lassis_wall_s": 33.3029770841822
+}

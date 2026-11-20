@@ -1,0 +1,23 @@
+{
+  "system": "fe4s4",
+  "rung": 1000000,
+  "las_top_k": 100000,
+  "n_las": 100000,
+  "n_recovery": 1000000,
+  "n_overlap": 0,
+  "total_dets": 1100000,
+  "e_before_ha": -327.17857908165917,
+  "e_after_ha": -327.1923260447032,
+  "gain_mha": 13.746963044013683,
+  "orbital_opt_max_iter": 150,
+  "cross_fragment_rotation_norm": 1.212259181842183,
+  "rotation_errors": {
+    "orthogonality": 2.079593164339144e-09,
+    "h1": 1.4210854715202004e-13,
+    "eri": 1.4876988529977098e-14
+  },
+  "gates": {
+    "E_after_le_E_before": true
+  },
+  "wall_s": 71570.2907497501
+}

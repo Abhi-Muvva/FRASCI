@@ -1,0 +1,9 @@
+{
+  "system": "alfe2_11o10e",
+  "n_roots": 234,
+  "e_ground": -3971.7927671677176,
+  "parent_e_tot": -3971.791490906558,
+  "variational_vs_parent": true,
+  "adapter_wall_s": 0.004160125274211168,
+  "lassis_wall_s": 64.57967466721311
+}

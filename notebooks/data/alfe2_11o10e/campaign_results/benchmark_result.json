@@ -1,0 +1,206 @@
+{
+  "system": "alfe2_11o10e",
+  "parent_dir": "/private/tmp/claude-501/-Users-abhimuvva-Documents-Masters-Projs-Proj-Flow-LASSCF-TRIMCI-COO/a4039e20-d4f2-4cf3-84a4-86c55264b9b5/scratchpad/campaign_runs/alfe2_11o10e/parent_dir",
+  "requested_targets": [
+    50,
+    150,
+    500,
+    1500,
+    5000,
+    15000,
+    50000
+  ],
+  "stop_reason": "energy_plateau",
+  "checkpoint_status": {
+    "reservoir": "not_configured",
+    "rungs_reused": 3,
+    "rungs_computed": 0,
+    "fingerprint_hash": "ec8d83b0fc9292fb54a45f4c5069775ab588a25a3863916f8bba4587b579a060"
+  },
+  "rungs": [
+    {
+      "checkpoint_status": "reused",
+      "classification": {
+        "ct1": 23281,
+        "ct2": 8943,
+        "ct_gt2": 0,
+        "ct_gt2_by_rank": {},
+        "dispersion": 15646,
+        "duplicates": 0,
+        "same_sector_absent": 0,
+        "same_sector_present": 5
+      },
+      "coupling_backend": "row_sliced_matvec",
+      "coupling_preflight": {
+        "cartesian_product_size": 5,
+        "combined_size": 47875,
+        "estimated_peak_mib": 2.6481151580810547,
+        "fragment_support_sizes": [
+          5,
+          1
+        ],
+        "use_row_sliced_matvec": true
+      },
+      "coupling_timings": {
+        "index_and_diagonal_s": 0.0062949578277766705,
+        "parent_reconstruction_s": 0.0003209589049220085,
+        "row_sliced_matvec_s": 0.5928744580596685
+      },
+      "energy_ha": -3971.79277110933,
+      "frame_errors": {
+        "eri": 0.0,
+        "h1": 0.0,
+        "rotation": 0.0
+      },
+      "gates": {
+        "E_hybrid_le_E_C": true,
+        "E_hybrid_le_H00": true,
+        "S_positive_semidefinite": true,
+        "c_dagger_S_c_eq_1": true,
+        "generalized_residual_converged": true,
+        "no_pt2_mixed_with_variational": true
+      },
+      "generalized_residual_norm": 7.406768448956387e-09,
+      "incremental_gain_mha": null,
+      "native_actual_n": 47870,
+      "native_target_met": true,
+      "peak_memory_mib": 1076.203125,
+      "requested_n": 50,
+      "solver_kind": "matrix_free",
+      "spin": {
+        "complete_spin_orbits": 5899,
+        "orbits_incomplete_within_recovery_space": 1045,
+        "orbits_intersecting_owned_space": 5,
+        "orbits_skipped_too_large": 0,
+        "spin_closure_status": "blocked_by_owned_space",
+        "total_spin_orbits": 6949
+      },
+      "support_sha256": "8415ae2d1b7be049b1bfb533a97bdf096d328fd868e222205686ca33e9d6bd63",
+      "termination_reason": "target_already_present",
+      "wall_s": 477.74001741595566
+    },
+    {
+      "checkpoint_status": "reused",
+      "classification": {
+        "ct1": 23281,
+        "ct2": 8943,
+        "ct_gt2": 0,
+        "ct_gt2_by_rank": {},
+        "dispersion": 15646,
+        "duplicates": 0,
+        "same_sector_absent": 0,
+        "same_sector_present": 5
+      },
+      "coupling_backend": "row_sliced_matvec",
+      "coupling_preflight": {
+        "cartesian_product_size": 5,
+        "combined_size": 47875,
+        "estimated_peak_mib": 2.6481151580810547,
+        "fragment_support_sizes": [
+          5,
+          1
+        ],
+        "use_row_sliced_matvec": true
+      },
+      "coupling_timings": {
+        "index_and_diagonal_s": 0.0064450837671756744,
+        "parent_reconstruction_s": 0.0003049168735742569,
+        "row_sliced_matvec_s": 0.5882903751917183
+      },
+      "energy_ha": -3971.7927711093325,
+      "frame_errors": {
+        "eri": 0.0,
+        "h1": 0.0,
+        "rotation": 0.0
+      },
+      "gates": {
+        "E_hybrid_le_E_C": true,
+        "E_hybrid_le_H00": true,
+        "S_positive_semidefinite": true,
+        "c_dagger_S_c_eq_1": true,
+        "generalized_residual_converged": true,
+        "no_pt2_mixed_with_variational": true
+      },
+      "generalized_residual_norm": 2.855990807402039e-11,
+      "incremental_gain_mha": 2.7284841053187847e-09,
+      "native_actual_n": 47870,
+      "native_target_met": true,
+      "peak_memory_mib": 1076.203125,
+      "requested_n": 150,
+      "solver_kind": "matrix_free",
+      "spin": {
+        "complete_spin_orbits": 5899,
+        "orbits_incomplete_within_recovery_space": 1045,
+        "orbits_intersecting_owned_space": 5,
+        "orbits_skipped_too_large": 0,
+        "spin_closure_status": "blocked_by_owned_space",
+        "total_spin_orbits": 6949
+      },
+      "support_sha256": "8415ae2d1b7be049b1bfb533a97bdf096d328fd868e222205686ca33e9d6bd63",
+      "termination_reason": "target_already_present",
+      "wall_s": 358.91826104186475
+    },
+    {
+      "checkpoint_status": "reused",
+      "classification": {
+        "ct1": 23281,
+        "ct2": 8943,
+        "ct_gt2": 0,
+        "ct_gt2_by_rank": {},
+        "dispersion": 15646,
+        "duplicates": 0,
+        "same_sector_absent": 0,
+        "same_sector_present": 5
+      },
+      "coupling_backend": "row_sliced_matvec",
+      "coupling_preflight": {
+        "cartesian_product_size": 5,
+        "combined_size": 47875,
+        "estimated_peak_mib": 2.6481151580810547,
+        "fragment_support_sizes": [
+          5,
+          1
+        ],
+        "use_row_sliced_matvec": true
+      },
+      "coupling_timings": {
+        "index_and_diagonal_s": 0.006273958832025528,
+        "parent_reconstruction_s": 0.0003376659005880356,
+        "row_sliced_matvec_s": 0.5856487080454826
+      },
+      "energy_ha": -3971.7927711093307,
+      "frame_errors": {
+        "eri": 0.0,
+        "h1": 0.0,
+        "rotation": 0.0
+      },
+      "gates": {
+        "E_hybrid_le_E_C": true,
+        "E_hybrid_le_H00": true,
+        "S_positive_semidefinite": true,
+        "c_dagger_S_c_eq_1": true,
+        "generalized_residual_converged": true,
+        "no_pt2_mixed_with_variational": true
+      },
+      "generalized_residual_norm": 1.583918681542273e-11,
+      "incremental_gain_mha": -1.8189894035458565e-09,
+      "native_actual_n": 47870,
+      "native_target_met": true,
+      "peak_memory_mib": 1076.203125,
+      "requested_n": 500,
+      "solver_kind": "matrix_free",
+      "spin": {
+        "complete_spin_orbits": 5899,
+        "orbits_incomplete_within_recovery_space": 1045,
+        "orbits_intersecting_owned_space": 5,
+        "orbits_skipped_too_large": 0,
+        "spin_closure_status": "blocked_by_owned_space",
+        "total_spin_orbits": 6949
+      },
+      "support_sha256": "8415ae2d1b7be049b1bfb533a97bdf096d328fd868e222205686ca33e9d6bd63",
+      "termination_reason": "target_already_present",
+      "wall_s": 357.2606532089412
+    }
+  ],
+  "total_wall_s": 0.4877180000767112
+}

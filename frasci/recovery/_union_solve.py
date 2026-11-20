@@ -67,7 +67,8 @@ def form_final_union(state: dict, recovery_dets: list[Determinant], recovery_coe
 
 
 def solve_union_davidson(state: dict, dets: list[Determinant], initial_guess: np.ndarray,
-                         *, davidson_params=None, residual_tol: float = 1e-6) -> dict:
+                         *, davidson_params=None,
+                         residual_tol: float = 1e-6) -> dict:
     """Ordinary Hermitian Davidson diagonalization in the exact determinant space
     ``dets`` -- no truncation, no contracted reference, no additional determinant cap,
     and no dense N_union x N_union allocation anywhere in this function.

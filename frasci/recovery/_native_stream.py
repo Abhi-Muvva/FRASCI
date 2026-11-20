@@ -4,7 +4,7 @@ from __future__ import annotations
 import numpy as np
 import trimci.trimci_core as tc
 
-from frasci.recovery._state import _embed_bits, retain_candidates
+from frasci.recovery._state import _embed_bits, owned_coefficient, retain_candidates
 
 fe = tc.fast_expansion
 Determinant = tuple[int, int]
@@ -136,35 +136,73 @@ def build_sector_constraint(state: dict, protected_dets: list[Determinant], *,
     return constraint, suffix
 
 
-def _recovery_policy(recovery_target: int, *, max_work_dets: int | None):
+def _recovery_policy(recovery_target: int, *, max_work_dets: int | None,
+                     global_topk: bool = False,
+                     candidate_reservoir_capacity: int | None = None):
     policy = tc.RecoveryPolicy()
     policy.recovery_target = int(recovery_target)
     if max_work_dets is not None:
         policy.max_work_dets = int(max_work_dets)
+    policy.global_topk = bool(global_topk)
+    if global_topk:
+        capacity = (recovery_target if candidate_reservoir_capacity is None
+                    else candidate_reservoir_capacity)
+        policy.candidate_reservoir_capacity = int(capacity)
     return policy
 
 
-def run_fixed_filtered_ladder(
+def iter_fixed_filtered_ladder(
         state: dict, protected_dets: list[Determinant], protected_coeffs, *,
         recovery_targets, n_ct_max: int = 2, threshold: float = 1e-6,
-        growth_factor: float = 1.5, max_rounds: int = 40) -> list[dict]:
-    """Grow nested native-filtered recovery spaces in the parent's fixed frame.
+        growth_factor: float = 1.5, max_rounds: int = 40,
+        initial_working_dets=None, initial_working_coeffs=None,
+        global_topk: bool = False,
+        candidate_reservoir_capacity: int | None = None):
+    """Yield nested native-filtered recovery spaces in the parent's fixed frame.
 
     There is no Phase 0 discovery, orbital optimization, or fragment rebuild.  At
     each rung the complete preceding working set is made immutable in the native
     constraint and only the missing number of strict interfragment determinants is
     requested.  This makes the scientific ``R`` spaces rigorously nested even if
-    TrimCI would otherwise trim an older recovery determinant.
+    TrimCI would otherwise trim an older recovery determinant.  Yielding each rung
+    lets a caller stop before launching the next native expansion (e.g. on an
+    energy plateau) instead of growing every configured target unconditionally;
+    the list-returning :func:`run_fixed_filtered_ladder` wrapper below preserves
+    the previous list-based signature for every existing caller.
+
+    ``initial_working_dets``/``initial_working_coeffs`` (optional, supplied together
+    only): resume growth from a previously reached working support -- e.g. a
+    checkpointed rung -- instead of starting cold from ``protected_dets``.
+    ``global_topk``/``candidate_reservoir_capacity`` mirror TrimCI's native
+    ``RecoveryPolicy`` fields: the corrected, validated growth policy keeps one
+    GLOBAL top-ranked candidate reservoir (bounded by ``candidate_reservoir_capacity``)
+    rather than an unbounded per-round candidate pool. Both default to the previous
+    (unbounded, per-round) policy so existing callers of this function are unaffected;
+    ``frasci.recovery.solve()`` is the one caller that turns the corrected policy on.
     """
     targets = tuple(map(int, recovery_targets))
     if not targets or any(t < 1 for t in targets) or tuple(sorted(set(targets))) != targets:
         raise ValueError("recovery_targets must be unique, positive, and increasing")
     n_orb = int(state["n_orb"])
-    current_dets = [tuple(map(int, d)) for d in protected_dets]
-    current_coeffs = np.asarray(protected_coeffs, dtype=float)
-    scientific_seed = frozenset(current_dets)
-    snapshots = []
-    previous_r = frozenset()
+    scientific_seed = frozenset(tuple(map(int, d)) for d in protected_dets)
+    if (initial_working_dets is None) != (initial_working_coeffs is None):
+        raise ValueError(
+            "initial_working_dets and initial_working_coeffs must be supplied together")
+    if initial_working_dets is None:
+        current_dets = [tuple(map(int, d)) for d in protected_dets]
+        current_coeffs = np.asarray(protected_coeffs, dtype=float)
+        previous_r = frozenset()
+    else:
+        current_dets = [tuple(map(int, d)) for d in initial_working_dets]
+        current_coeffs = np.asarray(initial_working_coeffs, dtype=float)
+        if current_coeffs.shape != (len(current_dets),):
+            raise ValueError("initial working determinants/coefficients have different sizes")
+        if not scientific_seed <= set(current_dets):
+            raise ValueError("initial working support does not contain the protected seed")
+        initial_eligible, _ = retain_candidates(
+            current_dets, current_coeffs, state, n_ct_max=n_ct_max,
+            include_same_sector=False)
+        previous_r = frozenset(initial_eligible)
 
     for target in targets:
         if len(previous_r) < target:
@@ -181,7 +219,9 @@ def run_fixed_filtered_ladder(
             cfg.orbital_optimization = False
             cfg.sector_constraint = constraint
             cfg.recovery = _recovery_policy(
-                target, max_work_dets=len(scientific_seed) + target)
+                target, max_work_dets=len(scientific_seed) + target,
+                global_topk=global_topk,
+                candidate_reservoir_capacity=candidate_reservoir_capacity)
             cfg.strict_target_size = True
             cfg.phase_index = 2
             n_words = int(suffix) // 64
@@ -225,8 +265,28 @@ def run_fixed_filtered_ladder(
             if not np.any(guess):
                 guess[0] = 1.0
             from frasci.parent._kernel import _fixed_support_ground_state
+            # Deterministic parent-projection fallback guess (Section 5 of the
+            # rigorous-N-scaling protocol): the FRASCI parent's own LAS-product
+            # wavefunction, projected onto current_dets (zero on recovery/CT/
+            # dispersion determinants, which aren't part of the parent). This is
+            # the growth ladder's own rediagonalization -- the exact call site
+            # that previously raised "Davidson failed for N determinants" on
+            # large recovery supports (e.g. N=4 at ~40k dets) -- so it needs the
+            # same deterministic safeguard the final union-build step already
+            # has access to via _fixed_support_ground_state's extra_guesses.
+            parent_guess = np.array(
+                [owned_coefficient(det, state) or 0.0 for det in current_dets], dtype=float)
+            parent_guess_norm = float(np.linalg.norm(parent_guess))
+            extra = [parent_guess / parent_guess_norm] if parent_guess_norm > 0 else []
+            # max_subspace=200 (native default 40): root-caused via captured real
+            # failures -- see _fixed_support_ground_state's max_subspace docstring
+            # and frasci/recovery/_free_coo.py's matching comment. 80 was enough
+            # for this exact call site's first observed failure (~40,400 dets) but
+            # NOT for a larger ~80,000-det union elsewhere in the same pipeline;
+            # standardized on 200 everywhere for consistency and margin.
             rediagonalized = _fixed_support_ground_state(
-                state["h1"], state["eri"], current_dets, guess, n_orb)
+                state["h1"], state["eri"], current_dets, guess, n_orb,
+                extra_guesses=extra, max_subspace=200)
             current_dets = [tuple(map(int, d)) for d in rediagonalized.determinants]
             current_coeffs = np.asarray(rediagonalized.coefficients, dtype=float)
             native_composition = res.filtered_composition
@@ -246,7 +306,7 @@ def run_fixed_filtered_ladder(
         if scientific_seed & r_set:
             raise AssertionError("original protected LAS seed leaked into scientific R")
         previous_r = r_set
-        snapshots.append({
+        yield {
             "target_r": target, "dets": list(current_dets),
             "coeffs": np.asarray(current_coeffs, dtype=float),
             "eligible": eligible, "classification": classification,
@@ -255,8 +315,27 @@ def run_fixed_filtered_ladder(
             "frame_errors": frame_errors, "native_composition": native_composition,
             "native_telemetry": native_telemetry,
             "termination_reason": termination_reason,
-        })
-    return snapshots
+        }
+
+
+def run_fixed_filtered_ladder(
+        state: dict, protected_dets: list[Determinant], protected_coeffs, *,
+        recovery_targets, n_ct_max: int = 2,
+        threshold: float = 1e-6, growth_factor: float = 1.5,
+        max_rounds: int = 40,
+        initial_working_dets=None, initial_working_coeffs=None,
+        global_topk: bool = False,
+        candidate_reservoir_capacity: int | None = None) -> list[dict]:
+    """Return all rungs from :func:`iter_fixed_filtered_ladder` as a list."""
+    return list(iter_fixed_filtered_ladder(
+        state, protected_dets, protected_coeffs,
+        recovery_targets=recovery_targets, n_ct_max=n_ct_max,
+        threshold=threshold, growth_factor=growth_factor,
+        max_rounds=max_rounds,
+        initial_working_dets=initial_working_dets,
+        initial_working_coeffs=initial_working_coeffs,
+        global_topk=global_topk,
+        candidate_reservoir_capacity=candidate_reservoir_capacity))
 
 
 def run_fixed_support_constrained_coo(
