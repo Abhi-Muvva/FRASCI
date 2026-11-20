@@ -52,11 +52,9 @@ The dependency pins in `pyproject.toml` are part of the numerical provenance:
 - `TrimCI-FRASCI` commit `027cb57ba2cbd811bea1230ad51af76259528785`
 - `mrh` commit `a65600830b8ef7be963dcc203057ebf6baf7dbc4`
 
-The FRASCI-specific TrimCI fork provides Recovery policies and deterministic
-restart seeding that are absent from stock TrimCI. A fresh installation will
-therefore fail until that exact fork is publicly readable or the installer has
-GitHub credentials for it. This dependency must be made accessible before the
-paper's code-availability link is considered independently reproducible.
+The FRASCI-specific TrimCI fork (public, published at
+<https://github.com/Abhi-Muvva/TrimCI-FRASCI>) provides Recovery policies and
+deterministic restart seeding that are absent from stock TrimCI.
 
 `mrh` and TrimCI compile native extensions. On macOS, their own build
 instructions may require OpenMP and a non-Apple compiler.
